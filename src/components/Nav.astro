@@ -1,0 +1,45 @@
+<nav>
+    <ul>
+        <li>
+            <a href="/company">COMPANY</a>
+        </li>
+        <li>
+            <a href="/works">WORKS</a>
+        </li>
+        <li class="c-nav_dropdown">
+            <a href="#" class="c-nav_dropbtn">Our MISSION</a>
+            <ul class="c-nav_dropdown-content">
+                <li><a href="/mission">Mission 1</a></li>
+                <li><a href="/mission">Mission 2</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/recruit">RECRUIT</a>
+        </li>
+        <li>
+            <a href="/news">NEWS</a>
+        </li>
+        <li>
+            <a href="/contact">CONTACT</a>
+        </li>
+    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var dropdowns = document.querySelectorAll(".c-nav_dropdown");
+
+        dropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener("mouseenter", function () {
+                this.querySelector(".c-nav_dropdown-content").style.display =
+                    "block";
+            });
+
+            dropdown.addEventListener("mouseleave", function () {
+                this.querySelector(".c-nav_dropdown-content").style.display =
+                    "none";
+            });
+        });
+    });
+</script>
+
+<style></style>
