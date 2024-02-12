@@ -5,6 +5,8 @@ interface Props {
 
 const { title } = Astro.props;
 import "../styles/style.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -24,15 +26,31 @@ import "../styles/style.scss";
 		/>
 	</head>
 	<body>
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 	<script>
-		document
-			.querySelectorAll("*")
-			.forEach((el) =>
-				el.clientWidth > document.body.clientWidth
-					? console.log(el)
-					: null,
-			);
+		document.addEventListener("DOMContentLoaded", () => {
+			document
+				.querySelector(".gnav-hamburger")
+				.addEventListener("click", () => {
+					document
+						.querySelector(".gnav-list")
+						.classList.toggle("is-active");
+					document
+						.querySelector(".gnav-hamburger")
+						.classList.toggle("is-active");
+				});
+
+			window.addEventListener("scroll", () => {
+				const nav = document.querySelector(".gnav");
+				if (window.scrollY > 60) {
+					nav.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+				} else {
+					nav.style.backgroundColor = "transparent";
+				}
+			});
+		});
 	</script>
 </html>

@@ -157,13 +157,13 @@
         text-decoration: none;
     }
 
-    .active {
+    .is-active {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
 
-    .hamburger {
+    .gnav-hamburger {
         display: none;
 
         @include g.mq('sp') {
@@ -173,27 +173,27 @@
             border: none;
             padding: 0;
             cursor: pointer;
-
-            .hamburger-line {
-                display: block;
-                width: 20px;
-                height: 2px;
-                background-color: g.$palette-white;
-                margin: 4px auto;
-                transition: background-color 0.3s ease;
-            }
-
-            .hamburger.active .hamburger-line:nth-child(1) {
-                transform: translateY(6px) rotate(45deg);
-            }
-
-            .hamburger.active .hamburger-line:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active .hamburger-line:nth-child(3) {
-                transform: translateY(-6px) rotate(-45deg);
-            }
         }
+    }
+
+    &-hamburger-line {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: g.$palette-white;
+        margin: 4px auto;
+        transition: background-color 0.3s ease;
+    }
+
+    &-hamburger.is-active &-hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    &-hamburger.is-active &-hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    &-hamburger.is-active &-hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 }
