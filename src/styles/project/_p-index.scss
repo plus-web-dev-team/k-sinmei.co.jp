@@ -4,13 +4,14 @@
     max-width: g.$layout-width-inner;
     margin: 0 auto;
     padding: 120px 20px 200px;
+    font-weight: 800;
 
     @include g.mq(sp) {
         padding: 90px 33px 100px;
     }
 
     &-tit {
-        font-weight: 800;
+
         margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
 
         h2 {
@@ -41,8 +42,8 @@
 
     &-list {
         list-style-type: none;
-        font-weight: 800;
         padding: 0;
+        margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
     }
 
     &-item {
@@ -90,6 +91,22 @@
                     font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
                 }
             }
+        }
+
+        &:last-child {
+            border-bottom: solid 1px g.$palette-blue;
+        }
+    }
+
+    &-link {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-decoration: none;
+            gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
         }
     }
 }
