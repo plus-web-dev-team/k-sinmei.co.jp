@@ -44,11 +44,11 @@ import Footer from "../components/Footer.astro";
 				});
 
 			window.addEventListener("scroll", () => {
-				const nav = document.querySelector(".gnav");
+				const nav = document.querySelector("header");
 				if (window.scrollY > 60) {
-					nav.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+					nav.style.backgroundColor = "rgba(16, 45, 142, 0.8)";
 				} else {
-					nav.style.backgroundColor = "transparent";
+					nav.style.backgroundColor = "rgba(16, 45, 142, 1)";
 				}
 			});
 		});
