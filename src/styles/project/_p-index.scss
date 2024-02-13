@@ -2,18 +2,25 @@
 
 .services {
     position: relative;
-    background: url('/images/top005_services.jpg') center center/cover;
-    padding: 100px 0; // 上下の padding を設定します
+    background: url('/images/top005_services.jpg') no-repeat center center/cover;
 
     &-inner {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(100% - 200px); // 上下の padding を考慮して高さを設定します
+        height: calc(100% - 200px);
+    }
+
+    &-main {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        padding: 100px 33px 200px;
     }
 
     &-tit {
         text-align: center;
+        color: g.$palette-white;
+        margin-bottom: clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
 
         h2 {
             font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
@@ -21,21 +28,27 @@
 
         p {
             font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            padding-top: 0.938rem;
-            border-top: 3px solid g.$palette-lightblue; // g.$palette-lightblue が定義されていないようですので、変数に置き換えてください
+            display: inline-block;
+            padding-bottom: 0.938rem;
+            border-bottom: 3px solid g.$palette-lightblue;
             position: relative;
             z-index: 3;
 
             &::before {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
+                bottom: -3px;
                 width: 50%;
                 height: 3px;
-                background: g.$palette-blue; // g.$palette-blue が定義されていないようですので、変数に置き換えてください
+                background: g.$palette-blue;
             }
+        }
+    }
+
+    &-text {
+        p {
+            line-height: 2.2;
+            color: g.$palette-white;
         }
     }
 }
@@ -59,7 +72,8 @@
         background-size: cover;
 
         @include g.mq(sp) {
-            background-size: cover;
+            background: url('/images/top_007_our-mission_back_sp.jpg') no-repeat;
+            background-size: 100% auto;
         }
 
         background-position: center center;
@@ -93,12 +107,12 @@
         text-align: right;
         position: absolute;
         top: 45%;
-        left: 65%;
+        left: calc(100% - 65%);
         transform: translate(calc(-45%), -65%);
         -webkit-transform: translate(-45%, -65%);
         -ms-transform: translate(-45%, -65%);
         z-index: 3;
-        width: fit-content;
+        width: 100%;
 
         @include g.mq(sp) {
             top: 32%;
