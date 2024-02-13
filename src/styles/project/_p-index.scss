@@ -1,9 +1,49 @@
 @use "../global" as g;
 
+.services {
+    position: relative;
+    background: url('/images/top005_services.jpg') center center/cover;
+    padding: 100px 0; // 上下の padding を設定します
+
+    &-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 200px); // 上下の padding を考慮して高さを設定します
+    }
+
+    &-tit {
+        text-align: center;
+
+        h2 {
+            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+        }
+
+        p {
+            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+            padding-top: 0.938rem;
+            border-top: 3px solid g.$palette-lightblue; // g.$palette-lightblue が定義されていないようですので、変数に置き換えてください
+            position: relative;
+            z-index: 3;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+                height: 3px;
+                background: g.$palette-blue; // g.$palette-blue が定義されていないようですので、変数に置き換えてください
+            }
+        }
+    }
+}
+
+
 .ourmission {
     position: relative;
     height: 100vh;
-    overflow: hidden;
 
     @include g.mq(sp) {
         height: calc(100vh - 375px);
@@ -15,11 +55,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url('/images/top_007_our-mission_back.jpg') no-repeat left center / cover;
+        background: url('/images/top_007_our-mission_back.jpg') no-repeat;
+        background-position: top left;
+        background-size: cover;
         background-attachment: fixed;
         transform: translateZ(0);
         transform-style: preserve-3d;
         will-change: transform;
+        overflow: hidden;
 
         &::before {
             content: '';

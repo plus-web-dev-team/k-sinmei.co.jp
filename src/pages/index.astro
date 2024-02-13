@@ -4,6 +4,16 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="株式会社SINMEI">
 	<main>
+		<section class="services">
+			<div class="services-inner">
+				<div class="services-main">
+					<div class="services-tit">
+						<h2 lang="en">services</h2>
+						<p>事業内容</p>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="ourmission">
 			<div class="ourmission-inner">
 				<div class="ourmission-main">
@@ -215,10 +225,3 @@ import Layout from "../layouts/Layout.astro";
 		<style></style>
 	</main>
 </Layout>
-<script>
-	window.addEventListener("scroll", function () {
-		let offset = window.pageYOffset;
-		document.querySelector(".ourmission-inner").style.backgroundPosition =
-			"center " + offset * 0.5 + "px"; // 背景画像をスクロールに合わせて移動
-	});
-</script>
