@@ -1,5 +1,195 @@
 @use "../global" as g;
 
+.parallax-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* ビューポートの高さに合わせる */
+    overflow: hidden;
+}
+
+.parallax-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* Parallax効果を実現するためのプロパティ */
+    transform: translateZ(0);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.parallax-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.ourmission {
+    color: g.$palette-white;
+    width: 100%;
+    background: g.$palette-blue;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: g.$palette-blue;
+        clip-path: polygon(60% 35%, 60% 23%, 100% 23%, 100% 100%, 0 100%, 0 35%);
+        z-index: 2;
+        opacity: 1;
+    }
+
+    font-weight: 800;
+
+    &-inner {
+        text-align: right;
+
+        h2 {
+            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+        }
+
+        p {
+            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+            display: inline-block;
+            padding-bottom: 0.938rem;
+            border-bottom: 3px solid g.$palette-lightblue;
+            position: relative;
+            z-index: 3;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                width: 50%;
+                height: 3px;
+                background: g.$palette-blue;
+            }
+        }
+    }
+
+    &-main {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        padding: 120px 33px 200px;
+        position: relative;
+        z-index: 2;
+
+        @include g.mq(sp) {
+            padding: 90px 33px 100px;
+
+        }
+
+    }
+}
+
+.sdgs {
+    font-weight: 800;
+
+    &-inner {
+        background-color: g.$palette-blue;
+        color: g.$palette-white;
+        width: 100%;
+        position: relative;
+    }
+
+    &-main {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        position: relative;
+        padding: 193px 33px 38px;
+
+        @include g.mq(sp) {
+            padding: 90px 33px 50px;
+        }
+    }
+
+    &-images {
+        margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
+
+        div:nth-of-type(1) {
+            width: clamp(19.375rem, 9.205rem + 43.39vw, 46.25rem);
+            margin: 0 auto clamp(2.5rem, 1.79rem + 3.03vw, 4.375rem);
+
+            @include g.mq(sp) {
+                width: 100%;
+            }
+
+
+            img {
+                width: 100%;
+            }
+        }
+
+        div:nth-of-type(2) {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &-tit {
+        margin-bottom: clamp(1.875rem, 1.402rem + 2.02vw, 3.125rem);
+        font-weight: 800;
+
+        h2 {
+            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+        }
+    }
+
+    &-text {
+        font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+        margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
+
+        p {
+            line-height: 2.2;
+        }
+    }
+
+    &-link {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: g.$palette-white;
+            gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+
+            p {
+                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+                width: fit-content;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+            }
+        }
+    }
+}
+
 .partnership {
     &-inner {
         color: g.$palette-white;
@@ -16,11 +206,6 @@
             height: 100%;
             background: g.$palette-white;
             clip-path: polygon(60% 35%, 60% 23%, 100% 23%, 100% 100%, 0 100%, 0 35%);
-
-            @include g.mq(sp) {
-                clip-path: polygon(60% 30%, 60% 20%, 100% 20%, 100% 100%, 0 100%, 0 30%);
-            }
-
             z-index: 2;
             opacity: 1;
         }
@@ -104,13 +289,20 @@
             gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
 
             p {
+                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
                 width: fit-content;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
             }
         }
     }
 }
 
 .recruit {
+    font-weight: 800;
+
     &-images {
         background-color: g.$palette-red;
         position: relative;
@@ -153,7 +345,7 @@
     }
 
     &-main {
-        padding: 160px 20px 200px;
+        padding: 160px 33px 200px;
 
         @include g.mq(sp) {
             padding: 80px 33px 100px;
@@ -186,7 +378,6 @@
     &-tit {
         margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
         text-align: center;
-        font-weight: 800;
 
         h2 {
             font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
@@ -214,6 +405,10 @@
     &-text {
         font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
         margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
+
+        p {
+            line-height: 2.2;
+        }
     }
 
     &-link {
@@ -230,7 +425,12 @@
             gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
 
             p {
+                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
                 width: fit-content;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
             }
         }
     }
@@ -239,7 +439,7 @@
 .news {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: 120px 20px 200px;
+    padding: 120px 33px 200px;
     font-weight: 800;
 
     @include g.mq(sp) {
@@ -348,7 +548,12 @@
             gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
 
             p {
+                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
                 width: fit-content;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
             }
         }
     }
@@ -434,6 +639,10 @@
 
             @include g.mq(sp) {
                 bottom: 25px;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
             }
         }
     }
