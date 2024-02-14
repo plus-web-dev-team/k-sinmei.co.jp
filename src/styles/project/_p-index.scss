@@ -1,5 +1,150 @@
 @use "../global" as g;
 
+.top {
+
+    &-inner {
+        position: relative;
+        background-color: g.$palette-blue;
+        background-image: url('/images/sinmei_name-logo_ol_white.svg');
+        background-repeat: no-repeat;
+        background-size: auto 90%;
+        background-position: left center;
+    }
+
+    &-main {
+        max-width: 1920px;
+        margin: 0 auto;
+        padding: 40px 33px 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    &-image {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &-tit {
+        color: g.$palette-white;
+        font-size: clamp(2.063rem, 1.495rem + 2.42vw, 3.563rem);
+        font-weight: 800;
+        position: absolute;
+        top: 40%;
+        right: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        p {
+            margin-bottom: clamp(1.5rem, 1.453rem + 0.2vw, 1.625rem);
+            background-color: g.$palette-black;
+            width: fit-content;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.company {
+    font-weight: 800;
+    color: g.$palette-white;
+
+    &-inner {
+        position: relative;
+        background: url('/images/top004_company.jpg') no-repeat center -60px/cover;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: g.$palette-blue;
+            clip-path: polygon(0 0, 35% 0, 35% 10%, 0 10%);
+            z-index: 2;
+            opacity: 1;
+        }
+    }
+
+    &-main {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        padding: 280px 33px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        &_half {
+            width: 520px;
+        }
+    }
+
+    &-tit {
+        text-align: right;
+
+        h2 {
+            margin-bottom: clamp(3.125rem, 2.084rem + 4.44vw, 5.875rem);
+            font-size: clamp(2.063rem, 1.495rem + 2.42vw, 3.563rem);
+            line-height: 1.38;
+        }
+
+        p {
+            margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+            font-size: clamp(1.375rem, 0.949rem + 1.82vw, 2.5rem);
+            display: inline-block;
+            padding-bottom: 0.938rem;
+            border-bottom: 3px solid g.$palette-lightblue;
+            position: relative;
+            z-index: 3;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                width: 50%;
+                height: 3px;
+                background: g.$palette-blue;
+            }
+        }
+    }
+
+    &-text {
+        margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+        font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+        line-height: 2.2;
+    }
+
+    &-link {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: g.$palette-white;
+            gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+
+            p {
+                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+                width: fit-content;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+            }
+        }
+    }
+}
+
 .services {
     position: relative;
     background: url('/images/top005_services.jpg') no-repeat center center/cover;
@@ -14,7 +159,7 @@
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
-        padding: 100px 33px 200px;
+        padding: 340px 33px 0;
     }
 
     &-tit {
@@ -53,6 +198,52 @@
     }
 }
 
+.works {
+
+    &-inner {
+        background: url('/images/top006_works.jpg') no-repeat;
+        background-size: cover;
+    }
+
+    &-main {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        padding: 150px 33px 160px;
+    }
+
+    &-tit {
+        font-size: clamp(1.5rem, 1.24rem + 1.11vw, 2.188rem);
+        font-weight: 800;
+        color: g.$palette-white;
+        line-height: 2.2;
+        margin-bottom: clamp(15.313rem, 13.539rem + 7.57vw, 20rem);
+    }
+
+    &-link {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: g.$palette-white;
+            gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+
+            p {
+                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+                width: fit-content;
+            }
+
+            img {
+                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+            }
+        }
+    }
+}
 
 .ourmission {
     position: relative;
@@ -69,19 +260,16 @@
         justify-content: center;
         align-items: center;
         background: url('/images/top_007_our-mission_back.jpg') no-repeat;
-        background-size: cover;
-
-        @include g.mq(sp) {
-            background: url('/images/top_007_our-mission_back_sp.jpg') no-repeat;
-            background-size: 100% auto;
-        }
-
-        background-position: center center;
-        background-attachment: fixed;
+        background-size: 100%;
         transform: translateZ(0);
         transform-style: preserve-3d;
         will-change: transform;
         overflow: hidden;
+
+        @include g.mq(sp) {
+            background: url('/images/top_007_our-mission_back_sp.jpg') no-repeat;
+            background-size: 100%;
+        }
 
         &::before {
             content: '';

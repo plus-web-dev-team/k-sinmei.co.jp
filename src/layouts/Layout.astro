@@ -50,9 +50,10 @@ import Footer from "../components/Footer.astro";
 			};
 
 			const parallaxBackground = () => {
+				const scrollPosition = window.scrollY * 0.1;
 				document.querySelector(
 					".ourmission-inner",
-				).style.backgroundPositionY = `${window.scrollY * 0.2}px`;
+				).style.backgroundPositionY = `${-10 + scrollPosition}px`; // ピクセル値を直接設定
 			};
 
 			document
