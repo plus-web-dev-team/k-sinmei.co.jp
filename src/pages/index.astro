@@ -6,15 +6,28 @@ import Layout from "../layouts/Layout.astro";
 	<main>
 		<section class="top">
 			<div class="top-inner">
+				<div class="top-header">
+					<img src="/images/sinmei_name-logo_ol_white.svg" alt="" />
+				</div>
 				<div class="top-main">
 					<div class="top-image">
-						<img src="/images/top-bg.jpg" alt="" />
+						<picture>
+							<source
+								media="(min-width: 576px)"
+								srcset="/images/top-bg.jpg"
+							/>
+							<source
+								media="(max-width: 575px)"
+								srcset="/images/top-bg-sp.jpg"
+							/>
+							<img src="/images/top-bg.jpg" alt="Description" />
+						</picture>
 					</div>
-					<div class="top-tit">
-						<p>もっとよいものを</p>
-						<p>責任をもって</p>
-						<p>作れる会社へ</p>
-					</div>
+				</div>
+				<div class="top-tit">
+					<p>もっとよいものを</p>
+					<p>責任をもって</p>
+					<p>作れる会社へ</p>
 				</div>
 			</div>
 		</section>
@@ -145,27 +158,27 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 		</section>
 		<section class="recruit">
-			<div class="recruit-images">
-				<div>
-					<img src="/images/recruit-A.jpg" alt="画像" />
-				</div>
-				<div>
-					<img src="/images/recruit-B.jpg" alt="画像" />
-				</div>
-				<div>
-					<img src="/images/recruit-C.jpg" alt="画像" />
-				</div>
-				<div>
-					<img src="/images/recruit-D.jpg" alt="画像" />
-				</div>
-				<div>
-					<img src="/images/recruit-E.jpg" alt="画像" />
-				</div>
-				<div>
-					<img src="/images/recruit-F.jpg" alt="画像" />
-				</div>
-			</div>
 			<div class="recruit-inner">
+				<div class="recruit-header">
+					<div>
+						<img src="/images/recruit-A.jpg" alt="画像" />
+					</div>
+					<div>
+						<img src="/images/recruit-B.jpg" alt="画像" />
+					</div>
+					<div>
+						<img src="/images/recruit-C.jpg" alt="画像" />
+					</div>
+					<div>
+						<img src="/images/recruit-D.jpg" alt="画像" />
+					</div>
+					<div>
+						<img src="/images/recruit-E.jpg" alt="画像" />
+					</div>
+					<div>
+						<img src="/images/recruit-F.jpg" alt="画像" />
+					</div>
+				</div>
 				<div class="recruit-main">
 					<div class="recruit-tit">
 						<h2 lang="en">recruit</h2>
@@ -187,11 +200,11 @@ import Layout from "../layouts/Layout.astro";
 		</section>
 		<section class="news">
 			<div class="news-inner">
-				<div class="news-tit">
-					<h2 lang="en">news</h2>
-					<p>お知らせ</p>
-				</div>
 				<div class="news-main">
+					<div class="news-tit">
+						<h2 lang="en">news</h2>
+						<p>お知らせ</p>
+					</div>
 					<ul class="news-list">
 						<li class="news-item">
 							<div class="news-item_tit" lang="ja">
@@ -257,33 +270,38 @@ import Layout from "../layouts/Layout.astro";
 		</section>
 		<section class="contact">
 			<div class="contact-inner">
-				<div class="contact-tit">
-					<h2 lang="en">contact us</h2>
-					<p>お問い合わせ</p>
-				</div>
-				<div class="contact-text">
-					<a href=""
-						>フォームからのお問い合わせ
-						<img src="/images/arrow.svg" alt="ボタン" /></a
-					>
+				<div class="contact-main">
+					<div class="contact-tit">
+						<h2 lang="en">contact us</h2>
+						<p>お問い合わせ</p>
+					</div>
+					<div class="contact-text">
+						<a href=""
+							>フォームからのお問い合わせ
+							<img src="/images/arrow.svg" alt="ボタン" /></a
+						>
+					</div>
 				</div>
 			</div>
 		</section>
 		<section class="access">
 			<div class="access-inner">
-				<div class="access-tit">
-					<h2 lang="en">access</h2>
-					<p>アクセス</p>
-				</div>
-				<div class="access-map">
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12075.689968301911!2d140.4445953173828!3d40.8296661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9bbb2493e3b90b%3A0xa42fe42ae2e8066!2zKOagqinvvLPvvKnvvK7vvK3vvKXvvKk!5e0!3m2!1sja!2sjp!4v1707713358893!5m2!1sja!2sjp"
-						width="100%"
-						height="100%"
-						style="border:0;"
-						allowfullscreen=""
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<div class="access-main">
+					<div class="access-tit">
+						<h2 lang="en">access</h2>
+						<p>アクセス</p>
+					</div>
+					<div class="access-map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12075.689968301911!2d140.4445953173828!3d40.8296661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9bbb2493e3b90b%3A0xa42fe42ae2e8066!2zKOagqinvvLPvvKnvvK7vvK3vvKXvvKk!5e0!3m2!1sja!2sjp!4v1707713358893!5m2!1sja!2sjp"
+							width="100%"
+							height="100%"
+							style="border:0;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+						></iframe>
+					</div>
 				</div>
 			</div>
 		</section>

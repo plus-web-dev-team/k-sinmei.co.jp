@@ -69,6 +69,12 @@
                 font-size: 15px;
                 margin-left: 0;
                 margin-right: 25px;
+
+                @include g.mq('sp') {
+                    font-size: 13px;
+                    display: block;
+                    line-height: 1.7;
+                }
             }
         }
     }

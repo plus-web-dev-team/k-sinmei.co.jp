@@ -5,10 +5,26 @@
     &-inner {
         position: relative;
         background-color: g.$palette-blue;
-        background-image: url('/images/sinmei_name-logo_ol_white.svg');
-        background-repeat: no-repeat;
-        background-size: auto 90%;
-        background-position: left center;
+    }
+
+    &-header {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+
+        @include g.mq(sp) {
+            top: 100%;
+        }
+
+        left: -1%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        height: 100%;
+
+        img {
+            height: 100%;
+        }
     }
 
     &-main {
@@ -17,11 +33,20 @@
         padding: 40px 33px 0;
         position: relative;
         z-index: 2;
+
+        @include g.mq(sp) {
+            max-width: 100%;
+            padding: 0;
+        }
     }
 
     &-image {
         width: 90%;
         margin: 0 auto;
+
+        @include g.mq(sp) {
+            width: 100%;
+        }
     }
 
     &-tit {
@@ -35,6 +60,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
+        z-index: 3;
 
         p {
             margin-bottom: clamp(1.5rem, 1.453rem + 0.2vw, 1.625rem);
@@ -54,7 +80,11 @@
 
     &-inner {
         position: relative;
-        background: url('/images/top004_company.jpg') no-repeat center -60px/cover;
+        background: url('/images/top004_company.jpg') no-repeat center top /cover;
+
+        @include g.mq(sp) {
+            background: url("/images/top004_company.jpg") no-repeat -320px 10px/cover;
+        }
 
         &::before {
             content: '';
@@ -67,13 +97,17 @@
             clip-path: polygon(0 0, 35% 0, 35% 10%, 0 10%);
             z-index: 2;
             opacity: 1;
+
+            @include g.mq(sp) {
+                clip-path: polygon(0 0, 100% 0, 100% 19%, 35% 19%, 35% 25%, 0 25%);
+            }
         }
     }
 
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
-        padding: 280px 33px 0;
+        padding: 280px 33px 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -81,16 +115,26 @@
 
         &_half {
             width: 520px;
+
+            @include g.mq(sp) {
+                width: 100%;
+            }
         }
     }
 
     &-tit {
-        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         h2 {
             margin-bottom: clamp(3.125rem, 2.084rem + 4.44vw, 5.875rem);
             font-size: clamp(2.063rem, 1.495rem + 2.42vw, 3.563rem);
             line-height: 1.38;
+            text-align: right;
+            letter-spacing: 0.03em;
+            align-self: flex-end;
         }
 
         p {
@@ -101,6 +145,8 @@
             border-bottom: 3px solid g.$palette-lightblue;
             position: relative;
             z-index: 3;
+            text-align: right;
+            letter-spacing: 0.06em;
 
             &::before {
                 content: '';
@@ -110,6 +156,10 @@
                 height: 3px;
                 background: g.$palette-blue;
             }
+
+            @include g.mq(sp) {
+                text-align: justify;
+            }
         }
     }
 
@@ -117,6 +167,11 @@
         margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
         font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
         line-height: 2.2;
+
+        br {
+            display: none;
+
+        }
     }
 
     &-link {
@@ -159,7 +214,7 @@
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
-        padding: 340px 33px 0;
+        padding: 120px 33px 120px;
     }
 
     &-tit {
@@ -194,11 +249,13 @@
         p {
             line-height: 2.2;
             color: g.$palette-white;
+            font-weight: 800;
         }
     }
 }
 
 .works {
+    font-weight: 800;
 
     &-inner {
         background: url('/images/top006_works.jpg') no-repeat;
@@ -246,8 +303,10 @@
 }
 
 .ourmission {
+    font-weight: 800;
     position: relative;
     height: 100vh;
+    background-color: g.$palette-blue;
 
     @include g.mq(sp) {
         height: calc(100vh - 375px);
@@ -259,12 +318,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url('/images/top_007_our-mission_back.jpg') no-repeat;
-        background-size: 100%;
-        transform: translateZ(0);
+        background-image: url('/images/top_007_our-mission_back.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        transform: translateY(0);
         transform-style: preserve-3d;
         will-change: transform;
         overflow: hidden;
+        z-index: 3;
 
         @include g.mq(sp) {
             background: url('/images/top_007_our-mission_back_sp.jpg') no-repeat;
@@ -541,7 +602,7 @@
 .recruit {
     font-weight: 800;
 
-    &-images {
+    &-header {
         background-color: g.$palette-red;
         position: relative;
         display: flex;
