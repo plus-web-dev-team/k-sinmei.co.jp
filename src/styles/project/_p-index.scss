@@ -22,6 +22,10 @@
         -ms-transform: translateY(-50%);
         height: 100%;
 
+        @include g.mq(sp) {
+            height: 130%;
+        }
+
         img {
             height: 100%;
         }
@@ -55,6 +59,11 @@
         font-weight: 800;
         position: absolute;
         top: 40%;
+
+        @include g.mq(sp) {
+            top: 110%;
+        }
+
         right: 5%;
         display: flex;
         flex-direction: column;
@@ -99,7 +108,7 @@
             opacity: 1;
 
             @include g.mq(sp) {
-                clip-path: polygon(0 0, 100% 0, 100% 19%, 35% 19%, 35% 25%, 0 25%);
+                clip-path: polygon(0 0, 100% 0, 100% 30%, 35% 30%, 35% 35%, 0 35%);
             }
         }
     }

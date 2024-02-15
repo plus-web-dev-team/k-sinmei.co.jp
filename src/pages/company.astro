@@ -1,16 +1,64 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="株式会社SINMEIについて | 株式会社SINMEIについて">
-	<Header />
 	<main>
-		<h1>test</h1>
-		<p>test</p>
+		<section class="companytop">
+			<div class="companytop-inner">
+				<div class="companytop-header">
+					<img src="/images/companytop.jpg" alt="" />
+				</div>
+				<div class="companytop-main">
+					<div class="companytop-tit">
+						<h2 lang="en">company</h2>
+						<p>株式会社SINMEIについて</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="overview">
+			<div class="overview-inner">
+				<div class="overview-main">
+					<div class="overview-tit">
+						<h3>会社概要</h3>
+					</div>
+					<div class="overview-dropdown">
+						<button class="dropbtn">メニュー</button>
+						<div class="dropdown-content">
+							<a href="#">リンク1</a>
+							<a href="#">リンク2</a>
+							<a href="#">リンク3</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
-	<Footer />
 </Layout>
 
 <style></style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const toggleDropdown = (event) => {
+			const dropdown = event.target.closest(".overview-dropdown");
+			dropdown.classList.toggle("is-active");
+		};
+
+		// メニューの外をクリックした場合にドロップダウンを非表示にする
+		window.addEventListener("click", (event) => {
+			const dropdowns = document.querySelectorAll(".overview-dropdown");
+			dropdowns.forEach((dropdown) => {
+				if (!dropdown.contains(event.target)) {
+					dropdown.classList.remove("is-active");
+				}
+			});
+		});
+
+		const dropdownButtons = document.querySelectorAll(".dropbtn");
+		dropdownButtons.forEach((button) => {
+			button.addEventListener("click", toggleDropdown);
+		});
+	});
+</script>
