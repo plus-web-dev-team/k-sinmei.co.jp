@@ -49,12 +49,54 @@ import Footer from "../components/Footer.astro";
 						: "rgba(16, 45, 142, 1)";
 			};
 
-			const parallaxBackground = () => {
-				const scrollPosition = window.scrollY * 0.1;
-				document.querySelector(
-					".ourmission-inner",
-				).style.backgroundPositionY = `${-10 + scrollPosition}px`;
+			const isTopPage = () => {
+				return window.location.pathname === "/";
 			};
+
+			const parallaxBackground = () => {
+				if (isTopPage()) {
+					const scrollPosition = window.scrollY * 0.1;
+					document.querySelector(
+						".ourmission-inner",
+					).style.backgroundPositionY = `${-10 + scrollPosition}px`;
+				}
+			};
+
+			const accordionItems = document.querySelectorAll(".accordion-item");
+
+			accordionItems.forEach((item) => {
+				const header = item.querySelector(".accordion-header");
+				const content = item.querySelector(".accordion-content");
+
+				header.addEventListener("click", () => {
+					content.classList.toggle("is-active");
+				});
+
+				header.addEventListener("click", (event) => {
+					accordionItems.forEach((accordion) => {
+						if (
+							accordion !== item &&
+							accordion
+								.querySelector(".accordion-content")
+								.classList.contains("is-active")
+						) {
+							accordion
+								.querySelector(".accordion-content")
+								.classList.remove("is-active");
+						}
+					});
+				});
+			});
+
+			document.addEventListener("click", (event) => {
+				if (!event.target.closest(".accordion-item")) {
+					accordionItems.forEach((item) => {
+						item.querySelector(
+							".accordion-content",
+						).classList.remove("is-active");
+					});
+				}
+			});
 
 			document
 				.querySelector(".gnav-hamburger")

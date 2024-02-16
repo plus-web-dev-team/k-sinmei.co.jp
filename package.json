@@ -15,5 +15,8 @@
     "autoprefixer": "^10.4.17",
     "postcss-preset-env": "^9.3.0",
     "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "swiper": "^11.0.6"
   }
 }

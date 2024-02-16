@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Cta from "../components/Cta.astro";
 ---
 
 <Layout title="株式会社SINMEI">
@@ -36,7 +37,7 @@ import Layout from "../layouts/Layout.astro";
 				<div class="company-main">
 					<div class="company-main_half">
 						<div class="company-tit">
-							<h2>長年の実績と<br />確かな施工品質で</h2>
+							<p>長年の実績と<br />確かな施工品質で</p>
 							<p>地域社会の発展に貢献します</p>
 						</div>
 						<div class="company-text">
@@ -64,8 +65,8 @@ import Layout from "../layouts/Layout.astro";
 			<div class="services-inner">
 				<div class="services-main">
 					<div class="services-tit">
-						<h2 lang="en">services</h2>
-						<p>事業内容</p>
+						<p lang="en">services</p>
+						<h2>事業内容</h2>
 					</div>
 					<div class="services-text">
 						<p>
@@ -79,10 +80,10 @@ import Layout from "../layouts/Layout.astro";
 			<div class="works-inner">
 				<div class="works-main">
 					<div class="works-tit">
-						<p>鉄骨製造</p>
-						<p>鋼構造物工事業</p>
-						<p>建築鉄骨（設計施工）</p>
-						<p>設備工事</p>
+						<h3>鉄骨製造</h3>
+						<h3>鋼構造物工事業</h3>
+						<h3>建築鉄骨（設計施工）</h3>
+						<h3>設備工事</h3>
 					</div>
 					<div class="works-link">
 						<a href="">
@@ -97,8 +98,8 @@ import Layout from "../layouts/Layout.astro";
 			<div class="ourmission-inner">
 				<div class="ourmission-main">
 					<div class="ourmission-tit">
-						<h2>Our MISSION</h2>
-						<p>SINMEIの取組み</p>
+						<p>Our MISSION</p>
+						<h2>SINMEIの取組み</h2>
 					</div>
 				</div>
 			</div>
@@ -114,9 +115,9 @@ import Layout from "../layouts/Layout.astro";
 						<div><img src="/images/sdgs-group.svg" alt="" /></div>
 					</div>
 					<div class="sdgs-text">
-						<p>
+						<h3>
 							株式会社ＳＩＮＭＥＩは、ＳＤＧｓを国際社会の重要な目標と捉え、企業の経済、社会及び環境の三側面を調和させ、人類および地球に対し行動を促進させていきます。
-						</p>
+						</h3>
 					</div>
 					<div class="sdgs-link">
 						<a href="">
@@ -134,14 +135,23 @@ import Layout from "../layouts/Layout.astro";
 						<h2 lang="en">partner ship</h2>
 					</div>
 					<div class="partnership-images">
-						<img src="/images/top_009_partner-ship.jpg" alt="" />
+						<img
+							src="/images/top_009_partner-ship.jpg"
+							alt="パートナーシップ"
+						/>
 					</div>
 					<div class="partnership-text">
 						<div>
-							<img src="/images/partnership-text.svg" alt="" />
+							<img
+								src="/images/partnership-text.svg"
+								alt="最も崇高な芸術とは人を幸せにすることだ"
+							/>
 						</div>
 						<div>
-							<img src="/images/sinmei-ringomusume.svg" alt="" />
+							<img
+								src="/images/sinmei-ringomusume.svg"
+								alt="青森の企業から芸術・文化の発信を"
+							/>
 						</div>
 					</div>
 					<div class="partnership-link">
@@ -149,7 +159,7 @@ import Layout from "../layouts/Layout.astro";
 							<p lang="en">read more</p>
 							<img
 								src="/images/arrow-blue.svg"
-								alt=""
+								alt="SINMEI×RINGO MUSUME"
 								width="40"
 							/>
 						</a>
@@ -181,8 +191,8 @@ import Layout from "../layouts/Layout.astro";
 				</div>
 				<div class="recruit-main">
 					<div class="recruit-tit">
-						<h2 lang="en">recruit</h2>
-						<p>採用情報</p>
+						<p lang="en">recruit</p>
+						<h2>採用情報</h2>
 					</div>
 					<div class="recruit-text">
 						<p>
@@ -202,8 +212,8 @@ import Layout from "../layouts/Layout.astro";
 			<div class="news-inner">
 				<div class="news-main">
 					<div class="news-tit">
-						<h2 lang="en">news</h2>
-						<p>お知らせ</p>
+						<p lang="en">news</p>
+						<h2>お知らせ</h2>
 					</div>
 					<ul class="news-list">
 						<li class="news-item">
@@ -268,28 +278,13 @@ import Layout from "../layouts/Layout.astro";
 				</div>
 			</div>
 		</section>
-		<section class="contact">
-			<div class="contact-inner">
-				<div class="contact-main">
-					<div class="contact-tit">
-						<h2 lang="en">contact us</h2>
-						<p>お問い合わせ</p>
-					</div>
-					<div class="contact-text">
-						<a href=""
-							>フォームからのお問い合わせ
-							<img src="/images/arrow.svg" alt="ボタン" /></a
-						>
-					</div>
-				</div>
-			</div>
-		</section>
+		<Cta />
 		<section class="access">
 			<div class="access-inner">
 				<div class="access-main">
 					<div class="access-tit">
-						<h2 lang="en">access</h2>
-						<p>アクセス</p>
+						<p lang="en">access</p>
+						<h2>アクセス</h2>
 					</div>
 					<div class="access-map">
 						<iframe

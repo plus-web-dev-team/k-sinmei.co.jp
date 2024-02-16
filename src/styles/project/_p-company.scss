@@ -19,10 +19,6 @@
             clip-path: polygon(0 80%, 40% 80%, 40% 100%, 0% 100%);
             z-index: 2;
             opacity: 1;
-
-            @include g.mq(sp) {
-                clip-path: polygon(0 0, 100% 0, 100% 30%, 35% 30%, 35% 35%, 0 35%);
-            }
         }
 
         img {
@@ -41,12 +37,12 @@
     }
 
     &-tit {
-        h2 {
+        p {
             font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
             color: g.$palette-blue;
         }
 
-        p {
+        h1 {
             font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
             display: inline-block;
             padding-bottom: 0.938rem;
@@ -67,37 +63,107 @@
 }
 
 .overview {
+    font-weight: 800;
+    margin-bottom: clamp(10.125rem, 9.226rem + 3.83vw, 12.5rem);
+
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
+        padding: 0 33px 0;
     }
 
-    &-dropdown {
-        position: relative;
-        display: inline-block;
-    }
+    &-accordion {
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 120px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
+        .accordion-header {
+            padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem) clamp(0rem, -0.864rem + 4.32vw, 2.375rem);
+            cursor: pointer;
+            color: g.$palette-blue;
+            border-bottom: solid 1px g.$palette-blue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: clamp(2.5rem, 1.554rem + 4.04vw, 5rem);
 
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
+            h2 {
+                font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
+            }
+        }
 
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
+        .accordion-content {
+            padding-top: clamp(2.5rem, 1.136rem + 6.82vw, 6.25rem);
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
 
-    .dropdown.is-active .dropdown-content {
-        display: block;
+            article {
+                margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
+
+                ul {
+                    padding-left: 1em;
+                    list-style-type: square;
+                    margin: 0;
+                    font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+                    font-family: 'Noto Sans JP', sans-serif;
+                }
+
+                h3 {
+                    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+                    color: g.$palette-lightblue;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
+
+                    &::after {
+                        content: '';
+                        flex-grow: 1;
+                        margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+                        height: 1px;
+                        background: g.$palette-lightblue;
+                    }
+                }
+
+                h4 {
+                    font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+                    font-family: 'Noto Sans JP', sans-serif;
+                    margin-bottom: clamp(1.25rem, 0.54rem + 3.03vw, 3.125rem);
+
+                    span:first-child {
+                        display: block;
+                        margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
+                    }
+                }
+
+                p {
+                    font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+                    margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
+                }
+
+                div {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    column-gap: clamp(2.813rem, 1.512rem + 5.55vw, 6.25rem);
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+
+                        @include g.mq(sp) {
+                            flex-direction: column;
+                        }
+
+                        h5 {
+                            font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+                            font-family: 'Noto Sans JP', sans-serif;
+                            margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
+                        }
+                    }
+                }
+            }
+        }
+
+        .accordion-content.is-active {
+            display: block;
+        }
     }
 }

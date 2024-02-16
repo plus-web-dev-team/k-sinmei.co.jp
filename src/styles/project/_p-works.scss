@@ -1,0 +1,70 @@
+@use "../global" as g;
+
+.workstop {
+    font-weight: 800;
+    background-color: g.$palette-blue;
+    color: g.$palette-white;
+
+
+    &-header {
+        position: relative;
+        height: calc(100vh - 60px);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: g.$palette-blue;
+            clip-path: polygon(0 80%, 40% 80%, 40% 100%, 0% 100%);
+            z-index: 2;
+            opacity: 1;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &-main {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
+    }
+
+    &-tit {
+        margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+
+        p {
+            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+        }
+
+        h1 {
+            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+            display: inline-block;
+            padding-bottom: 0.938rem;
+            border-bottom: 3px solid g.$palette-lightblue;
+            position: relative;
+            z-index: 3;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                width: 50%;
+                height: 3px;
+                background: g.$palette-black;
+            }
+        }
+    }
+
+    &-text {
+        p {
+            font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+        }
+    }
+}

@@ -8,6 +8,10 @@
         font-weight: 800;
     }
 
+    &-dropbtn {
+        cursor: default;
+    }
+
     &-inner {
         display: flex;
         justify-content: space-between;
