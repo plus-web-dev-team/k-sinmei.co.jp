@@ -1,24 +1,25 @@
 ---
 import { Image } from "astro:assets";
-
+import { register } from "swiper/element/bundle";
+register();
 const slideImages = [
-    "/public/images/slide001.jpg",
-    "/public/images/slide002.jpg",
-    "/public/images/slide003.jpg",
-    "/public/images/slide004.jpg",
-    "/public/images/slide005.jpg",
-    "/public/images/slide006.jpg",
-    "/public/images/slide007.jpg",
-    "/public/images/slide008.jpg",
-    "/public/images/slide009.jpg",
+    "../images/slide001.jpg",
+    "../images/slide002.jpg",
+    "../images/slide003.jpg",
+    "../images/slide004.jpg",
+    "../images/slide005.jpg",
+    "../images/slide006.jpg",
+    "../images/slide007.jpg",
+    "../images/slide008.jpg",
+    "../images/slide009.jpg",
 ];
 ---
 
-<div className="swiper-wrapper">
+<div class="swiper-wrapper">
     {
         slideImages.map((slide, index) => (
-            <div className="swiper-slide" key="{index}">
-                <image src="{slide}" alt="" />
+            <div class="swiper-slide" key="{index}">
+                <img src="{slide}" alt="" />
             </div>
         ))
     }
