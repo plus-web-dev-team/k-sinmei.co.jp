@@ -33,7 +33,7 @@
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
-        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
+        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(7.5rem, 5.608rem + 8.07vw, 12.5rem);
     }
 
     &-tit {
@@ -63,8 +63,60 @@
     }
 
     &-text {
+        margin-bottom: clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
+
         p {
             font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
         }
+    }
+
+    &-slider {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .slider-item {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-item.is-active {
+            opacity: 1;
+        }
+    }
+
+    .slider-pagination {
+        text-align: center;
+        margin-top: clamp(3.125rem, 1.942rem + 5.05vw, 6.25rem);
+        padding-top: clamp(3.53vw, 5.313rem + 3.125rem, 2.297rem);
+        border-top: solid 1px #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 92px;
+    }
+
+    .pagination button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    #currentPage {
+        font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+        color: #fff;
+        border-bottom: solid 1px #fff;
     }
 }
