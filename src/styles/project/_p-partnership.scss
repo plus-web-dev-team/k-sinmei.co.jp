@@ -141,12 +141,28 @@
                     top: 0;
                     left: 25%;
                     transform: rotate(-7deg);
+                    width: clamp(15rem, 8.07rem + 29.57vw, 33.313rem);
+
+                    @include g.mq('sp') {
+                        left: 50%;
+                        transform: translateX(-50%);
+                        -webkit-transform: translateX(-50%);
+                        -ms-transform: translateX(-50%);
+                    }
                 }
 
                 picture:nth-of-type(2) {
                     position: absolute;
                     top: -7%;
                     right: -8%;
+                    width: clamp(9.875rem, 5.571rem + 18.37vw, 21.25rem);
+
+                    @include g.mq('sp') {
+                        left: 50%;
+                        transform: translateX(-50%);
+                        -webkit-transform: translateX(-50%);
+                        -ms-transform: translateX(-50%);
+                    }
                 }
 
                 picture:nth-of-type(3) {
@@ -154,6 +170,14 @@
                     top: 40%;
                     left: 0;
                     transform: rotate(-13deg);
+                    width: clamp(9.875rem, 5.571rem + 18.37vw, 21.25rem);
+
+                    @include g.mq('sp') {
+                        left: 50%;
+                        transform: translateX(-50%);
+                        -webkit-transform: translateX(-50%);
+                        -ms-transform: translateX(-50%);
+                    }
                 }
 
                 picture:nth-of-type(4) {
@@ -161,6 +185,14 @@
                     bottom: 15%;
                     right: -10%;
                     transform: rotate(30deg);
+                    width: clamp(9.875rem, 5.571rem + 18.37vw, 21.25rem);
+
+                    @include g.mq('sp') {
+                        left: 50%;
+                        transform: translateX(-50%);
+                        -webkit-transform: translateX(-50%);
+                        -ms-transform: translateX(-50%);
+                    }
                 }
             }
         }
@@ -170,6 +202,7 @@
             margin-bottom: clamp(1.875rem, 0.219rem + 7.06vw, 6.25rem);
             text-align: center;
             position: relative;
+            min-height: clamp(12.5rem, 5.168rem + 31.28vw, 31.875rem);
 
             div {
                 position: relative;
@@ -186,8 +219,8 @@
                 }
 
                 iframe {
-                    width: 100%;
-                    height: 100%;
+                    width: clamp(19.375rem, 4.239rem + 64.58vw, 59.375rem);
+                    height: clamp(12.5rem, 2.732rem + 41.68vw, 38.313rem);
                 }
             }
 
