@@ -1,14 +1,122 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+const { pageindex, pageTitle } = Astro.props;
+
+// 1ページに表示する個別投稿へのリンクの数
+export const linkscount = 3;
+
+// 型定義
+export interface staticPath {
+    params: {
+        pageName: string;
+    };
+    props: {
+        pageindex: number;
+        pageTitle: string;
+    };
+}
+
+export const allPosts = await Astro.glob("./posts/*.md");
+// ポストを新しい順に並び替え
+const sortedPosts = allPosts.sort((a, b) => {
+    const aDate = new Date(a.frontmatter.pubDate);
+    const bDate = new Date(b.frontmatter.pubDate);
+    return bDate.getTime() - aDate.getTime();
+});
+
+export const postName_prefix = "postlist_";
+// markdownの総数を1ページに表示するリンクの数で割って
+// 必要な生成ページ数を定義
+export async function getStaticPaths() {
+    let staticPaths: staticPath[] = [];
+    for (let i = 0; i < pagescount; i++) {
+        staticPaths.push({
+            props: {
+                pageindex: i,
+                pageTitle: "Post [" + String(i + 1).padStart(2, "0") + "]",
+            },
+            params: {
+                pageName: postName_prefix + String(i + 1).padStart(2, "0"),
+            },
+        });
+    }
+    return staticPaths;
+}
+
+const currentindex = pageindex * linkscount;
+const lastindex = currentindex + linkscount;
+
+export const pagescount = Math.ceil(allPosts.length / linkscount);
+
+const show_newer = pageindex !== 0;
+const url_newer = "/" + postName_prefix + String(pageindex).padStart(2, "0");
+
+const url = "/" + postName_prefix + String(pageindex + 1).padStart(2, "0");
+
+const show_paster = pageindex !== pagescount - 1;
+const url_paster =
+    "/" + postName_prefix + String(pageindex + 2).padStart(2, "0");
+
+const pageindex_formatted = String(pageindex + 1).padStart(2, "0");
+const pagescount_formatted = String(pagescount).padStart(2, "0");
+
+import BaseLayout from "../layouts/BlogLayout.astro";
+
+import "../styles/style.scss";
 ---
 
-<Layout title="株式会社SINMEIについて | 株式会社SINMEI">
-    <Header />
+<BaseLayout title="お知らせ | 株式会社SINMEI">
     <main>
-        <h1>test</h1>
-        <p>test</p>
+        <div class="postlist">
+            <ul>
+                {
+                    sortedPosts.slice(currentindex, lastindex).map((post) => (
+                        <li>
+                            <div class="postlist-item">
+                                {post.url !== undefined && (
+                                    <div class="postlist-image">
+                                        <img
+                                            src={
+                                                card_dir +
+                                                post.url.split("/").at(-1) +
+                                                ".png"
+                                            }
+                                        />
+                                    </div>
+                                )}
+                                <div class="postlist-text">
+                                    <div class="postlist-link">
+                                        <a href={post.url}>
+                                            {post.frontmatter.title}
+                                        </a>
+                                    </div>
+                                    <div class="postlist-date">
+                                        Public-date:{" "}
+                                        {post.frontmatter.pubDate.slice(0, 10)}
+                                    </div>
+                                    <ul class="tags">
+                                        {post.frontmatter.tags.map(
+                                            (item: string) => (
+                                                <li>{item}</li>
+                                            ),
+                                        )}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <div class="pagelist-buttons">
+            <div class="left">{show_newer && <a href={url_newer}>次へ</a>}</div>
+            <div class="center">
+                {pageindex_formatted}/{pagescount_formatted}
+            </div>
+            <div class="right">
+                {show_paster && <a href={url_paster}>前へ</a>}
+            </div>
+        </div>
     </main>
-</Layout>
+</BaseLayout>
 
 <style></style>
