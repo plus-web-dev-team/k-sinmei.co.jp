@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/layout.astro";
+const { title } = Astro.props.frontmatter || Astro.props;
+---
+
+<Layout title={title}>
+	<section class="news">
+		<div class="news-inner">
+			<div class="news-main">
+				<div class="news-tit">
+					<p lang="en">news</p>
+					<h2>お知らせ</h2>
+				</div>
+				<div class="news-text">
+					<div class="news-item_tit" lang="ja">
+						<time datetime="2023-11-10">2023-11-10</time>
+						<p>お知らせ</p>
+					</div>
+					<slot />
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style lang="scss">
+	.news-tit {
+		text-align: center;
+	}
+</style>
