@@ -93,11 +93,24 @@
 
         h4 {
             margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &::after {
+                content: "";
+                flex-grow: 1;
+                margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+                height: 1px;
+                background: #0085D8;
+            }
         }
 
         ul {
             list-style-type: none;
             font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+            padding: 0;
+            line-height: 2.2;
 
             .list-item {
                 margin-bottom: clamp(3.125rem, 2.652rem + 2.02vw, 4.375rem);
@@ -109,6 +122,7 @@
                 ul {
                     list-style-type: disc;
                     margin-bottom: 50px;
+                    padding-left: 1em;
 
                     li {
                         margin-bottom: 20px;
@@ -119,6 +133,16 @@
             .list-item:nth-of-type(2) {
                 p {
                     color: g.$palette-lightblue;
+                }
+            }
+
+            .list-item:nth-of-type(3) {
+                ul {
+                    list-style-type: none;
+
+                    li {
+                        margin-bottom: 10px;
+                    }
                 }
             }
         }
