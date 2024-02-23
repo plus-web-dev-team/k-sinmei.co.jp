@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,132 +11,127 @@ import Footer from "../components/Footer.astro";
 
 <!doctype html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
-	</body>
-	<script>
-		const toggleMenu = () => {
-			document.querySelector(".gnav-list").classList.toggle("is-active");
-			document
-				.querySelector(".gnav-hamburger")
-				.classList.toggle("is-active");
-		};
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+  <script>
+    const toggleMenu = () => {
+      document.querySelector(".gnav-list").classList.toggle("is-active");
+      document.querySelector(".gnav-hamburger").classList.toggle("is-active");
+    };
 
-		const changeNavBackground = () => {
-			const nav = document.querySelector("header");
-			nav.style.backgroundColor =
-				window.scrollY > 60
-					? "rgba(16, 45, 142, 0.8)"
-					: "rgba(16, 45, 142, 1)";
-		};
+    const changeNavBackground = () => {
+      const nav = document.querySelector("header");
+      nav.style.backgroundColor =
+        window.scrollY > 60 ? "rgba(16, 45, 142, 0.8)" : "rgba(16, 45, 142, 1)";
+    };
 
-		const isTopPage = () => {
-			return window.location.pathname === "/";
-		};
+    const isTopPage = () => {
+      return window.location.pathname === "/";
+    };
 
-		const parallaxBackground = () => {
-			if (isTopPage()) {
-				const scrollPosition = window.scrollY * 0.1;
-				document.querySelector(
-					".ourmission-inner",
-				).style.backgroundPositionY = `${-10 + scrollPosition}px`;
-			}
-		};
+    const parallaxBackground = () => {
+      if (isTopPage()) {
+        const scrollPosition = window.scrollY * 0.1;
+        document.querySelector(".ourmission-inner").style.backgroundPositionY =
+          `${-10 + scrollPosition}px`;
+      }
+    };
 
-		const accordionItems = document.querySelectorAll(".accordion-item");
+    const accordionItems = document.querySelectorAll(".accordion-item");
 
-		accordionItems.forEach((item) => {
-			const header = item.querySelector(".accordion-header");
-			const content = item.querySelector(".accordion-content");
+    accordionItems.forEach((item) => {
+      const header = item.querySelector(".accordion-header");
+      const content = item.querySelector(".accordion-content");
 
-			header.addEventListener("click", () => {
-				content.classList.toggle("is-active");
-			});
+      header.addEventListener("click", () => {
+        content.classList.toggle("is-active");
+      });
 
-			header.addEventListener("click", (event) => {
-				accordionItems.forEach((accordion) => {
-					if (
-						accordion !== item &&
-						accordion
-							.querySelector(".accordion-content")
-							.classList.contains("is-active")
-					) {
-						accordion
-							.querySelector(".accordion-content")
-							.classList.remove("is-active");
-					}
-				});
-			});
-		});
+      header.addEventListener("click", (event) => {
+        accordionItems.forEach((accordion) => {
+          if (
+            accordion !== item &&
+            accordion
+              .querySelector(".accordion-content")
+              .classList.contains("is-active")
+          ) {
+            accordion
+              .querySelector(".accordion-content")
+              .classList.remove("is-active");
+          }
+        });
+      });
+    });
 
-		document.addEventListener("click", (event) => {
-			if (!event.target.closest(".accordion-item")) {
-				accordionItems.forEach((item) => {
-					item.querySelector(".accordion-content").classList.remove(
-						"is-active",
-					);
-				});
-			}
-		});
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".accordion-item")) {
+        accordionItems.forEach((item) => {
+          item
+            .querySelector(".accordion-content")
+            .classList.remove("is-active");
+        });
+      }
+    });
 
-		document
-			.querySelector(".gnav-hamburger")
-			.addEventListener("click", toggleMenu);
-		window.addEventListener("scroll", changeNavBackground);
-		window.addEventListener("scroll", parallaxBackground);
+    document
+      .querySelector(".gnav-hamburger")
+      .addEventListener("click", toggleMenu);
+    window.addEventListener("scroll", changeNavBackground);
+    window.addEventListener("scroll", parallaxBackground);
 
-		let currentPage = 1;
-		const slides = document.querySelectorAll(".slider-item");
-		const totalSlides = slides.length;
-		const pageSize = 9;
-		const totalPages = Math.ceil(totalSlides / pageSize);
-		const currentPageSpan = document.getElementById("currentPage");
+    let currentPage = 1;
+    const slides = document.querySelectorAll(".slider-item");
+    const totalSlides = slides.length;
+    const pageSize = 9;
+    const totalPages = Math.ceil(totalSlides / pageSize);
+    const currentPageSpan = document.getElementById("currentPage");
 
-		function showSlides(startIndex) {
-			slides.forEach((slide, i) => {
-				slide.classList.remove("is-active");
-				slide.style.display = "none";
-			});
+    function showSlides(startIndex) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("is-active");
+        slide.style.display = "none";
+      });
 
-			for (let i = startIndex; i < startIndex + pageSize; i++) {
-				if (slides[i]) {
-					slides[i].style.display = "block";
-					setTimeout(() => slides[i].classList.add("is-active"), 10);
-				}
-			}
+      for (let i = startIndex; i < startIndex + pageSize; i++) {
+        if (slides[i]) {
+          slides[i].style.display = "block";
+          setTimeout(() => slides[i].classList.add("is-active"), 10);
+        }
+      }
 
-			currentPageSpan.textContent = `${currentPage}`;
-		}
+      currentPageSpan.textContent = `${currentPage}`;
+    }
 
-		function nextSlide() {
-			currentPage = (currentPage % totalPages) + 1;
-			showSlides((currentPage - 1) * pageSize);
-		}
+    function nextSlide() {
+      currentPage = (currentPage % totalPages) + 1;
+      showSlides((currentPage - 1) * pageSize);
+    }
 
-		function prevSlide() {
-			currentPage = ((currentPage - 2 + totalPages) % totalPages) + 1;
-			showSlides((currentPage - 1) * pageSize);
-		}
+    function prevSlide() {
+      currentPage = ((currentPage - 2 + totalPages) % totalPages) + 1;
+      showSlides((currentPage - 1) * pageSize);
+    }
 
-		document.getElementById("nextBtn").addEventListener("click", nextSlide);
-		document.getElementById("prevBtn").addEventListener("click", prevSlide);
+    document.getElementById("nextBtn").addEventListener("click", nextSlide);
+    document.getElementById("prevBtn").addEventListener("click", prevSlide);
 
-		showSlides(0);
-	</script>
+    showSlides(0);
+  </script>
 </html>
