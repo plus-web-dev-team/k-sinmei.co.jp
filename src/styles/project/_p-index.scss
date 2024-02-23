@@ -83,7 +83,7 @@
     }
 }
 
-.company {
+.top-company {
     font-weight: 800;
     color: g.$palette-white;
 
@@ -209,7 +209,7 @@
     }
 }
 
-.services {
+.top-services {
     position: relative;
     background: url('/images/top005_services.jpg') no-repeat center center/cover;
 
@@ -263,7 +263,7 @@
     }
 }
 
-.works {
+.top-works {
     font-weight: 800;
 
     &-inner {
@@ -314,7 +314,7 @@
     }
 }
 
-.ourmission {
+.top-ourmission {
     font-weight: 800;
     position: relative;
     height: 100vh;
@@ -410,7 +410,7 @@
     }
 }
 
-.sdgs {
+.top-sdgs {
     font-weight: 800;
 
     &-inner {
@@ -501,7 +501,7 @@
     }
 }
 
-.partnership {
+.top-partnership {
     &-inner {
         color: g.$palette-white;
         width: 100%;
@@ -611,7 +611,7 @@
     }
 }
 
-.recruit {
+.top-recruit {
     font-weight: 800;
 
     &-header {
@@ -747,7 +747,7 @@
     }
 }
 
-.news {
+.top-news {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
     padding: 120px 33px 200px;
@@ -870,7 +870,7 @@
     }
 }
 
-.contact {
+.top-contact {
     padding: 90px 0 0;
 
     @include g.mq(sp) {
@@ -959,7 +959,7 @@
     }
 }
 
-.access {
+.top-access {
     padding: 90px 0 0;
 
     @include g.mq(sp) {

@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props.frontmatter || Astro.props;
 const { pubDate } = Astro.props.frontmatter || Astro.props;
+const { dateTime } = Astro.props.frontmatter || Astro.props;
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -13,18 +14,18 @@ import Layout from "../layouts/Layout.astro";
           <h2>お知らせ</h2>
         </div>
         <div class="news-text">
-          <div class="news-item_tit" lang="ja">
-            <time datetime="2023-11-10">{pubDate}</time>
+          <div class="news-text-header" lang="ja">
+            <time datetime={pubDate}>{pubDate}</time>
             <p>お知らせ</p>
           </div>
-          <div class="news-item-inner" lang="ja">
+          <div class="news-text-main" lang="ja">
             <h1>{title}</h1>
             <slot />
           </div>
         </div>
       </div>
     </div>
-    <div class="news-links">
+    <div class="news-link">
       <a href="#">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -132,13 +133,3 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
-
-<style lang="scss">
-  .news-item-inner {
-    margin-bottom: clamp(6.25rem, 5.777rem + 2.02vw, 7.5rem);
-    line-height: 2.2;
-    h1 {
-      margin-bottom: clamp(1.25rem, 0.568rem + 3.41vw, 3.125rem);
-    }
-  }
-</style>

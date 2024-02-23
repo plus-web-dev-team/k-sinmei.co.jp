@@ -14,36 +14,50 @@ import Layout from "../layouts/Layout.astro";
           <div class="contact-text">
             <p>
               こちらのお問い合わせフォームに必要事項をご入力下さい。確認後、担当者よりお返事させていただきます。
-              営業日3～4日以上経過してもお返事がない場合は、メール・お電話ともにお返事できない状況の可能性がございます。
-              その際はお手数をおかけしますが、こちらのお電話に直接ご連絡いただくか、再度メールフォームから送信いただけますようお願い申し上げます。
-              ＊は必須項目です。
             </p>
+            <p>
+              営業日3～4日以上経過してもお返事がない場合は、メール・お電話ともにお返事できない状況の可能性がございます。
+            </p>
+            <p>
+              その際はお手数をおかけしますが、こちらのお電話に直接ご連絡いただくか、再度メールフォームから送信いただけますようお願い申し上げます。
+            </p>
+            <p><span>＊</span>は必須項目です。</p>
+          </div>
+          <div class="contact-form">
+            <form method="post" action="/mail.php">
+              <div class="form-inner">
+                <div class="form-item">
+                  <p>お名前<span>&#042;</span></p>
+                  <p><input size="20" type="text" name="お名前" /></p>
+                </div>
+                <div class="form-item">
+                  <p>所属名<span>&#042;</span></p>
+                  <p><input size="30" type="text" name="電話番号" /></p>
+                </div>
+                <div class="form-item">
+                  <p>メールアドレス<span>&#042;</span></p>
+                  <p><input size="30" type="text" name="Email" /></p>
+                </div>
+                <div class="form-item">
+                  <p>お電話番号</p>
+                  <p><input size="30" type="text" name="tel" /></p>
+                </div>
+                <div class="form-item">
+                  <p>お問い合わせ内容<span>&#042;</span></p>
+                  <p>
+                    <textarea name="お問い合わせ内容" cols="50" rows="5"
+                    ></textarea>
+                  </p>
+                </div>
+              </div>
+              <div class="form-submit">
+                <p><input type="submit" value="確認" /></p>
+                <p><input type="reset" value="リセット" /></p>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
   </main>
 </Layout>
-
-<style lang="scss">
-  .contact {
-    background-color: #fff;
-    font-weight: 800;
-    color: #102d8e;
-
-    &:before {
-      position: relative;
-    }
-
-    &-tit {
-      h2::before {
-        content: "";
-        position: absolute;
-        bottom: -3px;
-        width: 50%;
-        height: 3px;
-        background: #102d8e;
-      }
-    }
-  }
-</style>
