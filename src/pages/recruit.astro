@@ -17,6 +17,46 @@ import Cta from "../components/Cta.astro";
           </div>
           <div class="recruit-text">
             <p>私達と一緒に<br />働いてみませんか？</p>
+            <div class="recruit-carousel">
+              <div class="recruit-carousel-wrapper">
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide001.jpg" alt="Image 1" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide002.jpg" alt="Image 2" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide003.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide004.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide005.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide006.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide007.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide008.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide009.jpg" alt="Image 3" />
+                </div>
+                <div class="recruit-carousel-item">
+                  <img src="/images/recruit-slide010.jpg" alt="Image 3" />
+                </div>
+              </div>
+              <div class="recruit-carousel-pager">
+                <span>Scroll</span>
+                <button class="recruit-carousel-next">
+                  <img src="/images/arrow.svg" alt="Next" />
+                </button>
+              </div>
+            </div>
             <p>
               これまでの経験を活かした仕事をしたい、未来の街づくりを手がけたいという方からのご応募をお待ちしております。
               詳しくはお電話もしくはお問合せフォームからご連絡ください。
@@ -121,3 +161,28 @@ import Cta from "../components/Cta.astro";
 </Layout>
 
 <style></style>
+<script>
+  const slider = document.querySelector(".recruit-carousel-wrapper");
+  const slides = document.querySelectorAll(".recruit-carousel-item");
+  const slideWidth = slides[0].clientWidth;
+  let currentIndex = 0;
+
+  function nextSlide() {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+      // スライドの数を超えたら新しいスライドを追加し、currentIndexを調整する
+      const newIndex = currentIndex % slides.length;
+      const newSlide = slides[newIndex].cloneNode(true);
+      slider.appendChild(newSlide);
+      currentIndex = newIndex;
+    }
+    updateSlider();
+  }
+
+  function updateSlider() {
+    const offset = -currentIndex * slideWidth;
+    slider.style.transform = `translateX(${offset}px)`;
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
