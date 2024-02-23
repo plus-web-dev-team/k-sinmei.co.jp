@@ -64,9 +64,8 @@
 
     &-text {
         p:nth-of-type(1) {
-            font-size: clamp(1rem, 0.787rem + 0.91vw, 1.563rem);
-            text-align: center;
-            margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+            font-size: clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+            margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
         }
 
         p:nth-of-type(2) {
@@ -75,4 +74,53 @@
         }
     }
 
+    &-footer {
+        width: calc(100% - 30px);
+        margin: 0 auto;
+        background-color: g.$palette-blue;
+    }
+
+    &-list {
+        max-width: g.$layout-width-inner;
+        margin: 0 auto;
+        padding: clamp(3.125rem, 1.942rem + 5.05vw, 6.25rem) 33px clamp(6.25rem, 3.885rem + 10.09vw, 12.5rem);
+
+        h3 {
+            font-size: clamp(1.25rem, 0.895rem + 1.51vw, 2.188rem);
+            text-align: center;
+            margin-bottom: clamp(3.125rem, 1.942rem + 5.05vw, 6.25rem);
+        }
+
+        h4 {
+            margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
+        }
+
+        ul {
+            list-style-type: none;
+            font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
+
+            .list-item {
+                margin-bottom: clamp(3.125rem, 2.652rem + 2.02vw, 4.375rem);
+
+                p {
+                    margin-bottom: 20px;
+                }
+
+                ul {
+                    list-style-type: disc;
+                    margin-bottom: 50px;
+
+                    li {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            .list-item:nth-of-type(2) {
+                p {
+                    color: g.$palette-lightblue;
+                }
+            }
+        }
+    }
 }
