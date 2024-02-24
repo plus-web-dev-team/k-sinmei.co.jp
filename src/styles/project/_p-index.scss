@@ -20,10 +20,10 @@
         transform: translateY(-50%);
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        height: 100%;
+        width: 10%;
 
         @include g.mq(sp) {
-            height: 130%;
+            width: 20%;
         }
 
         img {

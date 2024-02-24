@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
+import { Image } from "astro:assets";
+import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
+
 ---
 
 <Layout title="株式会社SINMEI">
@@ -8,7 +11,7 @@ import Cta from "../components/Cta.astro";
     <section class="top">
       <div class="top-inner">
         <div class="top-header">
-          <img src="/images/sinmei_name-logo_ol_white.svg" alt="" />
+          <Image src={sinmei_name_logo_ol_white} alt="" />
         </div>
         <div class="top-main">
           <div class="top-image">
