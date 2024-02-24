@@ -29,6 +29,18 @@
         align-items: center;
         gap: 10px;
 
+        @include g.mq('sp') {
+            width: 100%;
+        }
+
+        figure:is(figure:not(:last-child)) {
+            display: none;
+
+            @include g.mq('sp') {
+                display: block;
+            }
+        }
+
         a {
             position: relative;
             display: flex;
@@ -37,20 +49,17 @@
 
             &::after {
                 content: '';
-                width: 25px;
-                height: 25px;
+                width: 106px;
+                height: 21px;
+                margin-left: 10px;
                 background-image: url("/images/sinmei_name-logo.svg");
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
-            }
-        }
 
-        figure:nth-of-type(2) {
-            display: none;
-
-            @include g.mq('sp') {
-                display: block;
+                @include g.mq('sp') {
+                    display: none;
+                }
             }
         }
     }
