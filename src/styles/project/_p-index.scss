@@ -123,7 +123,7 @@
         align-items: flex-end;
 
         &_half {
-            width: 520px;
+            width: 560px;
 
             @include g.mq(sp) {
                 width: 100%;
@@ -560,6 +560,36 @@
         div:nth-of-type(1) {
             width: 626px;
 
+            h3 {
+                color: g.$palette-blue;
+                font-size: clamp(1.375rem, 0.784rem + 2.52vw, 2.938rem);
+                text-align: center;
+                line-height: 1.7;
+                letter-spacing: 0.03em;
+
+                span {
+                    padding: 10px 10px 0 10px;
+                }
+
+                span:nth-of-type(1) {
+                    background-color: g.$palette-blue;
+                    color: g.$palette-white;
+                    font-size: clamp(1.375rem, 0.547rem + 3.53vw, 3.563rem);
+                }
+
+                span:nth-of-type(2) {
+                    background-color: g.$palette-blue;
+                    color: g.$palette-white;
+                    font-size: clamp(1.375rem, 0.547rem + 3.53vw, 3.563rem);
+                }
+
+                span:nth-of-type(3) {
+                    background-color: g.$palette-lightblue;
+                    color: g.$palette-white;
+                    font-size: clamp(1.375rem, 0.547rem + 3.53vw, 3.563rem);
+                }
+            }
+
             @include g.mq(sp) {
                 width: 80%;
             }
@@ -635,7 +665,7 @@
             z-index: 2;
         }
 
-        div {
+        picture {
             flex: 1;
             position: relative;
             z-index: 3;

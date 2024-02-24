@@ -135,15 +135,16 @@ import Cta from "../components/Cta.astro";
           </div>
           <div class="top-partnership-text">
             <div>
-              <img
-                src="/images/partnership-text.svg"
-                alt="最も崇高な芸術とは人を幸せにすることだ"
-              />
+              <h3>
+                <span>青森の企業</span>から<br /><span>芸術・文化</span>の<span
+                  >発信</span
+                >を！
+              </h3>
             </div>
             <div>
               <img
                 src="/images/sinmei-ringomusume.svg"
-                alt="青森の企業から芸術・文化の発信を"
+                alt="SINMEI×RINGO MUSUME"
               />
             </div>
           </div>
@@ -163,24 +164,48 @@ import Cta from "../components/Cta.astro";
     <section class="top-recruit">
       <div class="top-recruit-inner">
         <div class="top-recruit-header">
-          <div>
-            <img src="/images/recruit-A.jpg" alt="画像" />
-          </div>
-          <div>
-            <img src="/images/recruit-B.jpg" alt="画像" />
-          </div>
-          <div>
-            <img src="/images/recruit-C.jpg" alt="画像" />
-          </div>
-          <div>
-            <img src="/images/recruit-D.jpg" alt="画像" />
-          </div>
-          <div>
-            <img src="/images/recruit-E.jpg" alt="画像" />
-          </div>
-          <div>
-            <img src="/images/recruit-F.jpg" alt="画像" />
-          </div>
+          <picture>
+            <source
+              srcset="/images/recruit-A.jpg"
+              media="(orientation: portrait)"
+            />
+            <img src="/images/recruit-A.jpg" alt="" />
+          </picture>
+          <picture>
+            <source
+              srcset="/images/recruit-B.jpg"
+              media="(orientation: portrait)"
+            />
+            <img src="/images/recruit-B.jpg" alt="" />
+          </picture>
+          <picture>
+            <source
+              srcset="/images/recruit-C.jpg"
+              media="(orientation: portrait)"
+            />
+            <img src="/images/recruit-C.jpg" alt="" />
+          </picture>
+          <picture>
+            <source
+              srcset="/images/recruit-D.jpg"
+              media="(orientation: portrait)"
+            />
+            <img src="/images/recruit-D.jpg" alt="" />
+          </picture>
+          <picture>
+            <source
+              srcset="/images/recruit-E.jpg"
+              media="(orientation: portrait)"
+            />
+            <img src="/images/recruit-E.jpg" alt="" />
+          </picture>
+          <picture>
+            <source
+              srcset="/images/recruit-F.jpg"
+              media="(orientation: portrait)"
+            />
+            <img src="/images/recruit-F.jpg" alt="" />
+          </picture>
         </div>
         <div class="top-recruit-main">
           <div class="top-recruit-tit">
@@ -195,7 +220,7 @@ import Cta from "../components/Cta.astro";
           <div class="top-recruit-link">
             <a href="">
               <p lang="en">read more</p>
-              <img src="/images/arrow.svg" alt="" width="40" />
+              <img src="/images/arrow.svg" alt="" />
             </a>
           </div>
         </div>
@@ -276,7 +301,5 @@ import Cta from "../components/Cta.astro";
         </div>
       </div>
     </section>
-
-    <style></style>
   </main>
 </Layout>
