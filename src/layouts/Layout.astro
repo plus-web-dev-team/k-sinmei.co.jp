@@ -48,10 +48,10 @@ import Footer from "../components/Footer.astro";
 
     const parallaxBackground = () => {
       if (isTopPage()) {
-        const scrollPosition = window.scrollY * 0.1;
+        const scrollPosition = window.scrollY * 0.08;
         document.querySelector(
           ".top-ourmission-inner",
-        ).style.backgroundPositionY = `${-150 + scrollPosition}px`;
+        ).style.backgroundPositionY = `${-140 + scrollPosition}px`;
       }
     };
 
