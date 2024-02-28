@@ -117,7 +117,11 @@ import Footer from "../components/Footer.astro";
         }
       }
 
-      currentPageSpan.textContent = `${currentPage}`;
+      if (currentPageSpan) {
+        currentPageSpan.textContent = `${currentPage}`;
+      } else {
+        console.error("currentPageSpan is null. Cannot set textContent.");
+      }
     }
 
     function nextSlide() {
@@ -130,8 +134,15 @@ import Footer from "../components/Footer.astro";
       showSlides((currentPage - 1) * pageSize);
     }
 
-    document.getElementById("nextBtn").addEventListener("click", nextSlide);
-    document.getElementById("prevBtn").addEventListener("click", prevSlide);
+    const nextBtn = document.getElementById("nextBtn");
+    if (nextBtn) {
+      nextBtn.addEventListener("click", nextSlide);
+    }
+
+    const prevBtn = document.getElementById("prevBtn");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", prevSlide);
+    }
 
     showSlides(0);
   </script>
