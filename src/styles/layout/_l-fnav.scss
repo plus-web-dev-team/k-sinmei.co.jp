@@ -4,9 +4,15 @@
     background-color: g.$palette-blue;
     font-weight: 800;
     background-image: url(/images/sinmei_name-logo_ol_blue.svg);
-    background-size: 100px;
+    background-size: 120px;
     background-repeat: no-repeat;
-    background-position: top 10% right;
+    background-position: center right 20%;
+
+    @include g.mq('sp') {
+        background-size: 100px;
+        background-repeat: no-repeat;
+        background-position: top 10% right;
+    }
 
     &-inner {
         font-size: 20px;

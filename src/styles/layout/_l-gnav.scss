@@ -18,6 +18,14 @@
         justify-content: center;
         gap: 3px;
 
+        a {
+            margin-bottom: 20px;
+        }
+
+        @include g.mq('sp') {
+            gap: 0;
+        }
+
         &::after {
             content: '';
             display: block;
@@ -27,6 +35,10 @@
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
+
+            @include g.mq('sp') {
+                display: none;
+            }
         }
     }
 
@@ -109,6 +121,10 @@
         padding: 0;
 
         @include g.mq('sp') {
+            li {
+                margin-bottom: 30px;
+            }
+
             display: none;
             position: fixed;
             top: 0;
@@ -130,7 +146,6 @@
                 display: inline;
                 font-size: 11px;
                 margin-left: 10px;
-                margin-bottom: 24px;
             }
         }
 
