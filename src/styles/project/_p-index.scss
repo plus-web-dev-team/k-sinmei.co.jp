@@ -502,23 +502,9 @@
 
 .top-partnership {
     &-inner {
-        color: g.$palette-white;
+        color: g.$palette-blue;
         width: 100%;
-        background: g.$palette-blue;
         position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: g.$palette-white;
-            clip-path: polygon(60% 35%, 60% 23%, 100% 23%, 100% 100%, 0 100%, 0 35%);
-            z-index: 2;
-            opacity: 1;
-        }
     }
 
     &-main {
@@ -554,10 +540,10 @@
     }
 
     &-text {
-        margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
 
         div:nth-of-type(1) {
             width: 626px;
+            margin: 0 auto;
 
             h3 {
                 color: g.$palette-blue;
@@ -565,6 +551,7 @@
                 text-align: center;
                 line-height: 1.7;
                 letter-spacing: 0.03em;
+                margin-bottom: clamp(1.875rem, 0.692rem + 5.05vw, 5rem);
 
                 span {
                     padding: 10px 10px 0 10px;
@@ -593,8 +580,6 @@
                 width: 80%;
             }
 
-            margin: 0 auto clamp(1.875rem, 0.834rem + 4.44vw, 4.625rem);
-
             img {
                 width: 100%;
             }
@@ -602,7 +587,7 @@
 
         div:nth-of-type(2) {
             width: 467px;
-            margin: 0 auto;
+            margin: 0 auto clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
 
             @include g.mq(sp) {
                 width: 80%;
