@@ -12,6 +12,22 @@
 
     &-dropbtn {
         cursor: default;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 1em;
+            height: 1em;
+            background-image: url('/images/gnav-arrow.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
     }
 
     &-inner {
