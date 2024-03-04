@@ -8,7 +8,18 @@ import Cta from "../components/Cta.astro";
     <section class="recruit">
       <div class="recruit-inner">
         <div class="recruit-header">
-          <img src="/images/recruit_top.jpg" alt="" />
+          <picture>
+            <source
+              media="(min-width: 576px)"
+              srcset="/images/recruit_top.jpg"
+            />
+            <source
+              media="(max-width: 575px)"
+              srcset="/images/recruit_top-sp.jpg"
+            />
+            <img src="/images/recruit_top.jpg" alt="Description" />
+          </picture>
+          <div><img src="/images/recruit-top.svg" alt="" /></div>
         </div>
         <div class="recruit-main">
           <div class="recruit-tit">

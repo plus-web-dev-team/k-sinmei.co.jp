@@ -3,7 +3,10 @@
 .footer {
     background-color: g.$palette-blue;
     font-weight: 800;
-    background-image: url(/images/shinmei_name-logo_ol_blue.svg);
+    background-image: url(/images/sinmei_name-logo_ol_blue.svg);
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: top 10% right;
 
     &-inner {
         font-size: 20px;

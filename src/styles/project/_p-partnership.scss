@@ -97,10 +97,10 @@
 
         article:nth-of-type(2) {
             h3 {
-                font-size: clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+                font-size: clamp(1.75rem, 0.757rem + 4.24vw, 4.375rem);
                 text-align: center;
                 letter-spacing: 0.08em;
-                margin-bottom: clamp(6.56vw, 9.375rem + 5.313rem, 3.775rem);
+                margin-bottom: clamp(8.125rem, 5.76rem + 10.09vw, 14.375rem);
 
 
                 span {
@@ -117,7 +117,7 @@
 
             div {
                 position: relative;
-                min-height: 1226px;
+                min-height: clamp(43.75rem, 31.381rem + 52.77vw, 76.438rem);
                 z-index: 2;
 
                 a {
@@ -134,6 +134,11 @@
                     top: 40%;
                     right: 5%;
                     z-index: 1;
+
+                    @include g.mq('sp') {
+                        top: 50%;
+                        right: 0;
+                    }
                 }
 
                 picture:nth-of-type(1) {
@@ -144,10 +149,11 @@
                     width: clamp(15rem, 8.07rem + 29.57vw, 33.313rem);
 
                     @include g.mq('sp') {
+                        top: 10%;
                         left: 50%;
-                        transform: translateX(-50%);
-                        -webkit-transform: translateX(-50%);
-                        -ms-transform: translateX(-50%);
+                        transform: translateX(-50%) rotate(-7deg);
+                        -webkit-transform: translateX(-50%) rotate(-7deg);
+                        -ms-transform: translateX(-50%) rotate(-7deg);
                     }
                 }
 
@@ -155,13 +161,11 @@
                     position: absolute;
                     top: -7%;
                     right: -8%;
-                    width: clamp(9.875rem, 5.571rem + 18.37vw, 21.25rem);
+                    width: clamp(7.5rem, 2.297rem + 22.2vw, 21.25rem);
 
                     @include g.mq('sp') {
-                        left: 50%;
-                        transform: translateX(-50%);
-                        -webkit-transform: translateX(-50%);
-                        -ms-transform: translateX(-50%);
+                        top: -5%;
+                        right: 0;
                     }
                 }
 
@@ -170,13 +174,10 @@
                     top: 40%;
                     left: 0;
                     transform: rotate(-13deg);
-                    width: clamp(9.875rem, 5.571rem + 18.37vw, 21.25rem);
+                    width: clamp(7.5rem, 2.297rem + 22.2vw, 21.25rem);
 
                     @include g.mq('sp') {
-                        left: 50%;
-                        transform: translateX(-50%);
-                        -webkit-transform: translateX(-50%);
-                        -ms-transform: translateX(-50%);
+                        top: 50%;
                     }
                 }
 
@@ -185,13 +186,11 @@
                     bottom: 15%;
                     right: -10%;
                     transform: rotate(30deg);
-                    width: clamp(9.875rem, 5.571rem + 18.37vw, 21.25rem);
+                    width: clamp(7.5rem, 2.297rem + 22.2vw, 21.25rem);
 
                     @include g.mq('sp') {
-                        left: 50%;
-                        transform: translateX(-50%);
-                        -webkit-transform: translateX(-50%);
-                        -ms-transform: translateX(-50%);
+                        bottom: 13%;
+                        right: 0;
                     }
                 }
             }
@@ -206,6 +205,7 @@
 
             div {
                 position: relative;
+                z-index: 3;
                 margin-bottom: clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
 
                 h3 {
@@ -229,6 +229,12 @@
                 bottom: -50%;
                 left: -10%;
                 transform: rotate(-17deg);
+                width: clamp(12.5rem, 4.175rem + 35.52vw, 34.5rem);
+
+                @include g.mq('sp') {
+                    left: 0;
+                    transform: rotate(-17deg);
+                }
             }
         }
     }
