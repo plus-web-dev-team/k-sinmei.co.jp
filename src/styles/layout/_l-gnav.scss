@@ -61,11 +61,21 @@
             width: 100%;
         }
 
+        figure {
+            width: 106px;
+            height: auto;
+        }
+
         figure:is(figure:not(:last-child)) {
             display: none;
 
             @include g.mq('sp') {
                 display: block;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
             }
         }
 
@@ -74,6 +84,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            figure {
+                width: 25px;
+            }
 
             &::after {
                 content: '';
@@ -142,6 +156,16 @@
                 display: inline;
                 font-size: 11px;
                 margin-left: 10px;
+            }
+
+            figure {
+                width: 130px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+
+                }
             }
         }
 

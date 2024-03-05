@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
 import Carousel from "../components/Carousel.astro";
+import { Picture } from "astro:assets";
+import workstop from "../images/workstop.jpg";
 ---
 
 <Layout title="株式会社SINMEIについて | 株式会社SINMEI">
@@ -9,7 +11,7 @@ import Carousel from "../components/Carousel.astro";
     <section class="works">
       <div class="works-inner">
         <div class="works-header">
-          <img src="/images/workstop.jpg" alt="" />
+          <Picture src={workstop} formats={["avif", "webp"]} alt="説明文" />
         </div>
         <div class="works-main">
           <div class="works-tit">

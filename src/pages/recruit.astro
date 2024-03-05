@@ -1,6 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
+import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import recruit_top from "../images/recruit_top.jpg";
+import recruit_top_svg from "../images/recruit-top.svg";
+import recruit_slide001 from "../images/recruit-slide001.jpg";
+import recruit_slide002 from "../images/recruit-slide002.jpg";
+import recruit_slide003 from "../images/recruit-slide003.jpg";
+import recruit_slide004 from "../images/recruit-slide004.jpg";
+import recruit_slide005 from "../images/recruit-slide005.jpg";
+import recruit_slide006 from "../images/recruit-slide006.jpg";
+import recruit_slide007 from "../images/recruit-slide007.jpg";
+import recruit_slide008 from "../images/recruit-slide008.jpg";
+import recruit_slide009 from "../images/recruit-slide009.jpg";
+import recruit_slide010 from "../images/recruit-slide010.jpg";
+import images_arrow from "../images/arrow.svg";
 ---
 
 <Layout title="採用情報 | 株式会社SINMEI">
@@ -8,18 +23,8 @@ import Cta from "../components/Cta.astro";
     <section class="recruit">
       <div class="recruit-inner">
         <div class="recruit-header">
-          <picture>
-            <source
-              media="(min-width: 576px)"
-              srcset="/images/recruit_top.jpg"
-            />
-            <source
-              media="(max-width: 575px)"
-              srcset="/images/recruit_top-sp.jpg"
-            />
-            <img src="/images/recruit_top.jpg" alt="Description" />
-          </picture>
-          <div><img src="/images/recruit-top.svg" alt="" /></div>
+          <Picture src={recruit_top} formats={["avif", "webp"]} alt="説明文" />
+          <div><Image src={recruit_top_svg} alt="" /></div>
         </div>
         <div class="recruit-main">
           <div class="recruit-tit">
@@ -31,40 +36,40 @@ import Cta from "../components/Cta.astro";
             <div class="recruit-carousel">
               <div class="recruit-carousel-wrapper">
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide001.jpg" alt="Image 1" />
+                  <Image src={recruit_slide001} alt="Image 1" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide002.jpg" alt="Image 2" />
+                  <Image src={recruit_slide002} alt="Image 2" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide003.jpg" alt="Image 3" />
+                  <Image src={recruit_slide003} alt="Image 3" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide004.jpg" alt="Image 3" />
+                  <Image src={recruit_slide004} alt="Image 4" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide005.jpg" alt="Image 3" />
+                  <Image src={recruit_slide005} alt="Image 5" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide006.jpg" alt="Image 3" />
+                  <Image src={recruit_slide006} alt="Image 6" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide007.jpg" alt="Image 3" />
+                  <Image src={recruit_slide007} alt="Image 7" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide008.jpg" alt="Image 3" />
+                  <Image src={recruit_slide008} alt="Image 8" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide009.jpg" alt="Image 3" />
+                  <Image src={recruit_slide009} alt="Image 9" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <img src="/images/recruit-slide010.jpg" alt="Image 3" />
+                  <Image src={recruit_slide010} alt="Image 10" />
                 </div>
               </div>
               <div class="recruit-carousel-pager">
                 <span>Scroll</span>
                 <button class="recruit-carousel-next">
-                  <img src="/images/arrow.svg" alt="Next" />
+                  <Image src={images_arrow} alt="Next" />
                 </button>
               </div>
             </div>

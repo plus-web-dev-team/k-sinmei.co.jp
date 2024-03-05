@@ -1,21 +1,21 @@
+---
+import { Image } from "astro:assets";
+import sinmei_logo_icon from "../images/sinmei_logo-icon.svg";
+import sinmei_name_logo from "../images/sinmei_name-logo.svg";
+import sinmei_logo from "../images/sinmei-logo.svg";
+import sinmei_instagram from "../images/instagram.svg";
+---
+
 <nav class="gnav">
   <div class="gnav-inner">
     <div class="gnav-main">
       <a href="/">
         <figure>
-          <img
-            src="/images/sinmei_logo-icon.svg"
-            alt="SINMEIロゴ"
-            height="25px"
-          />
+          <Image src={sinmei_logo_icon} alt="" />
         </figure>
       </a>
       <figure>
-        <img
-          src="/images/sinmei_name-logo.svg"
-          alt="SINMEIネームロゴ"
-          height="25px"
-        />
+        <Image src={sinmei_name_logo} alt="" />
       </figure>
       <button class="gnav-hamburger" aria-label="Menu">
         <span class="gnav-hamburger-line"></span>
@@ -26,7 +26,7 @@
     <ul class="gnav-list">
       <li class="hidden">
         <figure>
-          <img src="/images/sinmei-logo.svg" alt="" width="128" />
+          <Image src={sinmei_logo} alt="" />
         </figure>
       </li>
       <li class="gnav-dropdown">
@@ -77,13 +77,13 @@
       </li>
       <li class="hidden">
         <a href="https://www.instagram.com/sinmei4320/">
-          <figure><img src="/images/instagram.svg" alt="Instagram" /></figure>
+          <figure><Image src={sinmei_instagram} alt="" /></figure>
         </a>
       </li>
     </ul>
     <div class="gnav-icon">
       <a href="https://www.instagram.com/sinmei4320/">
-        <figure><img src="/images/instagram.svg" alt="Instagram" /></figure>
+        <figure><Image src={sinmei_instagram} alt="" /></figure>
       </a>
     </div>
   </div>

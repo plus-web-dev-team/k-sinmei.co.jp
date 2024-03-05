@@ -1,6 +1,12 @@
 ---
+import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
+import companytop from "../images/companytop.jpg";
+import arrow_down_blue from "../images/arrow-down-blue.svg";
+import company_ninteisyo from "../images/company_ninteisyo.jpg";
+import company_shiteisyo from "../images/company_shiteisyo.jpg";
 ---
 
 <Layout title="株式会社SINMEIについて | 株式会社SINMEIについて">
@@ -8,7 +14,7 @@ import Cta from "../components/Cta.astro";
     <section class="company">
       <div class="company-inner">
         <div class="company-header">
-          <img src="/images/companytop.jpg" alt="" />
+          <Picture src={companytop} formats={["avif", "webp"]} alt="説明文" />
         </div>
         <div class="company-main">
           <div class="company-tit">
@@ -25,7 +31,7 @@ import Cta from "../components/Cta.astro";
             <div class="accordion-item">
               <div class="accordion-header">
                 <h2>会社概要</h2>
-                <img src="/images/arrow-down-blue.svg" alt="" />
+                <Image src={arrow_down_blue} alt="" />
               </div>
               <div class="accordion-content">
                 <article>
@@ -105,11 +111,11 @@ import Cta from "../components/Cta.astro";
                   <div>
                     <div>
                       <h5>認定書（Hグレード）</h5>
-                      <img src="/images/company_ninteisyo.jpg" alt="" />
+                      <Image src={company_ninteisyo} alt="" />
                     </div>
                     <div>
                       <h5>指定書（Hグレード）</h5>
-                      <img src="/images/company_ninteisyo.jpg" alt="" />
+                      <Image src={company_shiteisyo} alt="" />
                     </div>
                   </div>
                 </article>
@@ -118,7 +124,7 @@ import Cta from "../components/Cta.astro";
             <div class="accordion-item">
               <div class="accordion-header">
                 <h2>沿 革</h2>
-                <img src="/images/arrow-down-blue.svg" alt="" />
+                <Image src={arrow_down_blue} alt="" />
               </div>
               <div class="accordion-content">
                 <article>

@@ -1,6 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
+import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import sdgstop from "../images/sdgstop.jpg";
+import images_sdgs_logo from "../images/sdgs_logo.png";
+import sdgs17set from "../images/sdgs17set.png";
+import sdgs5set from "../images/sdgs5set.png";
+import sdgs05 from "../images/sdgs05.jpg";
+import sdgs07 from "../images/sdgs07.jpg";
+import sdgs08 from "../images/sdgs08.jpg";
+import sdgs09 from "../images/sdgs09.jpg";
+import sdgs11 from "../images/sdgs11.jpg";
+import sdgs12 from "../images/sdgs12.jpg";
+import sdgs3set from "../images/sdgs3set.svg";
+import sdgs2set from "../images/sdgs2set.svg";
+import sdgs2set02 from "../images/sdgs2set02.svg";
+import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
 ---
 
 <Layout title="持続可能な開発目標 | 株式会社SINMEI">
@@ -8,7 +24,7 @@ import Cta from "../components/Cta.astro";
     <section class="sdgs">
       <div class="sdgs-inner">
         <div class="sdgs-header">
-          <img src="/images/sdgstop.jpg" alt="" />
+          <Picture src={sdgstop} formats={["avif", "webp"]} alt="説明文" />
         </div>
         <div class="sdgs-main">
           <div class="sdgs-subtit">
@@ -20,32 +36,18 @@ import Cta from "../components/Cta.astro";
             <h2>持続可能な開発目標</h2>
           </div>
           <div class="sdgs-list">
-            <ul>
+            <ul class="list01">
               <li>
-                <picture>
-                  <source
-                    srcset="/images/sdgs_logo.png"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sdgs_logo.png"
-                    alt=""
-                    width="740"
-                    height="92"
-                  />
-                </picture>
-                <picture>
-                  <source
-                    srcset="/images/sdgs17set.png"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sdgs17set.png"
-                    alt=""
-                    width="950"
-                    height="466"
-                  />
-                </picture>
+                <Picture
+                  src={images_sdgs_logo}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
+                <Picture
+                  src={sdgs17set}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
               </li>
               <li>
                 <p>
@@ -53,7 +55,7 @@ import Cta from "../components/Cta.astro";
                 </p>
               </li>
             </ul>
-            <ul>
+            <ul class="list02">
               <li>
                 <h3>持続可能な<br />開発目標（SDGs）とは</h3>
               </li>
@@ -74,23 +76,16 @@ import Cta from "../components/Cta.astro";
                 </p>
               </li>
             </ul>
-            <ul>
+            <ul class="list03">
               <li>
                 <h3>株式会社SINMEIのSDGs</h3>
               </li>
               <li>
-                <picture>
-                  <source
-                    srcset="/images/sdgs5set.png"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sdgs5set.png"
-                    alt=""
-                    width="518"
-                    height="317"
-                  />
-                </picture>
+                <Picture
+                  src={sdgs5set}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
               </li>
               <li>
                 <ul>
@@ -131,18 +126,7 @@ import Cta from "../components/Cta.astro";
                 </ul>
               </li>
               <li>
-                <picture>
-                  <source
-                    srcset="/images/sdgs05.jpg"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sdgs05.jpg"
-                    alt=""
-                    width="144"
-                    height="144"
-                  />
-                </picture>
+                <Picture src={sdgs05} formats={["avif", "webp"]} alt="説明文" />
               </li>
               <li>
                 <ul>
@@ -154,18 +138,7 @@ import Cta from "../components/Cta.astro";
                 </ul>
               </li>
               <li>
-                <picture>
-                  <source
-                    srcset="/images/sdgs07.jpg"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sdgs07.jpg"
-                    alt=""
-                    width="144"
-                    height="144"
-                  />
-                </picture>
+                <Picture src={sdgs07} formats={["avif", "webp"]} alt="説明文" />
               </li>
               <li>
                 <ul>
@@ -179,32 +152,15 @@ import Cta from "../components/Cta.astro";
               </li>
               <li>
                 <div>
-                  <picture>
-                    <source
-                      srcset="/images/sdgs08.jpg"
-                      media="(orientation: portrait)"
-                    />
-                    <img
-                      src="/images/sdgs08.jpg"
-                      alt=""
-                      width="144"
-                      height="144"
-                    />
-                  </picture>
-                  <picture>
-                    <source
-                      srcset="/images/sdgs09.jpg"
-                      media="(orientation: portrait)"
-                    />
-                    <img
-                      src="/images/sdgs09.jpg"
-                      alt=""
-                      width="144"
-                      height="144"
-                    />
-                  </picture>
+                  <Picture
+                    src={sdgs2set}
+                    formats={["avif", "webp"]}
+                    alt="説明文"
+                  />
                 </div>
               </li>
+            </ul>
+            <ul class="list04">
               <li>
                 <ul>
                   <li>
@@ -216,34 +172,19 @@ import Cta from "../components/Cta.astro";
                   </li>
                 </ul>
               </li>
+            </ul>
+            <ul class="list05">
               <li>
                 <div>
-                  <picture>
-                    <source
-                      srcset="/images/sdgs11.jpg"
-                      media="(orientation: portrait)"
-                    />
-                    <img
-                      src="/images/sdgs11.jpg"
-                      alt=""
-                      width="144"
-                      height="144"
-                    />
-                  </picture>
-                  <picture>
-                    <source
-                      srcset="/images/sdgs12.jpg"
-                      media="(orientation: portrait)"
-                    />
-                    <img
-                      src="/images/sdgs12.jpg"
-                      alt=""
-                      width="144"
-                      height="144"
-                    />
-                  </picture>
+                  <Picture
+                    src={sdgs2set02}
+                    formats={["avif", "webp"]}
+                    alt="説明文"
+                  />
                 </div>
               </li>
+            </ul>
+            <ul class="list06">
               <li>
                 <ul>
                   <li>
@@ -256,38 +197,24 @@ import Cta from "../components/Cta.astro";
                 </ul>
               </li>
             </ul>
-            <ul>
+            <ul class="list07">
               <li>
                 <h3>パートナーシップ協定</h3>
               </li>
               <li>
-                <picture>
-                  <source
-                    srcset="/images/sinmei-ringomusume_white.svg"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sinmei-ringomusume_white.svg"
-                    alt=""
-                    width="467"
-                    height="350"
-                  />
-                </picture>
-                <picture>
-                  <source
-                    srcset="/images/sdgs3set.svg"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/sdgs3set.svg"
-                    alt=""
-                    width="518"
-                    height="144"
-                  />
-                </picture>
+                <Picture
+                  src={sinmei_ringomusume_white}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
+                <Picture
+                  src={sdgs3set}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
               </li>
             </ul>
-            <ul>
+            <ul class="list08">
               <li>
                 <h4>私たちができることとは？</h4>
                 <p>
@@ -307,8 +234,8 @@ import Cta from "../components/Cta.astro";
         </div>
       </div>
     </section>
-    <Cta />
   </main>
+  <Cta />
 </Layout>
 
 <style></style>

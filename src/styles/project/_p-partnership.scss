@@ -10,6 +10,10 @@
         position: relative;
         height: calc(100vh - 60px);
 
+        @include g.mq(sp) {
+            height: auto;
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -23,10 +27,14 @@
             opacity: 1;
         }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        picture {
+            display: inline;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 
@@ -88,6 +96,14 @@
                 margin-bottom: clamp(0.625rem, 0.152rem + 2.02vw, 1.875rem);
                 display: flex;
                 justify-content: center;
+                width: clamp(13.438rem, 7.478rem + 25.43vw, 29.188rem);
+                height: auto;
+                margin: 0 auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
             }
 
             p {
@@ -155,6 +171,11 @@
                         -webkit-transform: translateX(-50%) rotate(-7deg);
                         -ms-transform: translateX(-50%) rotate(-7deg);
                     }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
                 }
 
                 picture:nth-of-type(2) {
@@ -166,6 +187,11 @@
                     @include g.mq('sp') {
                         top: -5%;
                         right: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
                     }
                 }
 
@@ -179,6 +205,11 @@
                     @include g.mq('sp') {
                         top: 50%;
                     }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
                 }
 
                 picture:nth-of-type(4) {
@@ -191,6 +222,11 @@
                     @include g.mq('sp') {
                         bottom: 13%;
                         right: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
                     }
                 }
             }
@@ -234,6 +270,11 @@
                 @include g.mq('sp') {
                     left: 0;
                     transform: rotate(-17deg);
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
                 }
             }
         }

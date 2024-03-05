@@ -1,3 +1,9 @@
+---
+import { Image } from "astro:assets";
+import instagram from "../images/instagram.svg";
+import sinmei_logo from "../images/sinmei-logo.svg";
+---
+
 <nav class="footer-nav">
   <div class="footer-inner">
     <ul class="footer-list">
@@ -45,16 +51,12 @@
     </ul>
     <div class="footer-icon">
       <figure>
-        <img src="/images/instagram.svg" alt="株式会社SINMEI Instagram" />
+        <Image src={instagram} alt="株式会社SINMEI Instagram" />
       </figure>
     </div>
     <div class="footer-text" lang="ja">
       <figure>
-        <img
-          src="/images/sinmei-logo.svg"
-          alt="株式会社SINMEIロゴ"
-          width="128"
-        />
+        <Image src={sinmei_logo} alt="株式会社SINMEIロゴ" />
       </figure>
       <p>
         <span>本 社</span>

@@ -2,7 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
 import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
+import top_bg from "../images/top-bg.jpg";
+import arrow from "../images/arrow.svg";
+import sdgs_tit from "../images/sdgs-tit.svg";
+import sdgs_group from "../images/sdgs-group.svg";
+import sinmei_ringomusume from "../images/sinmei-ringomusume.svg";
+import arrow_blue from "../images/arrow-blue.svg";
+import recruit_A from "../images/recruit-A.jpg";
+import recruit_B from "../images/recruit-B.jpg";
+import recruit_C from "../images/recruit-C.jpg";
+import recruit_D from "../images/recruit-D.jpg";
+import recruit_E from "../images/recruit-E.jpg";
+import recruit_F from "../images/recruit-F.jpg";
 ---
 
 <Layout title="株式会社SINMEI">
@@ -14,14 +27,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
         </div>
         <div class="top-main">
           <div class="top-image">
-            <picture>
-              <source media="(min-width: 576px)" srcset="/images/top-bg.jpg" />
-              <source
-                media="(max-width: 575px)"
-                srcset="/images/top-bg-sp.jpg"
-              />
-              <img src="/images/top-bg.jpg" alt="Description" />
-            </picture>
+            <Picture src={top_bg} formats={["avif", "webp"]} alt="説明文" />
           </div>
         </div>
         <div class="top-tit">
@@ -49,7 +55,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
             <div class="top-company-link">
               <a href="/company">
                 <p lang="en">company</p>
-                <img src="/images/arrow.svg" alt="" width="40" />
+                <Image src={arrow} alt="" />
               </a>
             </div>
           </div>
@@ -83,7 +89,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
           <div class="top-works-link">
             <a href="/works">
               <p lang="en">works</p>
-              <img src="/images/arrow.svg" alt="" width="40" />
+              <Image src={arrow} alt="" />
             </a>
           </div>
         </div>
@@ -106,8 +112,8 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
             <h2>SDGs</h2>
           </div>
           <div class="top-sdgs-images">
-            <div><img src="/images/sdgs-tit.svg" alt="" /></div>
-            <div><img src="/images/sdgs-group.svg" alt="" /></div>
+            <div><Image src={sdgs_tit} alt="" /></div>
+            <div><Image src={sdgs_group} alt="" /></div>
           </div>
           <div class="top-sdgs-text">
             <h3>
@@ -117,7 +123,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
           <div class="top-sdgs-link">
             <a href="/sdgs">
               <p lang="en">read more</p>
-              <img src="/images/arrow.svg" alt="" width="40" />
+              <Image src={arrow} alt="" />
             </a>
           </div>
         </div>
@@ -138,20 +144,13 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
               </h3>
             </div>
             <div>
-              <img
-                src="/images/sinmei-ringomusume.svg"
-                alt="SINMEI×RINGO MUSUME"
-              />
+              <Image src={sinmei_ringomusume} alt="" />
             </div>
           </div>
           <div class="top-partnership-link">
             <a href="/partnership">
               <p lang="en">read more</p>
-              <img
-                src="/images/arrow-blue.svg"
-                alt="SINMEI×RINGO MUSUME"
-                width="40"
-              />
+              <Image src={arrow_blue} alt="" />
             </a>
           </div>
         </div>
@@ -160,48 +159,12 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
     <section class="top-recruit">
       <div class="top-recruit-inner">
         <div class="top-recruit-header">
-          <picture>
-            <source
-              srcset="/images/recruit-A.jpg"
-              media="(orientation: portrait)"
-            />
-            <img src="/images/recruit-A.jpg" alt="" />
-          </picture>
-          <picture>
-            <source
-              srcset="/images/recruit-B.jpg"
-              media="(orientation: portrait)"
-            />
-            <img src="/images/recruit-B.jpg" alt="" />
-          </picture>
-          <picture>
-            <source
-              srcset="/images/recruit-C.jpg"
-              media="(orientation: portrait)"
-            />
-            <img src="/images/recruit-C.jpg" alt="" />
-          </picture>
-          <picture>
-            <source
-              srcset="/images/recruit-D.jpg"
-              media="(orientation: portrait)"
-            />
-            <img src="/images/recruit-D.jpg" alt="" />
-          </picture>
-          <picture>
-            <source
-              srcset="/images/recruit-E.jpg"
-              media="(orientation: portrait)"
-            />
-            <img src="/images/recruit-E.jpg" alt="" />
-          </picture>
-          <picture>
-            <source
-              srcset="/images/recruit-F.jpg"
-              media="(orientation: portrait)"
-            />
-            <img src="/images/recruit-F.jpg" alt="" />
-          </picture>
+          <Picture src={recruit_A} formats={["avif", "webp"]} alt="説明文" />
+          <Picture src={recruit_B} formats={["avif", "webp"]} alt="説明文" />
+          <Picture src={recruit_C} formats={["avif", "webp"]} alt="説明文" />
+          <Picture src={recruit_D} formats={["avif", "webp"]} alt="説明文" />
+          <Picture src={recruit_E} formats={["avif", "webp"]} alt="説明文" />
+          <Picture src={recruit_F} formats={["avif", "webp"]} alt="説明文" />
         </div>
         <div class="top-recruit-main">
           <div class="top-recruit-tit">
@@ -216,7 +179,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
           <div class="top-recruit-link">
             <a href="/recruit">
               <p lang="en">read more</p>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src={arrow} alt="" />
             </a>
           </div>
         </div>
@@ -238,7 +201,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
               <div class="top-news-item_text">
                 <a href="/news/post-1/">
                   <p>採用情報を更新いたしました。</p>
-                  <img src="/images/arrow-blue.svg" alt="" width="25" />
+                  <Image src={arrow_blue} alt="" />
                 </a>
               </div>
             </li>
@@ -250,7 +213,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
               <div class="top-news-item_text">
                 <a href="/news/post-1/">
                   <p>採用情報を更新いたしました。</p>
-                  <img src="/images/arrow-blue.svg" alt="" width="25" />
+                  <Image src={arrow_blue} alt="" />
                 </a>
               </div>
             </li>
@@ -262,7 +225,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
               <div class="top-news-item_text">
                 <a href="/news/post-1/">
                   <p>採用情報を更新いたしました。</p>
-                  <img src="/images/arrow-blue.svg" alt="" width="25" />
+                  <Image src={arrow_blue} alt="" />
                 </a>
               </div>
             </li>
@@ -270,7 +233,7 @@ import sinmei_name_logo_ol_white from "../images/sinmei_name-logo_ol_white.svg";
           <div class="top-news-link">
             <a href="/news">
               <p lang="en">read more</p>
-              <img src="/images/arrow-blue.svg" alt="" width="40" />
+              <Image src={arrow_blue} alt="" />
             </a>
           </div>
         </div>

@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import arrow from "../images/arrow.svg";
+---
+
 <section class="cta">
   <div class="cta-inner">
     <div class="cta-main">
@@ -8,8 +13,8 @@
       <div class="cta-text">
         <a href="/contact"
           >フォームからのお問い合わせ
-          <img src="/images/arrow.svg" alt="ボタン" /></a
-        >
+          <Image src={arrow} alt="" />
+        </a>
       </div>
     </div>
   </div>

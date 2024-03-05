@@ -1,6 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
+import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import partnership_top from "../images/partnership_top.jpg";
+import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
+import partnership_pamphlet from "../images/partnership_pamphlet.jpg";
+import partnership_pink from "../images/partnership_pink.png";
+import partnership_king from "../images/partnership_king.png";
+import partnership_gurin from "../images/partnership_gurin.png";
+import partnership_kinsei from "../images/partnership_kinsei.png";
 ---
 
 <Layout title="パートナーシップ | 株式会社SINMEI">
@@ -8,7 +17,11 @@ import Cta from "../components/Cta.astro";
     <section class="partnership">
       <div class="partnership-inner">
         <div class="partnership-header">
-          <img src="/images/partnership_top.jpg" alt="" />
+          <Picture
+            src={partnership_top}
+            formats={["avif", "webp"]}
+            alt="説明文"
+          />
         </div>
         <div class="partnership-main">
           <div class="partnership-subtit">
@@ -21,17 +34,11 @@ import Cta from "../components/Cta.astro";
           </div>
           <div class="partnership-text">
             <article>
-              <picture>
-                <source
-                  srcset="/images/sinmei-ringomusume_white.svg"
-                  media="(orientation: portrait)"
-                />
-                <img
-                  src="/images/sinmei-ringomusume_white.svg"
-                  alt=""
-                  width="467"
-                />
-              </picture>
+              <Picture
+                src={sinmei_ringomusume_white}
+                formats={["avif", "webp"]}
+                alt="説明文"
+              />
             </article>
             <article>
               <h3>
@@ -41,38 +48,26 @@ import Cta from "../components/Cta.astro";
               <div>
                 <h4>コラボ企業<br />パンフレット</h4>
                 <a href="" lang="en">click</a>
-                <picture>
-                  <source
-                    srcset="/images/partnership_pamphlet.jpg"
-                    media="(orientation: portrait)"
-                  />
-                  <img
-                    src="/images/partnership_pamphlet.jpg"
-                    alt=""
-                    width="533"
-                  />
-                </picture>
-                <picture>
-                  <source
-                    srcset="/images/partnership_pink.png"
-                    media="(orientation: portrait)"
-                  />
-                  <img src="/images/partnership_pink.png" alt="" width="340" />
-                </picture>
-                <picture>
-                  <source
-                    srcset="/images/partnership_king.png"
-                    media="(orientation: portrait)"
-                  />
-                  <img src="/images/partnership_king.png" alt="" width="340" />
-                </picture>
-                <picture>
-                  <source
-                    srcset="/images/partnership_gurin.png"
-                    media="(orientation: portrait)"
-                  />
-                  <img src="/images/partnership_gurin.png" alt="" width="340" />
-                </picture>
+                <Picture
+                  src={partnership_pamphlet}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
+                <Picture
+                  src={partnership_pink}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
+                <Picture
+                  src={partnership_king}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
+                <Picture
+                  src={partnership_gurin}
+                  formats={["avif", "webp"]}
+                  alt="説明文"
+                />
               </div>
             </article>
             <article>
@@ -90,13 +85,11 @@ import Cta from "../components/Cta.astro";
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen></iframe>
               </div>
-              <picture>
-                <source
-                  srcset="/images/partnership_kinsei.png"
-                  media="(orientation: portrait)"
-                />
-                <img src="/images/partnership_kinsei.png" alt="" width="552" />
-              </picture>
+              <Picture
+                src={partnership_kinsei}
+                formats={["avif", "webp"]}
+                alt="説明文"
+              />
             </article>
           </div>
         </div>
