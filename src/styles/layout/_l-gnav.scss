@@ -35,6 +35,7 @@
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
+            margin-bottom: 3px;
 
             @include g.mq('sp') {
                 display: none;
