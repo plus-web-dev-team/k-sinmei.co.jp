@@ -34,14 +34,22 @@ import Pagetop from "../components/Pagetop.astro";
   </body>
   <script>
     const toggleMenu = () => {
-      document.querySelector(".gnav-list").classList.toggle("is-active");
-      document.querySelector(".gnav-hamburger").classList.toggle("is-active");
+      const gnavList = document.querySelector(".gnav-list");
+      const gnavHamburger = document.querySelector(".gnav-hamburger");
+      if (gnavList && gnavHamburger) {
+        gnavList.classList.toggle("is-active");
+        gnavHamburger.classList.toggle("is-active");
+      }
     };
 
     const changeNavBackground = () => {
       const nav = document.querySelector("header");
-      nav.style.backgroundColor =
-        window.scrollY > 60 ? "rgba(16, 45, 142, 0.8)" : "rgba(16, 45, 142, 1)";
+      if (nav) {
+        nav.style.backgroundColor =
+          window.scrollY > 60
+            ? "rgba(16, 45, 142, 0.8)"
+            : "rgba(16, 45, 142, 1)";
+      }
     };
 
     const isTopPage = () => {
@@ -51,9 +59,12 @@ import Pagetop from "../components/Pagetop.astro";
     const parallaxBackground = () => {
       if (isTopPage()) {
         const scrollPosition = window.scrollY * 0.08;
-        document.querySelector(
+        const topOurMissionInner = document.querySelector(
           ".top-ourmission-inner",
-        ).style.backgroundPositionY = `${-140 + scrollPosition}px`;
+        );
+        if (topOurMissionInner) {
+          topOurMissionInner.style.backgroundPositionY = `${-140 + scrollPosition}px`;
+        }
       }
     };
 
@@ -63,39 +74,43 @@ import Pagetop from "../components/Pagetop.astro";
       const header = item.querySelector(".accordion-header");
       const content = item.querySelector(".accordion-content");
 
-      header.addEventListener("click", () => {
-        content.classList.toggle("is-active");
-      });
-
-      header.addEventListener("click", (event) => {
-        accordionItems.forEach((accordion) => {
-          if (
-            accordion !== item &&
-            accordion
-              .querySelector(".accordion-content")
-              .classList.contains("is-active")
-          ) {
-            accordion
-              .querySelector(".accordion-content")
-              .classList.remove("is-active");
-          }
+      if (header && content) {
+        header.addEventListener("click", () => {
+          content.classList.toggle("is-active");
         });
-      });
+
+        header.addEventListener("click", (event) => {
+          accordionItems.forEach((accordion) => {
+            if (
+              accordion !== item &&
+              accordion
+                .querySelector(".accordion-content")
+                .classList.contains("is-active")
+            ) {
+              accordion
+                .querySelector(".accordion-content")
+                .classList.remove("is-active");
+            }
+          });
+        });
+      }
     });
 
     document.addEventListener("click", (event) => {
       if (!event.target.closest(".accordion-item")) {
         accordionItems.forEach((item) => {
-          item
-            .querySelector(".accordion-content")
-            .classList.remove("is-active");
+          const content = item.querySelector(".accordion-content");
+          if (content) {
+            content.classList.remove("is-active");
+          }
         });
       }
     });
 
-    document
-      .querySelector(".gnav-hamburger")
-      .addEventListener("click", toggleMenu);
+    const gnavHamburger = document.querySelector(".gnav-hamburger");
+    if (gnavHamburger) {
+      gnavHamburger.addEventListener("click", toggleMenu);
+    }
     window.addEventListener("scroll", changeNavBackground);
     window.addEventListener("scroll", parallaxBackground);
 
@@ -155,14 +170,23 @@ import Pagetop from "../components/Pagetop.astro";
         document.body.scrollTop > 20 ||
         document.documentElement.scrollTop > 20
       ) {
-        document.querySelector(".page-top").style.display = "block";
+        const pageTop = document.querySelector(".page-top");
+        if (pageTop) {
+          pageTop.style.display = "block";
+        }
       } else {
-        document.querySelector(".page-top").style.display = "none";
+        const pageTop = document.querySelector(".page-top");
+        if (pageTop) {
+          pageTop.style.display = "none";
+        }
       }
     }
 
     // Attach scrollToTop function to the button
-    document.querySelector(".page-top").addEventListener("click", scrollToTop);
+    const pageTopButton = document.querySelector(".page-top");
+    if (pageTopButton) {
+      pageTopButton.addEventListener("click", scrollToTop);
+    }
 
     function scrollToTop() {
       window.scrollTo({
