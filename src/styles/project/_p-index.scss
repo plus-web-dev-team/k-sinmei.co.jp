@@ -452,6 +452,7 @@
 
             img {
                 width: 100%;
+                height: auto;
             }
         }
 
@@ -460,6 +461,7 @@
 
             img {
                 width: 100%;
+                height: auto;
             }
         }
     }
@@ -520,7 +522,6 @@
         margin: 0 auto;
         padding: 182px 33px 200px;
         position: relative;
-        z-index: 2;
         font-weight: 800;
 
         @include g.mq(sp) {
