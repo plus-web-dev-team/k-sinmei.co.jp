@@ -5,12 +5,16 @@ import { Picture } from "astro:assets";
 import recruit_top from "../images/recruit_top.jpg";
 ---
 
-<Layout title="持続可能な開発目標 | 株式会社SINMEI">
+<Layout title="送信ありがとうございました | 株式会社SINMEI">
   <main>
     <section class="recruit-thanks">
       <div class="recruit-thanks-inner">
         <div class="recruit-thanks-header">
-          <Picture src={recruit_top} formats={["avif", "webp"]} alt="説明文" />
+          <Picture
+            src={recruit_top}
+            formats={["avif", "webp"]}
+            alt="採用情報 トップ画像"
+          />
         </div>
         <div class="recruit-thanks-main">
           <div class="recruit-thanks-tit">
@@ -30,5 +34,3 @@ import recruit_top from "../images/recruit_top.jpg";
     <Cta />
   </main>
 </Layout>
-
-<style></style>

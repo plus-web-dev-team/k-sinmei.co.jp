@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-import { Image } from "astro:assets";
 import { Picture } from "astro:assets";
 import sdgstop from "../images/sdgstop.jpg";
 import images_sdgs_logo from "../images/sdgs_logo.png";
@@ -20,7 +19,11 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
     <section class="sdgs">
       <div class="sdgs-inner">
         <div class="sdgs-header">
-          <Picture src={sdgstop} formats={["avif", "webp"]} alt="説明文" />
+          <Picture
+            src={sdgstop}
+            formats={["avif", "webp"]}
+            alt="SDG'sトップ画像"
+          />
         </div>
         <div class="sdgs-main">
           <div class="sdgs-subtit">
@@ -37,12 +40,12 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                 <Picture
                   src={images_sdgs_logo}
                   formats={["avif", "webp"]}
-                  alt="説明文"
+                  alt="SDG'sロゴ"
                 />
                 <Picture
                   src={sdgs17set}
                   formats={["avif", "webp"]}
-                  alt="説明文"
+                  alt="17の目標"
                 />
               </li>
               <li>
@@ -80,7 +83,7 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                 <Picture
                   src={sdgs5set}
                   formats={["avif", "webp"]}
-                  alt="説明文"
+                  alt="SDG'sアイコン 1、10、16、3、4"
                 />
               </li>
               <li>
@@ -122,7 +125,11 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                 </ul>
               </li>
               <li>
-                <Picture src={sdgs05} formats={["avif", "webp"]} alt="説明文" />
+                <Picture
+                  src={sdgs05}
+                  formats={["avif", "webp"]}
+                  alt="SDG'sアイコン 5"
+                />
               </li>
               <li>
                 <ul>
@@ -134,7 +141,11 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                 </ul>
               </li>
               <li>
-                <Picture src={sdgs07} formats={["avif", "webp"]} alt="説明文" />
+                <Picture
+                  src={sdgs07}
+                  formats={["avif", "webp"]}
+                  alt="SDG'sアイコン 7"
+                />
               </li>
               <li>
                 <ul>
@@ -151,7 +162,7 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                   <Picture
                     src={sdgs2set}
                     formats={["avif", "webp"]}
-                    alt="説明文"
+                    alt="SDG'sアイコン 8、9"
                   />
                 </div>
               </li>
@@ -175,7 +186,7 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                   <Picture
                     src={sdgs2set02}
                     formats={["avif", "webp"]}
-                    alt="説明文"
+                    alt="SDG'sアイコン 11、12"
                   />
                 </div>
               </li>
@@ -201,12 +212,12 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
                 <Picture
                   src={sinmei_ringomusume_white}
                   formats={["avif", "webp"]}
-                  alt="説明文"
+                  alt="SINMEI × RINGO MUSUME"
                 />
                 <Picture
                   src={sdgs3set}
                   formats={["avif", "webp"]}
-                  alt="説明文"
+                  alt="SDG'sアイコン 4、5、17"
                 />
               </li>
             </ul>
@@ -233,5 +244,3 @@ import sinmei_ringomusume_white from "../images/sinmei-ringomusume_white.svg";
   </main>
   <Cta />
 </Layout>
-
-<style></style>
