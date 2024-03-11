@@ -38,6 +38,10 @@
         }
     }
 
+    &-inner {
+        overflow-x: hidden;
+    }
+
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
