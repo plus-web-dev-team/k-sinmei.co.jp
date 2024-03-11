@@ -6,12 +6,16 @@ import { Picture } from "astro:assets";
 import workstop from "../images/workstop.jpg";
 ---
 
-<Layout title="株式会社SINMEIについて | 株式会社SINMEI">
+<Layout title="施工実績 | 株式会社SINMEI">
   <main>
     <section class="works">
       <div class="works-inner">
         <div class="works-header">
-          <Picture src={workstop} formats={["avif", "webp"]} alt="説明文" />
+          <Picture
+            src={workstop}
+            formats={["avif", "webp"]}
+            alt="施工実績 トップ画像"
+          />
         </div>
         <div class="works-main">
           <div class="works-tit">

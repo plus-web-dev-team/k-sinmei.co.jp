@@ -23,8 +23,12 @@ import images_arrow from "../images/arrow.svg";
     <section class="recruit">
       <div class="recruit-inner">
         <div class="recruit-header">
-          <Picture src={recruit_top} formats={["avif", "webp"]} alt="説明文" />
-          <div><Image src={recruit_top_svg} alt="" /></div>
+          <Picture
+            src={recruit_top}
+            formats={["avif", "webp"]}
+            alt="採用情報 トップ画像"
+          />
+          <div><Image src={recruit_top_svg} alt="SING ME&I" /></div>
         </div>
         <div class="recruit-main">
           <div class="recruit-tit">
@@ -36,40 +40,40 @@ import images_arrow from "../images/arrow.svg";
             <div class="recruit-carousel">
               <div class="recruit-carousel-wrapper">
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide001} alt="Image 1" />
+                  <Image src={recruit_slide001} alt="スライド1" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide002} alt="Image 2" />
+                  <Image src={recruit_slide002} alt="スライド2" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide003} alt="Image 3" />
+                  <Image src={recruit_slide003} alt="スライド3" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide004} alt="Image 4" />
+                  <Image src={recruit_slide004} alt="スライド4" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide005} alt="Image 5" />
+                  <Image src={recruit_slide005} alt="スライド5" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide006} alt="Image 6" />
+                  <Image src={recruit_slide006} alt="スライド6" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide007} alt="Image 7" />
+                  <Image src={recruit_slide007} alt="スライド7" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide008} alt="Image 8" />
+                  <Image src={recruit_slide008} alt="スライド8" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide009} alt="Image 9" />
+                  <Image src={recruit_slide009} alt="スライド9" />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide010} alt="Image 10" />
+                  <Image src={recruit_slide010} alt="スライド10" />
                 </div>
               </div>
               <div class="recruit-carousel-pager">
                 <span>Scroll</span>
                 <button class="recruit-carousel-next">
-                  <Image src={images_arrow} alt="Next" />
+                  <Image src={images_arrow} alt="スライドショー 次へボタン" />
                 </button>
               </div>
             </div>
@@ -176,7 +180,6 @@ import images_arrow from "../images/arrow.svg";
   </main>
 </Layout>
 
-<style></style>
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
     const slider = document.querySelector(".recruit-carousel-wrapper");
