@@ -185,35 +185,48 @@ import images_arrow from "../images/arrow.svg";
     const slider = document.querySelector(".recruit-carousel-wrapper");
     const slides = document.querySelectorAll(".recruit-carousel-item");
     const pager = document.querySelector(".recruit-carousel-pager");
-    const firstSlide = slides[0].cloneNode(true);
-    const lastSlide = slides[slides.length - 1].cloneNode(true);
-    slider.insertBefore(lastSlide, slider.firstChild);
-    slider.appendChild(firstSlide);
-    const slideWidth = 430; // スライドの幅を430pxに設定
-    let currentIndex = 1; // 最初の複製されたスライドを考慮
-    const pagerOffset = pager.getBoundingClientRect().left; // recruit-carousel-pagerの左端からの距離
+    const nextButton = document.querySelector(".recruit-carousel-next");
 
-    // 初期位置を設定（pagerOffsetを考慮）
-    slider.style.transform = `translateX(${-(slideWidth * currentIndex) + pagerOffset}px)`;
+    const slideWidth = 430 + 30; // スライドの幅に margin-right の幅を加える
+    const pagerOffset = pager.getBoundingClientRect().left; // recruit-carousel-pagerの左端からの距離
+    let currentIndex = 1 + Math.floor(pagerOffset / slideWidth); // 最初のスライドの位置を調整
+
+    // 最初と最後のスライドのクローンを追加
+    const firstSlideClone = slides[0].cloneNode(true);
+    const lastSlideClone = slides[slides.length - 1].cloneNode(true);
+    slider.appendChild(firstSlideClone);
+    slider.insertBefore(lastSlideClone, slides[0]);
+
+    // 初期位置を設定
+    const initialTranslateX = -(slideWidth * (currentIndex + 1)) + pagerOffset; // スライダーの初期位置
+    slider.style.transform = `translateX(${initialTranslateX}px)`;
 
     function nextSlide() {
       currentIndex++;
+      const offset = -(slideWidth * (currentIndex + 1)) + pagerOffset;
+      slider.style.transition = "transform 0.5s ease";
+      slider.style.transform = `translateX(${offset}px)`;
+
+      // 最後のクローンスライドに到達したら、最初のスライドに戻る
       if (currentIndex >= slides.length + 1) {
-        // 最後の本来のスライドに到達したら
-        currentIndex = 2; // 実質的な最初のスライドに戻る
-        slider.style.transition = "none"; // トランジションを無効にして瞬時に移動
-        slider.style.transform = `translateX(${-(slideWidth * (currentIndex - 1)) + pagerOffset}px)`;
-        setTimeout(() => (slider.style.transition = "transform 0.5s ease"), 0); // トランジションを再度有効にする
-      } else {
-        updateSlider();
+        setTimeout(() => {
+          currentIndex = 1;
+          slider.style.transition = "none";
+          slider.style.transform = `translateX(${-(slideWidth * (currentIndex + 1)) + pagerOffset}px)`;
+          // ブラウザがスタイルの反映に時間を要するため、setTimeoutを使用してアニメーションの途中で次の移動を実行
+          setTimeout(() => {
+            slider.style.transition = "transform 0.5s ease";
+            slider.style.transform = `translateX(${-(slideWidth * (currentIndex + 2)) + pagerOffset}px)`;
+          }, 50);
+        }, 500);
       }
     }
 
-    function updateSlider() {
-      const offset = -(slideWidth * currentIndex) + pagerOffset;
-      slider.style.transform = `translateX(${offset}px)`;
-    }
+    nextButton.addEventListener("click", () => {
+      nextSlide();
+    });
 
+    // 自動スライド機能を追加
     setInterval(nextSlide, 5000);
   });
 </script>
