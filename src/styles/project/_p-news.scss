@@ -85,6 +85,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            img {
+                transition: transform 0.5s ease;
+            }
+        }
+
+        &-main:hover img {
+            transform: translateX(10px);
+            transition: transform 0.5s ease;
         }
 
         &:last-child {
@@ -146,6 +155,8 @@
             justify-content: center;
             text-decoration: none;
             gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+            position: relative;
+            transition: width 0.3s ease;
 
             p {
                 font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
@@ -155,6 +166,32 @@
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
             }
+        }
+
+        a:nth-of-type(2)::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: g.$palette-blue;
+            animation: underlineAnimation 2s infinite;
+            transition: width 0.3s ease;
+            visibility: hidden;
+        }
+
+        a:nth-of-type(2):hover::before,
+        a:nth-of-type(2):focus::before {
+            visibility: visible;
+            width: 100%;
+            animation-play-state: paused;
+        }
+
+        a:nth-of-type(2):not(:hover):not(:focus)::before {
+            visibility: hidden;
+            width: 0;
+            animation-play-state: running;
         }
 
         span {

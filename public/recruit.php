@@ -262,7 +262,7 @@ if (($confirmDsp == 0 || $sendmail == 1) && $empty_flag != 1) {
 				<div class="contact-inner">
 					<div class="contact-main">
 						<div class="contact-tit">
-							<p lang="en">contact us</p>
+							<p lang="en">ENTRY FORM</p>
 							<h2>確認画面</h2>
 						</div>
 						<?php if ($empty_flag == 1) { ?>

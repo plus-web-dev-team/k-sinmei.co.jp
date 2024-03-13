@@ -29,6 +29,7 @@
         a {
             text-decoration: none;
         }
+
     }
 
     &-list {
@@ -58,6 +59,25 @@
                 align-items: flex-start;
                 gap: 10px;
             }
+        }
+
+        a {
+            position: relative;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: g.$palette-white;
+            transition: width 0.3s ease;
+        }
+
+        a:hover::before {
+            width: 100%;
         }
     }
 

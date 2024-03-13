@@ -36,11 +36,40 @@
             background-size: contain;
             background-position: center;
             margin-bottom: 3px;
+            transform: rotate(270deg);
+            transition: transform 0.5s ease;
 
             @include g.mq('sp') {
                 display: none;
             }
         }
+
+        &:hover::after {
+            transform: rotate(360deg);
+        }
+    }
+
+    &-dropbtn::before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 0 !important;
+        background-color: black;
+        animation: underlineAnimation 2s infinite;
+        transition: width 0.3s ease;
+        visibility: hidden;
+    }
+
+    &-dropbtn:not(:hover)::before {
+        visibility: visible;
+        width: 100%;
+        animation-play-state: paused;
+    }
+
+    &-dropbtn:hover::before {
+        visibility: hidden;
     }
 
     &-inner {
@@ -148,6 +177,25 @@
             padding: 52px 24px 60px;
             margin-top: 60px;
             font-size: 22px;
+        }
+
+        a {
+            position: relative;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: g.$palette-white;
+            transition: width 0.3s ease;
+        }
+
+        a:hover::before {
+            width: 100%;
         }
 
         .hidden {

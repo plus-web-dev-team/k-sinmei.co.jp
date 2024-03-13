@@ -211,6 +211,14 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        a:hover {
+            img {
+                transform: translateX(10px);
+                transition: transform 0.5s ease;
             }
         }
     }
@@ -316,6 +324,14 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        a:hover {
+            img {
+                transform: translateX(10px);
+                transition: transform 0.5s ease;
             }
         }
     }
@@ -505,6 +521,15 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        a:hover {
+            img {
+                transform: translateX(10px);
+                transition: transform 0.5s ease;
+
             }
         }
     }
@@ -630,6 +655,14 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        a:hover {
+            img {
+                transform: translateX(10px);
+                transition: transform 0.5s ease;
             }
         }
     }
@@ -771,6 +804,14 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        a:hover {
+            img {
+                transform: translateX(10px);
+                transition: transform 0.5s ease;
             }
         }
     }
@@ -866,6 +907,17 @@
                 p {
                     font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
                 }
+
+                img {
+                    transition: transform 0.5s ease;
+                }
+            }
+
+            a:hover {
+                img {
+                    transform: translateX(10px);
+                    transition: transform 0.5s ease;
+                }
             }
         }
 
@@ -894,6 +946,14 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        a:hover {
+            img {
+                transform: translateX(10px);
+                transition: transform 0.5s ease;
             }
         }
     }
@@ -965,6 +1025,8 @@
 
     &-text {
         a {
+            width: fit-content;
+            margin: 0 auto;
             text-decoration: none;
             position: relative;
             font-weight: 700;
@@ -983,7 +1045,19 @@
 
             img {
                 width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+                transition: transform 0.5s ease;
             }
+        }
+
+        a:hover {
+            img {
+                transition: transform 0.5s ease;
+                transform: translateX(10px);
+            }
+        }
+
+        a:not(:hover) img {
+            transform: translateX(0);
         }
     }
 }
