@@ -9,7 +9,6 @@ body {
     background-color: g.$palette-lightblue;
     color: g.$palette-white;
 
-
     &-header {
         position: relative;
         height: calc(100vh - 60px);
@@ -226,6 +225,90 @@ body {
 
             span {
                 margin-right: 10px;
+            }
+        }
+    }
+
+    &-form {
+        max-width: g.$layout-width-inner;
+        margin: 150px auto;
+
+        &-tit {
+            text-align: center;
+            margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+
+            p:nth-of-type(1) {
+                font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+            }
+
+            h2 {
+                font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+                display: inline-block;
+                padding-bottom: 0.938rem;
+                border-bottom: 3px solid g.$palette-white;
+                position: relative;
+                z-index: 3;
+                margin-bottom: clamp(1.875rem, 1.024rem + 3.63vw, 4.125rem);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -3px;
+                    width: 50%;
+                    height: 3px;
+                    background: g.$palette-blue;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: clamp(0.875rem, 0.615rem + 1.11vw, 1.563rem);
+
+                p:nth-of-type(1) {
+                    font-size: clamp(1.063rem, 0.802rem + 1.11vw, 1.75rem);
+
+                }
+            }
+        }
+
+        .form-item {
+            margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+
+            p:nth-of-type(1) {
+                margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
+            }
+
+            p {
+                span {
+                    margin-left: 10px;
+                    color: g.$palette-blue;
+                }
+            }
+
+            input,
+            textarea,
+            select {
+                width: 100%;
+                padding: 15px;
+                border: solid 1px g.$palette-lightblue;
+            }
+        }
+
+        .form-submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            input {
+                color: g.$palette-white;
+                border: solid 1px g.$palette-white;
+                background: transparent;
+                padding: 10px 110px;
             }
         }
     }

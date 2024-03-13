@@ -95,6 +95,10 @@
             h2 {
                 font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
             }
+
+            img {
+                transform: rotate(270deg);
+            }
         }
 
         .accordion-content {

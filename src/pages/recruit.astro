@@ -85,7 +85,7 @@ import images_arrow from "../images/arrow.svg";
         </div>
         <div class="recruit-footer">
           <div class="recruit-list">
-            <h3>募集要項</h3>
+            <h3 id="youkou">募集要項</h3>
             <ul>
               <li class="list-item">
                 <div>
@@ -116,7 +116,7 @@ import images_arrow from "../images/arrow.svg";
                       営業：ルート営業で得意先（大手ゼネコン）から当社鉄骨製品の受注を獲得するのが主な業務。得意先を訪問し、受注に繋がる情報収集や打合せ、見積書作成など。
                     </li>
                     <li>
-                      営業：ルート営業で得意先（大手ゼネコン）から当社鉄骨製品の受注を獲得するのが主な業務。得意先を訪問し、受注に繋がる情報収集や打合せ、見積書作成など。
+                      営業事務：設計図書及び仕様書から材料や数量を積算し合計を出し見積書作成など。
                     </li>
                   </ul>
                   <p>➂製造（5名）</p>
@@ -173,6 +173,66 @@ import images_arrow from "../images/arrow.svg";
               </li>
             </ul>
           </div>
+        </div>
+        <div class="recruit-form">
+          <div class="recruit-form-tit">
+            <p lang="en">ENTRY FORM</p>
+            <h2>エントリーフォーム</h2>
+            <a href="#youkou">
+              <p>募集要項はこちら</p>
+              <Image src={images_arrow} alt="矢印アイコン" />
+            </a>
+          </div>
+          <form method="post" action="/recruit.php">
+            <div class="form-inner">
+              <div class="form-item">
+                <p>エントリー区分<span>&#042;</span></p>
+                <select name="エントリー区分">
+                  <option value="" selected disabled>選択</option>
+                  <option value="技術職">技術職（3〜5名）</option>
+                  <option value="営業職及び営業系事務"
+                    >営業職及び営業系事務（2〜3名）</option
+                  >
+                  <option value="製造">製造（5名）</option>
+                </select>
+              </div>
+              <div class="form-item">
+                <p>氏名<span>&#042;</span></p>
+                <p><input size="30" type="text" name="氏名" /></p>
+              </div>
+              <div class="form-item">
+                <p>フリガナ<span>&#042;</span></p>
+                <p><input size="30" type="text" name="フリガナ" /></p>
+              </div>
+              <div class="form-item">
+                <p>生年月日<span>&#042;</span></p>
+                <p><input size="30" type="text" name="生年月日" /></p>
+              </div>
+              <div class="form-item">
+                <p>年齢<span>&#042;</span></p>
+                <p><input size="30" type="text" name="年齢" /></p>
+              </div>
+              <div class="form-item">
+                <p>性別<span>&#042;</span></p>
+                <p><input size="30" type="text" name="性別" /></p>
+              </div>
+              <div class="form-item">
+                <p>メールアドレス<span>&#042;</span></p>
+                <p><input size="30" type="text" name="メールアドレス" /></p>
+              </div>
+              <div class="form-item">
+                <p>学歴・職歴・資格等</p>
+                <p>
+                  <textarea name="学歴・職歴・資格等" cols="50" rows="5"
+                  ></textarea>
+                </p>
+              </div>
+            </div>
+            <div class="form-submit">
+              <p><input type="submit" value="確認" /></p>
+              <p><input type="reset" value="リセット" /></p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
