@@ -8,6 +8,10 @@
         position: relative;
         height: calc(100vh - 60px);
 
+        @include g.mq(sp) {
+            height: auto;
+        }
+
         &::before {
             content: '';
             position: absolute;
