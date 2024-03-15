@@ -16,7 +16,6 @@ import recruit_C from "../images/recruit-C.jpg";
 import recruit_D from "../images/recruit-D.jpg";
 import recruit_E from "../images/recruit-E.jpg";
 import recruit_F from "../images/recruit-F.jpg";
-import { gsap } from "gsap";
 ---
 
 <Layout title="株式会社SINMEI">
@@ -289,22 +288,3 @@ import { gsap } from "gsap";
     </section>
   </main>
 </Layout>
-
-<script>
-  // DOMが読み込まれた後に実行される処理
-  window.addEventListener("DOMContentLoaded", () => {
-    // 全ての段落要素を取得
-    const paragraphs = document.querySelectorAll(".top-tit p");
-
-    // 各段落要素に対してアニメーションを適用
-    paragraphs.forEach((paragraph) => {
-      // アニメーションの設定
-      gsap.to(paragraph, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.1, // スタガー効果を追加
-      });
-    });
-  });
-</script>
