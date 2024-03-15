@@ -244,6 +244,7 @@ body {
     &-form {
         max-width: g.$layout-width-inner;
         margin: 150px auto;
+        padding: 0 33px;
 
         form {
             margin-bottom: 100px;
@@ -337,12 +338,24 @@ body {
             flex-wrap: wrap;
             gap: 30px;
 
-            input {
-                color: g.$palette-white;
-                border: solid 1px g.$palette-white;
-                background: transparent;
-                padding: 10px 110px;
-                cursor: pointer;
+            p {
+                flex: 0 0 300px;
+
+                input {
+                    color: g.$palette-white;
+                    border: solid 1px g.$palette-white;
+                    background: transparent;
+                    padding: 10px 110px;
+                    cursor: pointer;
+                    width: 100%;
+                    transition: background 0.2s ease;
+
+                    &:hover {
+                        background: g.$palette-white;
+                        color: g.$palette-lightblue;
+                        transition: background 0.2s ease;
+                    }
+                }
             }
         }
 

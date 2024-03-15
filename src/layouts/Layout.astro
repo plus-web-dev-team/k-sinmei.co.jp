@@ -194,5 +194,34 @@ import Pagetop from "../components/Pagetop.astro";
         behavior: "smooth",
       });
     }
+    // デバイスがマウスをサポートしているかどうかをチェックする関数
+    function hasMouseSupport() {
+      return (
+        matchMedia("(hover: hover)").matches ||
+        matchMedia("(hover: hover)").media === "not all"
+      );
+    }
+
+    // hoverイベントを追加する関数
+    function addHoverEvent() {
+      var elements = document.querySelectorAll(".element");
+
+      elements.forEach(function (element) {
+        element.addEventListener("mouseenter", function () {
+          // hover時のスタイルを適用
+          this.classList.add("hovered");
+        });
+
+        element.addEventListener("mouseleave", function () {
+          // hover時のスタイルを解除
+          this.classList.remove("hovered");
+        });
+      });
+    }
+
+    // デバイスがマウスをサポートしている場合のみhoverイベントを追加
+    if (hasMouseSupport()) {
+      addHoverEvent();
+    }
   </script>
 </html>

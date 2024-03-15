@@ -79,11 +79,25 @@
             flex-wrap: wrap;
             gap: 30px;
 
-            input {
-                color: #102d8e;
-                border: solid 1px #102d8e;
-                background: #fff;
-                padding: 10px 110px;
+            p {
+                flex: 0 0 300px;
+
+                input {
+                    color: g.$palette-blue;
+                    border: solid 1px g.$palette-blue;
+                    background: transparent;
+                    padding: 10px 110px;
+                    cursor: pointer;
+                    width: 100%;
+                    transition: background 0.2s ease;
+
+                    &:hover {
+                        background: g.$palette-blue;
+                        color: g.$palette-white;
+                        // transformでゆっくり背景色を変えるアニメーションをつける
+                        transition: background 0.2s ease;
+                    }
+                }
             }
         }
     }
