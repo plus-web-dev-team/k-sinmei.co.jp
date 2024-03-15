@@ -185,7 +185,7 @@
                 picture:nth-of-type(2) {
                     position: absolute;
                     top: -7%;
-                    right: -8%;
+                    right: -15%;
                     width: clamp(7.5rem, 2.297rem + 22.2vw, 21.25rem);
 
                     @include g.mq('sp') {
@@ -202,8 +202,7 @@
                 picture:nth-of-type(3) {
                     position: absolute;
                     top: 40%;
-                    left: 0;
-                    transform: rotate(-13deg);
+                    left: -15%;
                     width: clamp(7.5rem, 2.297rem + 22.2vw, 21.25rem);
 
                     @include g.mq('sp') {
@@ -220,7 +219,6 @@
                     position: absolute;
                     bottom: 15%;
                     right: -10%;
-                    transform: rotate(30deg);
                     width: clamp(7.5rem, 2.297rem + 22.2vw, 21.25rem);
 
                     @include g.mq('sp') {
@@ -268,7 +266,6 @@
                 position: absolute;
                 bottom: -50%;
                 left: -10%;
-                transform: rotate(-17deg);
                 width: clamp(12.5rem, 4.175rem + 35.52vw, 34.5rem);
 
                 @include g.mq('sp') {

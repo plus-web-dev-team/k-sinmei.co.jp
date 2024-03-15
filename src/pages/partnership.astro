@@ -40,7 +40,7 @@ import partnership_kinsei from "../images/partnership_kinsei.png";
                 alt="SINMEI × RINGO MUSUME"
               />
             </article>
-            <article>
+            <article class="is-scrollTrigger_one">
               <h3>
                 青森の企業<span>から</span><br />
                 芸術・文化<span>の</span>発信<span>を！</span>
@@ -62,20 +62,23 @@ import partnership_kinsei from "../images/partnership_kinsei.png";
                   src={partnership_pink}
                   formats={["avif", "webp"]}
                   alt="りんご娘 ピンクレディ"
+                  class="is-pink"
                 />
                 <Picture
                   src={partnership_king}
                   formats={["avif", "webp"]}
                   alt="りんご娘 スターキングデリシャス"
+                  class="is-red"
                 />
                 <Picture
                   src={partnership_gurin}
                   formats={["avif", "webp"]}
                   alt="りんご娘 はつ恋ぐりん"
+                  class="is-green"
                 />
               </div>
             </article>
-            <article>
+            <article class="is-scrollTrigger_two">
               <div>
                 <h3 lang="en">web cm</h3>
                 <p>公開中！</p>
@@ -94,6 +97,7 @@ import partnership_kinsei from "../images/partnership_kinsei.png";
                 src={partnership_kinsei}
                 formats={["avif", "webp"]}
                 alt="りんご娘 金星"
+                class="is-yellow"
               />
             </article>
           </div>
@@ -103,5 +107,80 @@ import partnership_kinsei from "../images/partnership_kinsei.png";
   </main>
   <Cta />
 </Layout>
-
-<style></style>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.fromTo(
+    ".is-pink",
+    {
+      autoAlpha: 0,
+      x: 0,
+    },
+    {
+      autoAlpha: 1,
+      duration: 1,
+      x: -80,
+      scrollTrigger: {
+        trigger: ".is-scrollTrigger_one",
+        start: "top center",
+        scrub: true,
+      },
+    },
+  );
+  gsap.fromTo(
+    ".is-red",
+    {
+      autoAlpha: 0,
+      x: -30,
+    },
+    {
+      autoAlpha: 1,
+      duration: 1,
+      x: 80,
+      rotate: -13,
+      scrollTrigger: {
+        trigger: ".is-scrollTrigger_one",
+        start: "top center",
+        scrub: true,
+      },
+    },
+  );
+  gsap.fromTo(
+    ".is-green",
+    {
+      autoAlpha: 0,
+      x: 150,
+    },
+    {
+      autoAlpha: 1,
+      duration: 1,
+      x: 0,
+      rotate: 30,
+      scrollTrigger: {
+        trigger: ".is-scrollTrigger_one",
+        start: "top center",
+        scrub: true,
+      },
+    },
+  );
+  gsap.fromTo(
+    ".is-yellow",
+    {
+      autoAlpha: 0,
+      y: 80,
+      rotate: 17,
+    },
+    {
+      autoAlpha: 1,
+      duration: 1,
+      y: 0,
+      rotate: -17,
+      scrollTrigger: {
+        trigger: ".is-scrollTrigger_two",
+        start: "center center",
+        scrub: true,
+      },
+    },
+  );
+</script>
