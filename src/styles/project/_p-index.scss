@@ -288,6 +288,12 @@
     &-inner {
         background: url('/images/top006_works.webp') no-repeat;
         background-size: cover;
+
+        @include g.mq(sp) {
+            background: url('/images/top006_works_sp.webp') no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+        }
     }
 
     &-main {
