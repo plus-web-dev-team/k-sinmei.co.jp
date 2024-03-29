@@ -47,7 +47,7 @@ body {
             bottom: 0;
 
             img {
-                width: clamp(19.75rem, 11.685rem + 34.41vw, 41.063rem);
+                width: clamp(18.75rem, 10.307rem + 36.02vw, 41.063rem);
                 height: auto;
                 position: absolute;
                 bottom: 0;
@@ -56,6 +56,10 @@ body {
                 -webkit-transform: translateX(-65%);
                 -ms-transform: translateX(-65%);
                 z-index: 3;
+
+                @include g.mq(sp) {
+                    bottom: calc(100vw - 29rem);
+                }
             }
         }
     }
@@ -67,7 +71,7 @@ body {
     &-main {
         max-width: g.$layout-width-inner;
         margin: 0 auto;
-        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(7.5rem, 5.608rem + 8.07vw, 12.5rem);
+        padding: clamp(8.063rem, 7.14rem + 5.94vw, 10.5rem) 33px clamp(7.5rem, 5.608rem + 8.07vw, 12.5rem);
     }
 
     &-tit {

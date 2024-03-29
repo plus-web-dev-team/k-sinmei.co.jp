@@ -126,7 +126,7 @@
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: 400px 33px 300px;
+    padding: 600px 33px 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,23 +161,53 @@
       font-size: clamp(1.375rem, 0.949rem + 1.82vw, 2.5rem);
       display: inline-block;
       padding-bottom: 0.938rem;
-      border-bottom: 3px solid g.$palette-lightblue;
       position: relative;
       z-index: 3;
       text-align: right;
       letter-spacing: 0.06em;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
-        bottom: -3px;
-        width: 50%;
+        bottom: 0;
+        right: 8%;
+        width: 8%;
         height: 3px;
-        background: g.$palette-blue;
+        background-color: g.$palette-blue;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 8%;
+        height: 3px;
+        background-color: g.$palette-lightblue;
       }
 
       @include g.mq(sp) {
         text-align: justify;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 10%;
+          width: 5%;
+          height: 3px;
+          background-color: g.$palette-blue;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 10%;
+          height: 3px;
+          background-color: g.$palette-lightblue;
+        }
       }
     }
   }
@@ -250,6 +280,7 @@
 
     p {
       font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+      font-weight: 800;
     }
 
     h2 {
@@ -276,6 +307,7 @@
       line-height: 2.2;
       color: g.$palette-white;
       font-weight: 800;
+      font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
     }
   }
 }
@@ -391,35 +423,31 @@
       width: 100%;
       height: 100%;
       background: g.$palette-blue;
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 30%,
-        40% 30%,
-        40% 60%,
-        100% 60%,
-        100% 100%,
-        60% 100%,
-        60% 60%,
-        0 60%
-      );
+      clip-path: polygon(0 0,
+          100% 0,
+          100% 30%,
+          40% 30%,
+          40% 60%,
+          100% 60%,
+          100% 100%,
+          60% 100%,
+          60% 60%,
+          0 60%);
 
       @include g.mq(sp) {
-        clip-path: polygon(
-          0% 0%,
-          100% 0,
-          100% 25%,
-          30% 25%,
-          30% 50%,
-          0 50%,
-          0 75%,
-          0 75%,
-          70% 75%,
-          70% 50%,
-          100% 50%,
-          100% 100%,
-          0 100%
-        );
+        clip-path: polygon(0% 0%,
+            100% 0,
+            100% 25%,
+            30% 25%,
+            30% 50%,
+            0 50%,
+            0 75%,
+            0 85%,
+            70% 85%,
+            70% 60%,
+            100% 60%,
+            100% 100%,
+            0 100%);
       }
 
       z-index: 2;
@@ -537,6 +565,7 @@
 
     h3 {
       line-height: 2.2;
+      text-wrap: auto;
     }
   }
 
@@ -765,20 +794,23 @@
     max-width: g.$layout-width-inner;
     margin: 0 auto;
     background-image: url("/images/top009_recruit_back.webp"),
-      url("/images/top010_recruit_back.webp");
-    background-position: top right, left bottom;
+    url("/images/top010_recruit_back.webp");
+    background-position: top right,
+    left bottom;
 
     @include g.mq(sp) {
       background-position: top right, left bottom -150px;
     }
 
-    background-size: 313px, 398px;
+    background-size: 313px,
+    398px;
 
     @include g.mq(sp) {
       background-size: 188px, 261px;
     }
 
-    background-repeat: no-repeat, no-repeat;
+    background-repeat: no-repeat,
+    no-repeat;
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: darken;
   }
@@ -1013,14 +1045,12 @@
     width: 100%;
     height: 100%;
     background: g.$palette-blue;
-    clip-path: polygon(
-      62.7% 50%,
-      62.7% 20%,
-      100% 20%,
-      100% 100%,
-      0 100%,
-      0 50%
-    );
+    clip-path: polygon(62.7% 50%,
+        62.7% 20%,
+        100% 20%,
+        100% 100%,
+        0 100%,
+        0 50%);
 
     @include g.mq(sp) {
       clip-path: polygon(62% 66%, 62% 34%, 100% 34%, 100% 100%, 0 100%, 0 66%);

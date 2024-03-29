@@ -245,6 +245,14 @@
             text-decoration: none;
             color: g.$palette-white ;
         }
+
+        li:nth-of-type(6) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
+        }
     }
 
     &-dropdown_content {
@@ -305,6 +313,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        align-items: flex-start;
     }
 
     .gnav-hamburger {
