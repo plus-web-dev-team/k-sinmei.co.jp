@@ -214,7 +214,7 @@
 
   &-text {
     margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
-    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
     line-height: 2.2;
 
     br {
@@ -307,7 +307,7 @@
       line-height: 2.2;
       color: g.$palette-white;
       font-weight: 800;
-      font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
     }
   }
 }
@@ -560,7 +560,7 @@
   }
 
   &-text {
-    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
     margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
 
     h3 {
@@ -843,7 +843,7 @@
   }
 
   &-text {
-    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
     margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
 
     p {
@@ -969,9 +969,7 @@
         justify-content: space-between;
         width: 100%;
 
-        p {
-          font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
-        }
+        p {}
 
         img {
           transition: transform 0.5s ease;

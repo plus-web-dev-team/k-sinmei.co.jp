@@ -118,12 +118,12 @@
                     padding-left: 1em;
                     list-style-type: square;
                     margin: 0;
-                    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
                     font-family: 'Noto Sans JP', sans-serif;
                 }
 
                 h3 {
-                    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
                     color: g.$palette-lightblue;
                     display: flex;
                     align-items: center;
@@ -139,7 +139,7 @@
                 }
 
                 h4 {
-                    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
                     font-family: 'Noto Sans JP', sans-serif;
                     margin-bottom: clamp(1.25rem, 0.54rem + 3.03vw, 3.125rem);
 
@@ -150,7 +150,7 @@
                 }
 
                 p {
-                    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
                     margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
                 }
 
@@ -169,7 +169,7 @@
                         }
 
                         h5 {
-                            font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+
                             font-family: 'Noto Sans JP', sans-serif;
                             margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
                         }

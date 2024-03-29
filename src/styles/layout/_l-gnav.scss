@@ -181,6 +181,11 @@
 
         a {
             position: relative;
+            font-size: 16px;
+
+            @include g.mq('sp') {
+                font-size: 22px;
+            }
         }
 
         a::before {
@@ -252,6 +257,17 @@
             align-items: center;
             justify-content: space-between;
             gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
+
+            a:nth-of-type(2)::before {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: g.$palette-blue;
+                transition: width 0.3s ease;
+            }
         }
     }
 
