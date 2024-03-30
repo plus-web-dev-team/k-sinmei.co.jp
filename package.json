@@ -17,8 +17,12 @@
     "sass": "^1.70.0"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.33.1",
     "gsap": "^3.12.5",
+    "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "stylelint-config-html": "^1.1.0"
   }
 }
