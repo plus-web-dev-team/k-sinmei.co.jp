@@ -201,5 +201,9 @@
         span {
             border-bottom: solid 1px g.$palette-blue;
         }
+
+        a.next:hover::before {
+            width: 0;
+        }
     }
 }
