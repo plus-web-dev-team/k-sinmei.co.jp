@@ -76,9 +76,13 @@
         }
 
         a {
-            padding: 19px 0 15px;
+            padding: 28px 38px 35px;
             text-decoration: none;
             display: block;
+
+            @include g.mq(sp) {
+                padding: 19px 0 15px;
+            }
         }
 
         &-main {
