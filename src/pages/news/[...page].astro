@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import arrow_down_blue from "../../images/arrow-blue.svg";
+import arrow_next_blue from "../../images/arrow-next-blue.svg";
+import arrow_prev_blue from "../../images/arrow-prev-blue.svg";
+export const postsPerPage = 10;
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await Astro.glob("./*.{md,mdx}");
+  const allPostsSorted = allPosts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf(),
+  );
+  return paginate(allPostsSorted, { pageSize: postsPerPage });
+}
+const { page } = Astro.props;
+const { pageTitle } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <main>
+    <section class="news">
+      <div class="news-inner">
+        <div class="news-main">
+          <div class="news-tit">
+            <p lang="en">news</p>
+            <h2>お知らせ</h2>
+          </div>
+          <ul class="news-list">
+            {
+              page.data.map((post) => (
+                <li class="news-item">
+                  <a href={post.url}>
+                    <div class="news-item-header" lang="ja">
+                      <time datetime={post.frontmatter.pubDate}>
+                        {post.frontmatter.pubDate}
+                      </time>
+                      <p>お知らせ</p>
+                    </div>
+                    <div class="news-item-main">
+                      <p>{post.frontmatter.title}</p>
+                      <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="news-link">
+            {
+              page.url.prev ? (
+                <a class="prev" href={page.url.prev}>
+                  <Image src={arrow_prev_blue} alt="戻るアイコン" />
+                </a>
+              ) : null
+            }
+            <span>{page.currentPage}</span>
+            {
+              page.url.next ? (
+                <a class="nexr" href={page.url.next}>
+                  <Image src={arrow_next_blue} alt="進むアイコン" />
+                </a>
+              ) : null
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

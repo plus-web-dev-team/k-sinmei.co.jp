@@ -148,7 +148,7 @@
         font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
 
         @include g.mq(sp) {
             width: 100%;
