@@ -149,6 +149,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: 10%;
+        position: relative;
 
         @include g.mq(sp) {
             width: 100%;
@@ -205,6 +207,16 @@
 
         a.next:hover::before {
             width: 0;
+        }
+
+        a.prev {
+            position: absolute;
+            left: 0;
+        }
+
+        a.next {
+            position: absolute;
+            right: 0;
         }
     }
 }
