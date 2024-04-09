@@ -4,15 +4,15 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合の�
 	date_default_timezone_set('Asia/Tokyo'); //タイムゾーンの設定（日本以外の場合には適宜設定ください）
 }
 
-$site_top = "http://tr020305.try-csh.ne.jp/";
+$site_top = "http://www.k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
-$to = "yamauchi-t@plus-agc.com";
+$to = "mi-yu@k-sinmei.co.jp";
 
 //送信元メールアドレス（管理者宛て、及びユーザー宛メールの送信元メールアドレスです）
 //必ず実在するメールアドレスでかつ出来る限り設置先サイトのドメインと同じドメインのメールアドレスとすることを強く推奨します
 //管理者宛てメールの返信先（reply）はユーザーのメールアドレスになります。
-$from = "yamauchi-t@plus-agc.com";
+$from = "mi-yu@k-sinmei.co.jp";
 
 //フォームのメールアドレス入力箇所のname属性の値（name="○○"　の○○部分）
 $Email = "Email";
@@ -27,7 +27,7 @@ $Referer_check = 1;
 
 //リファラチェックを「する」場合のドメイン ※設置するサイトのドメインを指定して下さい。
 //もしこの設定が間違っている場合は送信テストですぐに気付けます。
-$Referer_check_domain = "tr020305.try-csh.ne.jp";
+$Referer_check_domain = "www.k-sinmei.co.jp";
 
 /*セッションによるワンタイムトークン（CSRF対策、及びスパム防止）(する=1, しない=0)
 ※ただし、この機能を使う場合は↓の送信確認画面の表示が必須です。（デフォルトではON（1）になっています）
@@ -53,7 +53,7 @@ $confirmDsp = 1;
 $jumpPage = 1;
 
 // 送信完了後に表示するページURL（上記で1を設定した場合のみ）※httpから始まるURLで指定ください。（相対パスでも基本的には問題ないです）
-$thanksPage = "http://tr020305.try-csh.ne.jp/recruit-thanks/";
+$thanksPage = "http://www.k-sinmei.co.jp/recruit-thanks/";
 
 // 必須入力項目を設定する(する=1, しない=0)
 $requireCheck = 1;
