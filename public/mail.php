@@ -103,7 +103,7 @@ $mailSignature = <<< FOOTER
 株式会社SINMEI
 〒037-0091 青森県五所川原市太刀打常盤８３−２
 TEL：0173-34-4320 　FAX：0173-33-4776
-E-mail:xxxx@xxxx.com
+E-mail:mi-yu@k-sinmei.co.jp
 URL: https://www.k-sinmei.com
 ──────────────────────
 
