@@ -4,7 +4,7 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合の�
 	date_default_timezone_set('Asia/Tokyo'); //タイムゾーンの設定（日本以外の場合には適宜設定ください）
 }
 
-$site_top = "http://www.k-sinmei.co.jp/";
+$site_top = "https://www.k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
 $to = "mi-yu@k-sinmei.co.jp";
@@ -53,7 +53,7 @@ $confirmDsp = 1;
 $jumpPage = 1;
 
 // 送信完了後に表示するページURL（上記で1を設定した場合のみ）※httpから始まるURLで指定ください。（相対パスでも基本的には問題ないです）
-$thanksPage = "http://www.k-sinmei.co.jp/contact-thanks/";
+$thanksPage = "https://www.k-sinmei.co.jp/contact-thanks/";
 
 // 必須入力項目を設定する(する=1, しない=0)
 $requireCheck = 1;
@@ -101,10 +101,10 @@ $mailSignature = <<< FOOTER
 
 ──────────────────────
 株式会社SINMEI
-〒037-0091 青森県五所川原市太刀打常盤８３−２
+〒037-0091 青森県五所川原市大字太刀打字常盤83-2
 TEL：0173-34-4320 　FAX：0173-33-4776
 E-mail:mi-yu@k-sinmei.co.jp
-URL: https://www.k-sinmei.com
+URL: https://www.k-sinmei.co.jp
 ──────────────────────
 
 FOOTER;
