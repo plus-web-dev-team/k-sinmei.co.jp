@@ -4,7 +4,7 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合の�
 	date_default_timezone_set('Asia/Tokyo'); //タイムゾーンの設定（日本以外の場合には適宜設定ください）
 }
 
-$site_top = "https://www.k-sinmei.co.jp/";
+$site_top = "https://k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
 $to = "mi-yu@k-sinmei.co.jp";
@@ -27,7 +27,7 @@ $Referer_check = 1;
 
 //リファラチェックを「する」場合のドメイン ※設置するサイトのドメインを指定して下さい。
 //もしこの設定が間違っている場合は送信テストですぐに気付けます。
-$Referer_check_domain = "www.k-sinmei.co.jp";
+$Referer_check_domain = "k-sinmei.co.jp";
 
 /*セッションによるワンタイムトークン（CSRF対策、及びスパム防止）(する=1, しない=0)
 ※ただし、この機能を使う場合は↓の送信確認画面の表示が必須です。（デフォルトではON（1）になっています）
@@ -39,7 +39,7 @@ $useToken = 1;
 //---------------------- 任意設定　以下は必要に応じて設定してください ------------------------
 
 // Bccで送るメールアドレス(複数指定する場合は「,」で区切ってください 例 $BccMail = "aa@aa.aa,bb@bb.bb";)
-$BccMail = "";
+$BccMail = "yamauchi-t@plus-agc.com";
 
 // 管理者宛に送信されるメールのタイトル（件名）
 $subject = "採用情報へのお問い合わせ";
@@ -53,7 +53,7 @@ $confirmDsp = 1;
 $jumpPage = 1;
 
 // 送信完了後に表示するページURL（上記で1を設定した場合のみ）※httpから始まるURLで指定ください。（相対パスでも基本的には問題ないです）
-$thanksPage = "https://www.k-sinmei.co.jp/recruit-thanks/";
+$thanksPage = "https://k-sinmei.co.jp/recruit-thanks/";
 
 // 必須入力項目を設定する(する=1, しない=0)
 $requireCheck = 1;
