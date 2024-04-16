@@ -1,10 +1,36 @@
 <?php header("Content-Type:text/html;charset=utf-8"); ?>
-<?php
+<?php //error_reporting(E_ALL | E_STRICT);
+##-----------------------------------------------------------------------------------------------------------------##
+#
+#  PHPメールプログラム　フリー版 ver2.0.3 最終更新日2022/02/01
+#　改造や改変は自己責任で行ってください。
+#	
+#  HP: http://www.php-factory.net/
+#
+#  重要！！サイトでチェックボックスを使用する場合のみですが。。。
+#  チェックボックスを使用する場合はinputタグに記述するname属性の値を必ず配列の形にしてください。
+#  例　name="当サイトをしったきっかけ[]"  として下さい。
+#  nameの値の最後に[と]を付ける。じゃないと複数の値を取得できません！
+#
+##-----------------------------------------------------------------------------------------------------------------##
 if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合のみタイムゾーンを定義
 	date_default_timezone_set('Asia/Tokyo'); //タイムゾーンの設定（日本以外の場合には適宜設定ください）
 }
+/*-------------------------------------------------------------------------------------------------------------------
+* ★以下設定時の注意点　
+* ・値（=の後）は数字以外の文字列（一部を除く）はダブルクオーテーション「"」、または「'」で囲んでいます。
+* ・これをを外したり削除したりしないでください。後ろのセミコロン「;」も削除しないください。
+* ・また先頭に「$」が付いた文字列は変更しないでください。数字の1または0で設定しているものは必ず半角数字で設定下さい。
+* ・メールアドレスのname属性の値が「Email」ではない場合、以下必須設定箇所の「$Email」の値も変更下さい。
+* ・name属性の値に半角スペースは使用できません。
+*以上のことを間違えてしまうとプログラムが動作しなくなりますので注意下さい。
+-------------------------------------------------------------------------------------------------------------------*/
 
-$site_top = "https://k-sinmei.co.jp/";
+
+//---------------------------　必須設定　必ず設定してください　-----------------------
+
+//サイトのトップページのURL　※デフォルトでは送信完了後に「トップページへ戻る」ボタンが表示されますので
+$site_top = "https://www.k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
 $to = "mi-yu@k-sinmei.co.jp";
@@ -27,7 +53,7 @@ $Referer_check = 1;
 
 //リファラチェックを「する」場合のドメイン ※設置するサイトのドメインを指定して下さい。
 //もしこの設定が間違っている場合は送信テストですぐに気付けます。
-$Referer_check_domain = "k-sinmei.co.jp";
+$Referer_check_domain = "www.k-sinmei.co.jp";
 
 /*セッションによるワンタイムトークン（CSRF対策、及びスパム防止）(する=1, しない=0)
 ※ただし、この機能を使う場合は↓の送信確認画面の表示が必須です。（デフォルトではON（1）になっています）
@@ -39,7 +65,7 @@ $useToken = 1;
 //---------------------- 任意設定　以下は必要に応じて設定してください ------------------------
 
 // Bccで送るメールアドレス(複数指定する場合は「,」で区切ってください 例 $BccMail = "aa@aa.aa,bb@bb.bb";)
-$BccMail = "yamauchi-t@plus-agc.com";
+$BccMail = "";
 
 // 管理者宛に送信されるメールのタイトル（件名）
 $subject = "採用情報へのお問い合わせ";
@@ -53,7 +79,7 @@ $confirmDsp = 1;
 $jumpPage = 1;
 
 // 送信完了後に表示するページURL（上記で1を設定した場合のみ）※httpから始まるURLで指定ください。（相対パスでも基本的には問題ないです）
-$thanksPage = "https://k-sinmei.co.jp/recruit-thanks/";
+$thanksPage = "https://www.k-sinmei.co.jp/recruit-thanks/";
 
 // 必須入力項目を設定する(する=1, しない=0)
 $requireCheck = 1;
@@ -76,7 +102,7 @@ $remail = 1;
 $refrom_name = "株式会社SINMEI";
 
 // 差出人に送信確認メールを送る場合のメールのタイトル（上記で1を設定した場合のみ）
-$re_subject = "送信ありがとうございました";
+$re_subject = "採用情報へのお問い合わせありがとうございました";
 
 //フォーム側の「名前」箇所のname属性の値　※自動返信メールの「○○様」の表示で使用します。
 //指定しない、または存在しない場合は、○○様と表示されないだけです。あえて無効にしてもOK
@@ -222,80 +248,107 @@ if (($confirmDsp == 0 || $sendmail == 1) && $empty_flag != 1) {
 
 	/*　▼▼▼送信確認画面のレイアウト※編集可　オリジナルのデザインも適用可能▼▼▼　*/
 ?>
-	<!DOCTYPE html>
+	<!DOCTYPE HTML>
 	<html lang="ja">
 
 	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width">
-		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
-		<meta name="generator" content="Astro v4.3.1">
-		<title>確認画面 | 株式会社SINMEI</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="./_astro/post-1.FD3p9Hej.css" />
-		<script type="module" src="./_astro/hoisted.bAhXLYIo.js"></script>
-		<style>
-			.form-item p:nth-of-type(1) {
-				width: 100%;
-				padding: 15px;
-				border: solid 1px #102d8e;
-				margin-top: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>確認画面</title>
+		<style type="text/css">
+			/* 自由に編集下さい */
+			#formWrap {
+				width: 700px;
+				margin: 0 auto;
+				color: #555;
+				line-height: 120%;
+				font-size: 90%;
 			}
 
-			.contact-text p {
-				text-align: center;
+			table.formTable {
 				width: 100%;
+				margin: 0 auto;
+				border-collapse: collapse;
 			}
 
-			.error_messe {
+			table.formTable td,
+			table.formTable th {
+				border: 1px solid #ccc;
+				padding: 10px;
+			}
+
+			table.formTable th {
+				width: 30%;
+				font-weight: normal;
+				background: #efefef;
+				text-align: left;
+			}
+
+			p.error_messe {
+				margin: 5px 0;
 				color: red;
+			}
+
+			/*　簡易版レスポンシブ用CSS（必要最低限のみとしています。ブレークポイントも含め自由に設定下さい）　*/
+			@media screen and (max-width:572px) {
+				#formWrap {
+					width: 95%;
+					margin: 0 auto;
+				}
+
+				table.formTable th,
+				table.formTable td {
+					width: auto;
+					display: block;
+				}
+
+				table.formTable th {
+					margin-top: 5px;
+					border-bottom: 0;
+				}
+
+				form input[type="submit"],
+				form input[type="reset"],
+				form input[type="button"] {
+					display: block;
+					width: 100%;
+					height: 40px;
+				}
 			}
 		</style>
 	</head>
 
 	<body>
-		<main>
-			<section class="contact">
-				<div class="contact-inner">
-					<div class="contact-main">
-						<div class="contact-tit">
-							<p lang="en">ENTRY FORM</p>
-							<h2>確認画面</h2>
-						</div>
-						<?php if ($empty_flag == 1) { ?>
-							<div class="contact-text">
-								<p>
-									入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します。
-								</p>
-								<div class="contact-form">
-									<div class="form-submit">
-										<p><?php echo $errm; ?><input type="button" value="前画面に戻る " onClick="history.back()"></p>
-									</div>
-								</div>
-							</div>
-						<?php } else { ?>
-							<div class="contact-form">
-								<form action="<?php echo h($_SERVER['SCRIPT_NAME']); ?>" method="POST">
-									<div class="form-inner">
-										<?php echo confirmOutput($_POST); //入力内容を表示
-										?>
-									</div>
-									<div class="form-submit">
-										<input type="hidden" name="mail_set" value="confirm_submit">
-										<input type="hidden" name="httpReferer" value="<?php echo h($_SERVER['HTTP_REFERER']); ?>">
-										<p><input type="submit" value="送信する"></p>
-										<p><input type="reset" value="前画面に戻る" onClick="history.back()"></p>
-									</div>
-								</form>
-							</div>
-						<?php } ?>
-					</div>
+
+		<!-- ▲ Headerやその他コンテンツなど　※自由に編集可 ▲-->
+
+		<!-- ▼************ 送信内容表示部　※編集は自己責任で ************ ▼-->
+		<div id="formWrap">
+			<?php if ($empty_flag == 1) { ?>
+				<div align="center">
+					<h4>入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します。</h4>
+					<?php echo $errm; ?><br /><br /><input type="button" value=" 前画面に戻る " onClick="history.back()">
 				</div>
-			</section>
-		</main>
+			<?php } else { ?>
+				<h3>確認画面</h3>
+				<p align="center">以下の内容で間違いがなければ、「送信する」ボタンを押してください。</p>
+				<form action="<?php echo h($_SERVER['SCRIPT_NAME']); ?>" method="POST">
+					<table class="formTable">
+						<?php echo confirmOutput($_POST); //入力内容を表示
+						?>
+					</table>
+					<p align="center"><input type="hidden" name="mail_set" value="confirm_submit">
+						<input type="hidden" name="httpReferer" value="<?php echo h($_SERVER['HTTP_REFERER']); ?>">
+						<input type="submit" value="　送信する　">
+						<input type="button" value="前画面に戻る" onClick="history.back()">
+					</p>
+				</form>
+			<?php } ?>
+		</div><!-- /formWrap -->
+		<!-- ▲ *********** 送信内容確認部　※編集は自己責任で ************ ▲-->
+
+		<!-- ▼ Footerその他コンテンツなど　※編集可 ▼-->
 	</body>
 
 	</html>
@@ -307,21 +360,14 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 
 	/* ▼▼▼送信完了画面のレイアウト　編集可 ※送信完了後に指定のページに移動しない場合のみ表示▼▼▼　*/
 ?>
-	<!DOCTYPE html>
+	<!DOCTYPE HTML>
 	<html lang="ja">
 
 	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width">
-		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
-		<meta name="generator" content="Astro v4.3.1">
-		<title>確認画面 | 株式会社SINMEI</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="./_astro/post-1.FD3p9Hej.css" />
-		<script type="module" src="./_astro/hoisted.bAhXLYIo.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>完了画面</title>
 	</head>
 
 	<body>
@@ -469,9 +515,9 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 				$key = h($key);
 				$out = str_replace($replaceStr['before'], $replaceStr['after'], $out); //機種依存文字の置換処理
 
-				$html .= '<div class="form-item">' . $key . "<p>" . $out;
+				$html .= "<tr><th>" . $key . "</th><td>" . $out;
 				$html .= '<input type="hidden" name="' . $key . '" value="' . str_replace(array("<br />", "<br>"), "", $out) . '" />';
-				$html .= "</p></div>\n";
+				$html .= "</td></tr>\n";
 			}
 			//トークンをセット
 			if ($useToken == 1 && $confirmDsp == 1) {
