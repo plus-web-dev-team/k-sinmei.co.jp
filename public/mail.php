@@ -33,7 +33,7 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合の�
 $site_top = "https://k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
-$to = "mi-yu@k-sinmei.co.jp";
+$to = "sinmei-mail-transfer@k-sinmei.co.jp";
 
 //送信元メールアドレス（管理者宛て、及びユーザー宛メールの送信元メールアドレスです）
 //必ず実在するメールアドレスでかつ出来る限り設置先サイトのドメインと同じドメインのメールアドレスとすることを強く推奨します
@@ -360,18 +360,43 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 
 	/* ▼▼▼送信完了画面のレイアウト　編集可 ※送信完了後に指定のページに移動しない場合のみ表示▼▼▼　*/
 ?>
-	<!DOCTYPE HTML>
+	<!DOCTYPE html>
 	<html lang="ja">
 
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<meta name="format-detection" content="telephone=no">
-		<title>完了画面</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="https://www.k-sinmei.co.jp/favicon.svg">
+		<link rel="canonical" href="https://www.k-sinmei.co.jp/">
+		<meta name="generator" content="Astro v4.3.1">
+		<title>株式会社SINMEI</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link rel="sitemap" href="./sitemap-index.xml">
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-W8S94GNS5V"></script>
+
+		<style>
+			path[data-astro-cid-j7pv25f6] {
+				fill: none;
+				stroke: #fff;
+				stroke-width: 2px;
+				stroke-dasharray: 2800px
+			}
+		</style>
+		<link rel="stylesheet" href="./_astro/_page_.gaP746Vk.css" />
+		<style>
+			h1[data-astro-cid-gjtny2mx] {
+				line-height: 1.6
+			}
+		</style>
+		<script type="module" src="./_astro/hoisted.Ai8IfR8G.js"></script>
 	</head>
 
 	<body>
-		<div align="center">
+		<div>
 			<?php if ($empty_flag == 1) { ?>
 				<h4>入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します。</h4>
 				<div style="color:red"><?php echo $errm; ?></div>
@@ -381,12 +406,174 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 
 	</html>
 <?php } else { ?>
-	送信ありがとうございました。<br />
-	送信は正常に完了しました。<br /><br />
-	<a href="<?php echo $site_top; ?>">トップページへ戻る&raquo;</a>
+	<header class="header">
+		<nav class="gnav">
+			<div class="gnav-inner">
+				<div class="gnav-main">
+					<a href="../">
+						<figure>
+							<img src="../_astro/sinmei_logo-icon.nz_Gxpml_xI4hy.svg" alt="株式会社SINMEI" width="100" height="100" loading="lazy" decoding="async">
+						</figure>
+					</a>
+					<figure>
+						<img src="../_astro/sinmei_name-logo.kShKqjBQ_Z2vxvjS.svg" alt="株式会社SINMEI" width="2000" height="394.2" loading="lazy" decoding="async">
+					</figure>
+					<button class="gnav-hamburger" aria-label="Menu">
+						<span class="gnav-hamburger-line"></span>
+						<span class="gnav-hamburger-line"></span>
+						<span class="gnav-hamburger-line"></span>
+					</button>
+				</div>
+				<ul class="gnav-list">
+					<li class="gnav-dropdown">
+						<a href="#" class="gnav-dropbtn" lang="en">company<span class="hidden">株式会社SINMEIについて</span>
+						</a>
+						<ul class="gnav-dropdown_content">
+							<li>
+								<a href="../company" lang="en">company overview <span>会社概要</span></a>
+							</li>
+							<li>
+								<a href="../company" lang="en">history<span>沿革</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="../works" lang="en">works<span class="hidden">施工実績</span></a>
+					</li>
+					<li class="gnav-dropdown">
+						<a href="#" class="gnav-dropbtn">Our MISSION<span class="hidden">SINMEIの取組み</span></a>
+						<ul class="gnav-dropdown_content">
+							<li>
+								<a href="../sdgs">SDGs <span>持続可能な開発目標</span></a>
+							</li>
+							<li>
+								<a href="../partnership" lang="en">partner ship<span>パートナーシップ</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="../recruit" lang="en">recruit<span class="hidden">採用情報</span></a>
+					</li>
+					<li>
+						<a href="../news" lang="en">news<span class="hidden">お知らせ</span></a>
+					</li>
+					<li>
+						<a href="../contact" lang="en">contact<span class="hidden">お問い合わせ</span></a>
+						<a href="https://www.instagram.com/sinmei4320/" target="_blank" rel="noopener noreferrer">
+							<figure>
+								<img src="../_astro/instagram.MCce1YLL_ZkIztW.svg" alt="株式会社SINMEI Instagram" width="40" height="40" loading="lazy" decoding="async">
+							</figure>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<section class="contact-thanks">
+			<div class="contact-thanks-inner">
+				<div class="contact-thanks-main">
+					<div class="contact-thanks-tit">
+						<p lang="en">contact us</p>
+						<h2>お問い合わせ</h2>
+					</div>
+					<div class="contact-thanks-text">
+						<p>お問い合わせありがとうございます。</p>
+						<p>
+							営業日3～4日以上経過してもお返事がない場合は、メール・お電話ともにお返事できない状況の可能性がございます。
+							その際はお手数をおかけしますが、こちらのお電話に直接ご連絡いただくか、再度メールフォームから送信いただけますようお願い申し上げます。
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="cta">
+			<div class="cta-inner">
+				<div class="cta-main">
+					<div class="cta-tit">
+						<p lang="en">contact us</p>
+						<h2>お問い合わせ</h2>
+					</div>
+					<div class="cta-text">
+						<a href="../contact">フォームからのお問い合わせ
+							<img src="../_astro/arrow.7p8vEpna_Z1D8eyM.svg" alt="矢印アイコン" width="57.787" height="57.787" loading="lazy" decoding="async">
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<div class="page-top">
+		<img src="../_astro/page-top.x9rdHPW3_Z12787M.svg" alt="ページトップに戻る" width="128.695" height="65.867" loading="lazy" decoding="async">
 	</div>
-	<?php copyright(); ?>
-	<!--  CV率を計測する場合ここにAnalyticsコードを貼り付け -->
+	<footer class="footer">
+		<nav class="footer-nav">
+			<div class="footer-inner">
+				<ul class="footer-list">
+					<li>
+						COMPANY<span>株式会社SINMEIについて</span>
+						<ul>
+							<li>
+								<a href="../company" lang="en">company overview<span>会社概要</span></a>
+							</li>
+							<li>
+								<a href="../company" lang="en">history<span>沿革</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="../works" lang="en">works<span>施工実績</span></a>
+					</li>
+					<li>
+						Our MISSION<span>SINMEIの取組み</span>
+						<ul>
+							<li>
+								<a href="../sdgs">SDGs <span>持続可能な開発目標</span></a>
+							</li>
+							<li>
+								<a href="../partnership" lang="en">partner ship<span>パートナーシップ</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="../recruit" lang="en">recruit<span>採用情報</span></a>
+					</li>
+					<li>
+						<a href="../news" lang="en">news<span>お知らせ</span></a>
+					</li>
+					<li>
+						<a href="../contact" lang="en">contact<span>お問い合わせ</span></a>
+					</li>
+					<li>
+						<a href="../special-thanks" lang="en">special thanks</a>
+					</li>
+				</ul>
+				<div class="footer-icon">
+					<figure>
+						<a href="https://www.instagram.com/sinmei4320/" target="_blank" rel="noopener noreferrer">
+							<img src="../_astro/instagram.MCce1YLL_ZkIztW.svg" alt="株式会社SINMEI Instagram" width="40" height="40" loading="lazy" decoding="async">
+						</a>
+					</figure>
+				</div>
+				<div class="footer-text" lang="ja">
+					<figure>
+						<img src="../_astro/sinmei-logo.PblfwyqP_2aBzku.svg" alt="株式会社SINMEIロゴ" width="2000" height="450.3" loading="lazy" decoding="async">
+					</figure>
+					<p>
+						<span>本 社</span>
+						<span>青森県五所川原市大字太刀打字常盤83-2</span>
+						<span>TEL 0173-34-4320</span>
+						<span>FAX 0173-33-4776</span>
+					</p>
+				</div>
+				<div class="footer-copy" lang="ja">
+					<p>Copyright &copy;株式会社SINMEI</p>
+				</div>
+			</div>
+		</nav>
+	</footer>
 	</body>
 
 	</html>
