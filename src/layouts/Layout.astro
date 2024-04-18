@@ -8,6 +8,8 @@ import "../styles/style.scss";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Pagetop from "../components/Pagetop.astro";
+const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -21,7 +23,7 @@ import Pagetop from "../components/Pagetop.astro";
       type="image/svg+xml"
       href="https://www.k-sinmei.co.jp/favicon.svg"
     />
-    <link rel="canonical" href="https://www.k-sinmei.co.jp/" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,198 +45,199 @@ import Pagetop from "../components/Pagetop.astro";
 
       gtag("config", "G-W8S94GNS5V");
     </script>
+    <ViewTransitions />
   </head>
   <body>
     <Header />
     <slot />
     <Pagetop />
     <Footer />
-  </body>
-  <script>
-    const toggleMenu = () => {
-      const gnavList = document.querySelector(".gnav-list");
+    <script>
+      const toggleMenu = () => {
+        const gnavList = document.querySelector(".gnav-list");
+        const gnavHamburger = document.querySelector(".gnav-hamburger");
+        if (gnavList && gnavHamburger) {
+          gnavList.classList.toggle("is-active");
+          gnavHamburger.classList.toggle("is-active");
+        }
+      };
+
+      const changeNavBackground = () => {
+        const nav = document.querySelector("header");
+        if (nav) {
+          nav.style.backgroundColor =
+            window.scrollY > 60
+              ? "rgba(16, 45, 142, 0.8)"
+              : "rgba(16, 45, 142, 1)";
+        }
+      };
+
+      const isTopPage = () => {
+        return window.location.pathname === "/";
+      };
+
+      const parallaxBackground = () => {
+        if (isTopPage()) {
+          const scrollPosition = window.scrollY * 0.08;
+          const topOurMissionInner = document.querySelector(
+            ".top-ourmission-inner",
+          );
+          if (topOurMissionInner) {
+            topOurMissionInner.style.backgroundPositionY = `${-140 + scrollPosition}px`;
+          }
+        }
+      };
+
+      const accordionItems = document.querySelectorAll(".accordion-item");
+
+      accordionItems.forEach((item) => {
+        const header = item.querySelector(".accordion-header");
+        const content = item.querySelector(".accordion-content");
+
+        if (header && content) {
+          header.addEventListener("click", () => {
+            content.classList.toggle("is-active");
+          });
+
+          header.addEventListener("click", (event) => {
+            accordionItems.forEach((accordion) => {
+              if (
+                accordion !== item &&
+                accordion
+                  .querySelector(".accordion-content")
+                  .classList.contains("is-active")
+              ) {
+                accordion
+                  .querySelector(".accordion-content")
+                  .classList.remove("is-active");
+              }
+            });
+          });
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".accordion-item")) {
+          accordionItems.forEach((item) => {
+            const content = item.querySelector(".accordion-content");
+            if (content) {
+              content.classList.remove("is-active");
+            }
+          });
+        }
+      });
+
       const gnavHamburger = document.querySelector(".gnav-hamburger");
-      if (gnavList && gnavHamburger) {
-        gnavList.classList.toggle("is-active");
-        gnavHamburger.classList.toggle("is-active");
+      if (gnavHamburger) {
+        gnavHamburger.addEventListener("click", toggleMenu);
       }
-    };
+      window.addEventListener("scroll", changeNavBackground);
+      window.addEventListener("scroll", parallaxBackground);
 
-    const changeNavBackground = () => {
-      const nav = document.querySelector("header");
-      if (nav) {
-        nav.style.backgroundColor =
-          window.scrollY > 60
-            ? "rgba(16, 45, 142, 0.8)"
-            : "rgba(16, 45, 142, 1)";
+      let currentPage = 1;
+      const slides = document.querySelectorAll(".carousel-item");
+      const totalSlides = slides.length;
+      const pageSize = 9;
+      const totalPages = Math.ceil(totalSlides / pageSize);
+      const currentPageSpan = document.getElementById("currentPage");
+
+      if (currentPageSpan) {
+        function showSlides(startIndex) {
+          slides.forEach((slide, i) => {
+            slide.classList.remove("is-active");
+            slide.style.display = "none";
+          });
+
+          for (let i = startIndex; i < startIndex + pageSize; i++) {
+            if (slides[i]) {
+              slides[i].style.display = "block";
+              setTimeout(() => slides[i].classList.add("is-active"), 10);
+            }
+          }
+
+          currentPageSpan.textContent = `${currentPage}`;
+        }
+
+        function nextSlide() {
+          currentPage = (currentPage % totalPages) + 1;
+          showSlides((currentPage - 1) * pageSize);
+        }
+
+        function prevSlide() {
+          currentPage = ((currentPage - 2 + totalPages) % totalPages) + 1;
+          showSlides((currentPage - 1) * pageSize);
+        }
+
+        const nextBtn = document.getElementById("nextBtn");
+        if (nextBtn) {
+          nextBtn.addEventListener("click", nextSlide);
+        }
+
+        const prevBtn = document.getElementById("prevBtn");
+        if (prevBtn) {
+          prevBtn.addEventListener("click", prevSlide);
+        }
+
+        showSlides(0);
       }
-    };
 
-    const isTopPage = () => {
-      return window.location.pathname === "/";
-    };
+      window.onscroll = function () {
+        scrollFunction();
+      };
 
-    const parallaxBackground = () => {
-      if (isTopPage()) {
-        const scrollPosition = window.scrollY * 0.08;
-        const topOurMissionInner = document.querySelector(
-          ".top-ourmission-inner",
-        );
-        if (topOurMissionInner) {
-          topOurMissionInner.style.backgroundPositionY = `${-140 + scrollPosition}px`;
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          const pageTop = document.querySelector(".page-top");
+          if (pageTop) {
+            pageTop.style.display = "block";
+          }
+        } else {
+          const pageTop = document.querySelector(".page-top");
+          if (pageTop) {
+            pageTop.style.display = "none";
+          }
         }
       }
-    };
 
-    const accordionItems = document.querySelectorAll(".accordion-item");
+      const pageTopButton = document.querySelector(".page-top");
+      if (pageTopButton) {
+        pageTopButton.addEventListener("click", scrollToTop);
+      }
 
-    accordionItems.forEach((item) => {
-      const header = item.querySelector(".accordion-header");
-      const content = item.querySelector(".accordion-content");
-
-      if (header && content) {
-        header.addEventListener("click", () => {
-          content.classList.toggle("is-active");
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
+      }
 
-        header.addEventListener("click", (event) => {
-          accordionItems.forEach((accordion) => {
-            if (
-              accordion !== item &&
-              accordion
-                .querySelector(".accordion-content")
-                .classList.contains("is-active")
-            ) {
-              accordion
-                .querySelector(".accordion-content")
-                .classList.remove("is-active");
-            }
+      function hasMouseSupport() {
+        return (
+          matchMedia("(hover: hover)").matches ||
+          matchMedia("(hover: hover)").media === "not all"
+        );
+      }
+
+      function addHoverEvent() {
+        var elements = document.querySelectorAll(".element");
+
+        elements.forEach(function (element) {
+          element.addEventListener("mouseenter", function () {
+            this.classList.add("hovered");
+          });
+
+          element.addEventListener("mouseleave", function () {
+            this.classList.remove("hovered");
           });
         });
       }
-    });
 
-    document.addEventListener("click", (event) => {
-      if (!event.target.closest(".accordion-item")) {
-        accordionItems.forEach((item) => {
-          const content = item.querySelector(".accordion-content");
-          if (content) {
-            content.classList.remove("is-active");
-          }
-        });
+      if (hasMouseSupport()) {
+        addHoverEvent();
       }
-    });
-
-    const gnavHamburger = document.querySelector(".gnav-hamburger");
-    if (gnavHamburger) {
-      gnavHamburger.addEventListener("click", toggleMenu);
-    }
-    window.addEventListener("scroll", changeNavBackground);
-    window.addEventListener("scroll", parallaxBackground);
-
-    let currentPage = 1;
-    const slides = document.querySelectorAll(".carousel-item");
-    const totalSlides = slides.length;
-    const pageSize = 9;
-    const totalPages = Math.ceil(totalSlides / pageSize);
-    const currentPageSpan = document.getElementById("currentPage");
-
-    if (currentPageSpan) {
-      function showSlides(startIndex) {
-        slides.forEach((slide, i) => {
-          slide.classList.remove("is-active");
-          slide.style.display = "none";
-        });
-
-        for (let i = startIndex; i < startIndex + pageSize; i++) {
-          if (slides[i]) {
-            slides[i].style.display = "block";
-            setTimeout(() => slides[i].classList.add("is-active"), 10);
-          }
-        }
-
-        currentPageSpan.textContent = `${currentPage}`;
-      }
-
-      function nextSlide() {
-        currentPage = (currentPage % totalPages) + 1;
-        showSlides((currentPage - 1) * pageSize);
-      }
-
-      function prevSlide() {
-        currentPage = ((currentPage - 2 + totalPages) % totalPages) + 1;
-        showSlides((currentPage - 1) * pageSize);
-      }
-
-      const nextBtn = document.getElementById("nextBtn");
-      if (nextBtn) {
-        nextBtn.addEventListener("click", nextSlide);
-      }
-
-      const prevBtn = document.getElementById("prevBtn");
-      if (prevBtn) {
-        prevBtn.addEventListener("click", prevSlide);
-      }
-
-      showSlides(0);
-    }
-
-    window.onscroll = function () {
-      scrollFunction();
-    };
-
-    function scrollFunction() {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        const pageTop = document.querySelector(".page-top");
-        if (pageTop) {
-          pageTop.style.display = "block";
-        }
-      } else {
-        const pageTop = document.querySelector(".page-top");
-        if (pageTop) {
-          pageTop.style.display = "none";
-        }
-      }
-    }
-
-    const pageTopButton = document.querySelector(".page-top");
-    if (pageTopButton) {
-      pageTopButton.addEventListener("click", scrollToTop);
-    }
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-
-    function hasMouseSupport() {
-      return (
-        matchMedia("(hover: hover)").matches ||
-        matchMedia("(hover: hover)").media === "not all"
-      );
-    }
-
-    function addHoverEvent() {
-      var elements = document.querySelectorAll(".element");
-
-      elements.forEach(function (element) {
-        element.addEventListener("mouseenter", function () {
-          this.classList.add("hovered");
-        });
-
-        element.addEventListener("mouseleave", function () {
-          this.classList.remove("hovered");
-        });
-      });
-    }
-
-    if (hasMouseSupport()) {
-      addHoverEvent();
-    }
-  </script>
+    </script>
+  </body>
 </html>
