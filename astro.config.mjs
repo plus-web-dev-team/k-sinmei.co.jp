@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://www.k-sinmei.co.jp/",
+  site: "https://www.k-sinmei.co.jp/",
   integrations: [relativeLinks(), sitemap()],
   compressHTML: false,
 });
