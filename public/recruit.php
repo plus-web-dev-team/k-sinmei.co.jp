@@ -33,7 +33,7 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合の�
 $site_top = "https://k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
-$to = "sinmei-mail-transfer@k-sinmei.co.jp";
+$to = "mi-yu@k-sinmei.co.jp";
 
 //送信元メールアドレス（管理者宛て、及びユーザー宛メールの送信元メールアドレスです）
 //必ず実在するメールアドレスでかつ出来る限り設置先サイトのドメインと同じドメインのメールアドレスとすることを強く推奨します
@@ -87,7 +87,7 @@ $requireCheck = 1;
 /* 必須入力項目(入力フォームで指定したname属性の値を指定してください。（上記で1を設定した場合のみ）
 値はシングルクォーテーションで囲み、複数の場合はカンマで区切ってください。フォーム側と順番を合わせると良いです。 
 配列の形「name="○○[]"」の場合には必ず後ろの[]を取ったものを指定して下さい。*/
-$require = array('エントリー区分', '氏名', 'フリガナ', '生年月日', '年齢', '性別', 'Email');
+$require = array('エントリー区分', '氏名', 'フリガナ', '生年月日', '年齢', '性別', 'Email', '学歴・職歴・資格等');
 
 
 //----------------------------------------------------------------------
@@ -331,7 +331,6 @@ if (($confirmDsp == 0 || $sendmail == 1) && $empty_flag != 1) {
 					<?php echo $errm; ?><br /><br /><input type="button" value=" 前画面に戻る " onClick="history.back()">
 				</div>
 			<?php } else { ?>
-				<h3>確認画面</h3>
 				<p align="center">以下の内容で間違いがなければ、「送信する」ボタンを押してください。</p>
 				<form action="<?php echo h($_SERVER['SCRIPT_NAME']); ?>" method="POST">
 					<table class="formTable">
