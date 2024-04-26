@@ -58,20 +58,20 @@ $Referer_check_domain = "www.k-sinmei.co.jp";
 /*セッションによるワンタイムトークン（CSRF対策、及びスパム防止）(する=1, しない=0)
 ※ただし、この機能を使う場合は↓の送信確認画面の表示が必須です。（デフォルトではON（1）になっています）
 ※【重要】ガラケーは機種によってはクッキーが使えないためガラケーの利用も想定してる場合は「0」（OFF）にして下さい（PC、スマホは問題ないです）*/
-$useToken = 1;
+$useToken = 0;
 //---------------------------　セキュリティ、スパム防止のための設定　ここまで　------------------------------------
 
 
 //---------------------- 任意設定　以下は必要に応じて設定してください ------------------------
 
 // Bccで送るメールアドレス(複数指定する場合は「,」で区切ってください 例 $BccMail = "aa@aa.aa,bb@bb.bb";)
-$BccMail = "yamauchi-t@plus-agc.com";
+$BccMail = "";
 
 // 管理者宛に送信されるメールのタイトル（件名）
 $subject = "ホームページのお問い合わせ";
 
 // 送信確認画面の表示(する=1, しない=0)
-$confirmDsp = 1;
+$confirmDsp = 0;
 
 // 送信完了後に自動的に指定のページ(サンクスページなど)に移動する(する=1, しない=0)
 // CV率を解析したい場合などはサンクスページを別途用意し、URLをこの下の項目で指定してください。
@@ -364,7 +364,7 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 
 	<head>
 		<meta charset="UTF-8">
-		<meta name="description" content="Astro description">
+		<meta name="description" content="株式会社SINMEIは、設立以来培ってきた技術力により、お客様の幅広いニーズにお応えして鉄骨工事業を展開しております。 技術力、品質向上に努めて、お客様の満足度を高めるべく、邁進いたします。">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/svg+xml" href="https://www.k-sinmei.co.jp/favicon.svg">
 		<link rel="canonical" href="https://www.k-sinmei.co.jp/">
@@ -373,7 +373,7 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<link rel="sitemap" href="./sitemap-index.xml">
+		<link rel="sitemap" href="/sitemap-index.xml">
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-W8S94GNS5V"></script>
 
@@ -385,13 +385,13 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 				stroke-dasharray: 2800px
 			}
 		</style>
-		<link rel="stylesheet" href="./_astro/_page_.gaP746Vk.css" />
+		<link rel="stylesheet" href="/_astro/_page_.gaP746Vk.css" />
 		<style>
 			h1[data-astro-cid-gjtny2mx] {
 				line-height: 1.6
 			}
 		</style>
-		<script type="module" src="./_astro/hoisted.Ai8IfR8G.js"></script>
+		<script type="module" src="/_astro/hoisted.Ai8IfR8G.js"></script>
 	</head>
 
 	<body>

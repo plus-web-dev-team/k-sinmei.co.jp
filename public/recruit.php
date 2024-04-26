@@ -30,10 +30,10 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) { //PHP5.1.0以上の場合の�
 //---------------------------　必須設定　必ず設定してください　-----------------------
 
 //サイトのトップページのURL　※デフォルトでは送信完了後に「トップページへ戻る」ボタンが表示されますので
-$site_top = "https://k-sinmei.co.jp/";
+$site_top = "https://www.k-sinmei.co.jp/";
 
 //管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
-$to = "mi-yu@k-sinmei.co.jp";
+$to = "sinmei-mail-transfer@k-sinmei.co.jp";
 
 //送信元メールアドレス（管理者宛て、及びユーザー宛メールの送信元メールアドレスです）
 //必ず実在するメールアドレスでかつ出来る限り設置先サイトのドメインと同じドメインのメールアドレスとすることを強く推奨します
@@ -49,11 +49,11 @@ $Email = "Email";
 
 //スパム防止のためのリファラチェック（フォーム側とこのファイルが同一ドメインであるかどうかのチェック）(する=1, しない=0)
 //※有効にするにはこのファイルとフォームのページが同一ドメイン内にある必要があります
-$Referer_check = 1;
+$Referer_check = 0;
 
 //リファラチェックを「する」場合のドメイン ※設置するサイトのドメインを指定して下さい。
 //もしこの設定が間違っている場合は送信テストですぐに気付けます。
-$Referer_check_domain = "k-sinmei.co.jp";
+$Referer_check_domain = "www.k-sinmei.co.jp";
 
 /*セッションによるワンタイムトークン（CSRF対策、及びスパム防止）(する=1, しない=0)
 ※ただし、この機能を使う場合は↓の送信確認画面の表示が必須です。（デフォルトではON（1）になっています）
@@ -71,7 +71,7 @@ $BccMail = "";
 $subject = "採用情報へのお問い合わせ";
 
 // 送信確認画面の表示(する=1, しない=0)
-$confirmDsp = 1;
+$confirmDsp = 0;
 
 // 送信完了後に自動的に指定のページ(サンクスページなど)に移動する(する=1, しない=0)
 // CV率を解析したい場合などはサンクスページを別途用意し、URLをこの下の項目で指定してください。
@@ -79,7 +79,7 @@ $confirmDsp = 1;
 $jumpPage = 0;
 
 // 送信完了後に表示するページURL（上記で1を設定した場合のみ）※httpから始まるURLで指定ください。（相対パスでも基本的には問題ないです）
-$thanksPage = "https://k-sinmei.co.jp/recruit-thanks/";
+$thanksPage = "https://www.k-sinmei.co.jp/recruit-thanks/";
 
 // 必須入力項目を設定する(する=1, しない=0)
 $requireCheck = 1;
@@ -364,7 +364,7 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 
 	<head>
 		<meta charset="UTF-8">
-		<meta name="description" content="Astro description">
+		<meta name="description" content="株式会社SINMEIは、設立以来培ってきた技術力により、お客様の幅広いニーズにお応えして鉄骨工事業を展開しております。 技術力、品質向上に努めて、お客様の満足度を高めるべく、邁進いたします。">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/svg+xml" href="https://www.k-sinmei.co.jp/favicon.svg">
 		<link rel="canonical" href="https://www.k-sinmei.co.jp/">
@@ -385,13 +385,13 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 				stroke-dasharray: 2800px
 			}
 		</style>
-		<link rel="stylesheet" href="./_astro/_page_.gaP746Vk.css" />
+		<link rel="stylesheet" href="/_astro/_page_.gaP746Vk.css" />
 		<style>
 			h1[data-astro-cid-gjtny2mx] {
 				line-height: 1.6
 			}
 		</style>
-		<script type="module" src="./_astro/hoisted.Ai8IfR8G.js"></script>
+		<script type="module" src="/_astro/hoisted.Ai8IfR8G.js"></script>
 	</head>
 
 	<body>
