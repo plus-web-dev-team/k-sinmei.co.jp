@@ -1,15 +1,15 @@
 @use "../global" as g;
 
 html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-    font-family: g.$font;
-    color: g.$palette-blue;
-    font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
+  font-family: g.$font;
+  color: g.$palette-blue;
+  font-size: clamp(0.813rem, 0.694rem + 0.5vw, 1.125rem);
 }

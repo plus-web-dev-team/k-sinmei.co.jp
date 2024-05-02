@@ -1,30 +1,29 @@
 @use "../global" as g;
 
 .notfound {
-    font-weight: 800;
-    background-color: g.$palette-blue;
-    color: g.$palette-white;
+  font-weight: 800;
+  background-color: g.$palette-blue;
+  color: g.$palette-white;
 
+  &-main {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px
+      clamp(0.938rem, -4.573rem + 23.51vw, 15.5rem);
+  }
 
-    &-main {
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(0.938rem, -4.573rem + 23.51vw, 15.5rem);
+  &-tit {
+    margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
     }
+  }
 
-    &-tit {
-        margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
-
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-        }
+  &-text {
+    p {
+      font-size: clamp(1rem, 0.787rem + 0.91vw, 1.563rem);
+      line-height: 2.2;
     }
-
-    &-text {
-        p {
-            font-size: clamp(1rem, 0.787rem + 0.91vw, 1.563rem);
-            line-height: 2.2;
-        }
-    }
-
+  }
 }

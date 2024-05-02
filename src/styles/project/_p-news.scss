@@ -1,222 +1,220 @@
 @use "../global" as g;
 
 .news {
-    max-width: g.$layout-width-inner;
-    margin: 0 auto;
-    padding: 120px 33px 200px;
-    font-weight: 800;
+  max-width: g.$layout-width-inner;
+  margin: 0 auto;
+  padding: 120px 33px 200px;
+  font-weight: 800;
 
-    @include g.mq(sp) {
-        padding: 90px 33px 100px;
+  @include g.mq(sp) {
+    padding: 90px 33px 100px;
+  }
+
+  &-tit {
+    text-align: center;
+    margin-bottom: clamp(3.125rem, 1.233rem + 8.07vw, 8.125rem);
+
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+      position: relative;
+      z-index: 3;
     }
 
-    &-tit {
-        text-align: center;
-        margin-bottom: clamp(3.125rem, 1.233rem + 8.07vw, 8.125rem);
+    h2 {
+      font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+      display: inline-block;
+      position: relative;
+      padding-bottom: 15px;
+      border-bottom: 3px solid g.$palette-lightblue;
+      position: relative;
+      z-index: 3;
 
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-            position: relative;
-            z-index: 3;
-        }
-
-        h2 {
-            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            display: inline-block;
-            position: relative;
-            padding-bottom: 15px;
-            border-bottom: 3px solid g.$palette-lightblue;
-            position: relative;
-            z-index: 3;
-
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                width: 50%;
-                height: 3px;
-                background: g.$palette-blue;
-            }
-        }
-    }
-
-    &-list {
-        list-style-type: none;
-        padding: 0;
-        margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
-    }
-
-    &-item {
-        padding: 0;
-        border-top: solid 1px g.$palette-blue;
-
-        &-header {
-            display: flex;
-            align-items: center;
-            gap: clamp(0.625rem, 0.294rem + 1.41vw, 1.5rem);
-            margin-bottom: 15px;
-
-            time {
-                font-size: clamp(0.75rem, 0.679rem + 0.3vw, 0.938rem);
-            }
-
-
-            p {
-                background-color: g.$palette-blue;
-                width: fit-content;
-                border-radius: 7px;
-                color: g.$palette-white;
-                font-size: clamp(0.625rem, 0.554rem + 0.3vw, 0.813rem);
-                padding: 0 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                line-height: 100%;
-            }
-        }
-
-        a {
-            padding: 28px 38px 35px;
-            text-decoration: none;
-            display: block;
-
-            @include g.mq(sp) {
-                padding: 19px 0 15px;
-            }
-        }
-
-        &-main {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-
-            img {
-                transition: transform 0.5s ease;
-            }
-        }
-
-        &-main:hover img {
-            transform: translateX(10px);
-            transition: transform 0.5s ease;
-        }
-
-        &:last-child {
-            border-bottom: solid 1px g.$palette-blue;
-        }
-    }
-
-    &-text {
-        &-header {
-            display: flex;
-            align-items: center;
-            gap: clamp(0.625rem, 0.294rem + 1.41vw, 1.5rem);
-            margin-bottom: 15px;
-
-            time {
-                font-size: clamp(0.75rem, 0.679rem + 0.3vw, 0.938rem);
-            }
-
-
-            p {
-                background-color: g.$palette-blue;
-                width: fit-content;
-                border-radius: 7px;
-                color: g.$palette-white;
-                font-size: clamp(0.625rem, 0.554rem + 0.3vw, 0.813rem);
-                padding: 0 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                line-height: 100%;
-            }
-        }
-
-        &-main {
-            margin-bottom: clamp(6.25rem, 5.777rem + 2.02vw, 7.5rem);
-            line-height: 2.2;
-
-            h1 {
-                margin-bottom: clamp(1.25rem, 0.568rem + 3.41vw, 3.125rem);
-            }
-        }
-    }
-
-    &-link {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
         width: 50%;
-        margin: 0 auto;
-        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        height: 3px;
+        background: g.$palette-blue;
+      }
+    }
+  }
+
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
+  }
+
+  &-item {
+    padding: 0;
+    border-top: solid 1px g.$palette-blue;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.625rem, 0.294rem + 1.41vw, 1.5rem);
+      margin-bottom: 15px;
+
+      time {
+        font-size: clamp(0.75rem, 0.679rem + 0.3vw, 0.938rem);
+      }
+
+      p {
+        background-color: g.$palette-blue;
+        width: fit-content;
+        border-radius: 7px;
+        color: g.$palette-white;
+        font-size: clamp(0.625rem, 0.554rem + 0.3vw, 0.813rem);
+        padding: 0 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10%;
-        position: relative;
-
-        @include g.mq(sp) {
-            width: 100%;
-        }
-
-        a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
-            position: relative;
-            transition: width 0.3s ease;
-
-            p {
-                font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
-                width: fit-content;
-            }
-
-            img {
-                width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
-            }
-        }
-
-        a:nth-of-type(2)::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: g.$palette-blue;
-            animation: underlineAnimation 2s infinite;
-            transition: width 0.3s ease;
-            visibility: hidden;
-        }
-
-        a:nth-of-type(2):hover::before,
-        a:nth-of-type(2):focus::before {
-            visibility: visible;
-            width: 100%;
-            animation-play-state: paused;
-        }
-
-        a:nth-of-type(2):not(:hover):not(:focus)::before {
-            visibility: hidden;
-            width: 0;
-            animation-play-state: running;
-        }
-
-        span {
-            border-bottom: solid 1px g.$palette-blue;
-        }
-
-        a.next:hover::before {
-            width: 0;
-        }
-
-        a.prev {
-            position: absolute;
-            left: 0;
-        }
-
-        a.next {
-            position: absolute;
-            right: 0;
-        }
+        line-height: 100%;
+      }
     }
+
+    a {
+      padding: 28px 38px 35px;
+      text-decoration: none;
+      display: block;
+
+      @include g.mq(sp) {
+        padding: 19px 0 15px;
+      }
+    }
+
+    &-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+
+      img {
+        transition: transform 0.5s ease;
+      }
+    }
+
+    &-main:hover img {
+      transform: translateX(10px);
+      transition: transform 0.5s ease;
+    }
+
+    &:last-child {
+      border-bottom: solid 1px g.$palette-blue;
+    }
+  }
+
+  &-text {
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.625rem, 0.294rem + 1.41vw, 1.5rem);
+      margin-bottom: 15px;
+
+      time {
+        font-size: clamp(0.75rem, 0.679rem + 0.3vw, 0.938rem);
+      }
+
+      p {
+        background-color: g.$palette-blue;
+        width: fit-content;
+        border-radius: 7px;
+        color: g.$palette-white;
+        font-size: clamp(0.625rem, 0.554rem + 0.3vw, 0.813rem);
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 100%;
+      }
+    }
+
+    &-main {
+      margin-bottom: clamp(6.25rem, 5.777rem + 2.02vw, 7.5rem);
+      line-height: 2.2;
+
+      h1 {
+        margin-bottom: clamp(1.25rem, 0.568rem + 3.41vw, 3.125rem);
+      }
+    }
+  }
+
+  &-link {
+    width: 50%;
+    margin: 0 auto;
+    font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    position: relative;
+
+    @include g.mq(sp) {
+      width: 100%;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+      position: relative;
+      transition: width 0.3s ease;
+
+      p {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        width: fit-content;
+      }
+
+      img {
+        width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+      }
+    }
+
+    a:nth-of-type(2)::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: g.$palette-blue;
+      animation: underlineAnimation 2s infinite;
+      transition: width 0.3s ease;
+      visibility: hidden;
+    }
+
+    a:nth-of-type(2):hover::before,
+    a:nth-of-type(2):focus::before {
+      visibility: visible;
+      width: 100%;
+      animation-play-state: paused;
+    }
+
+    a:nth-of-type(2):not(:hover):not(:focus)::before {
+      visibility: hidden;
+      width: 0;
+      animation-play-state: running;
+    }
+
+    span {
+      border-bottom: solid 1px g.$palette-blue;
+    }
+
+    a.next:hover::before {
+      width: 0;
+    }
+
+    a.prev {
+      position: absolute;
+      left: 0;
+    }
+
+    a.next {
+      position: absolute;
+      right: 0;
+    }
+  }
 }

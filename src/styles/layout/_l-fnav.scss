@@ -1,123 +1,122 @@
 @use "../global" as g;
 
 .footer {
-    background-color: g.$palette-blue;
-    font-weight: 800;
-    background-image: url(/images/sinmei_name-logo_ol_blue.svg);
-    background-size: 120px;
+  background-color: g.$palette-blue;
+  font-weight: 800;
+  background-image: url(/images/sinmei_name-logo_ol_blue.svg);
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: center right 20%;
+
+  @include g.mq("sp") {
+    background-size: 100px;
     background-repeat: no-repeat;
-    background-position: center right 20%;
+    background-position: top 10% right;
+  }
 
-    @include g.mq('sp') {
-        background-size: 100px;
-        background-repeat: no-repeat;
-        background-position: top 10% right;
+  &-inner {
+    font-size: 20px;
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    color: g.$palette-white;
+    padding: 100px 33px 42px;
+
+    span {
+      font-size: 10px;
+      margin-left: 5px;
     }
 
-    &-inner {
-        font-size: 20px;
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        color: g.$palette-white;
-        padding: 100px 33px 42px;
+    a {
+      text-decoration: none;
+    }
+  }
 
-        span {
-            font-size: 10px;
-            margin-left: 5px;
-        }
+  &-list {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 60px;
 
-        a {
-            text-decoration: none;
-        }
-
+    li {
+      margin-bottom: 30px;
     }
 
-    &-list {
-        padding: 0;
-        list-style-type: none;
-        margin-bottom: 60px;
+    ul {
+      list-style-type: none;
+      border-left: solid 1px g.$palette-white;
+      padding-left: 13px;
+      margin-left: 4px;
+      display: flex;
+      gap: 50px;
 
-        li {
-            margin-bottom: 30px;
-        }
+      li {
+        margin-bottom: 0;
+        margin-top: 20px;
+      }
 
-        ul {
-            list-style-type: none;
-            border-left: solid 1px g.$palette-white;
-            padding-left: 13px;
-            margin-left: 4px;
-            display: flex;
-            gap: 50px;
-
-            li {
-                margin-bottom: 0;
-                margin-top: 20px;
-            }
-
-            @include g.mq('sp') {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-        }
-
-        a {
-            position: relative;
-        }
-
-        a::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: g.$palette-white;
-            transition: width 0.3s ease;
-        }
-
-        a:hover::before {
-            width: 100%;
-        }
+      @include g.mq("sp") {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
 
-    &-icon {
-        margin-bottom: 50px;
-        width: fit-content;
+    a {
+      position: relative;
     }
 
-    &-text {
-        margin-bottom: 60px;
+    a::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: g.$palette-white;
+      transition: width 0.3s ease;
+    }
 
-        figure {
-            margin-bottom: 14px;
-            width: 130px;
+    a:hover::before {
+      width: 100%;
+    }
+  }
 
-            img {
-                width: 100%;
-                height: auto;
-            }
+  &-icon {
+    margin-bottom: 50px;
+    width: fit-content;
+  }
+
+  &-text {
+    margin-bottom: 60px;
+
+    figure {
+      margin-bottom: 14px;
+      width: 130px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    p {
+      font-size: 15px;
+
+      span {
+        font-size: 15px;
+        margin-left: 0;
+        margin-right: 25px;
+
+        @include g.mq("sp") {
+          font-size: 13px;
+          display: block;
+          line-height: 1.7;
         }
-
-        p {
-            font-size: 15px;
-
-            span {
-                font-size: 15px;
-                margin-left: 0;
-                margin-right: 25px;
-
-                @include g.mq('sp') {
-                    font-size: 13px;
-                    display: block;
-                    line-height: 1.7;
-                }
-            }
-        }
+      }
     }
+  }
 
-    &-copy {
-        font-size: 10px;
-        text-align: center;
-    }
+  &-copy {
+    font-size: 10px;
+    text-align: center;
+  }
 }

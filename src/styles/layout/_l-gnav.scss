@@ -1,368 +1,366 @@
 @use "../global" as g;
 
 .gnav {
-    font-weight: 600;
-    height: 60px;
+  font-weight: 600;
+  height: 60px;
 
-    @include g.mq('sp') {
+  @include g.mq("sp") {
+    width: 100%;
+    padding: 16px 0;
+    font-weight: 800;
+  }
+
+  &-dropbtn {
+    cursor: default;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    a {
+      margin-bottom: 20px;
+    }
+
+    @include g.mq("sp") {
+      gap: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 1em;
+      height: 1em;
+      background-image: url("/images/gnav-arrow.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-bottom: 3px;
+      transform: rotate(270deg);
+      transition: transform 0.5s ease;
+
+      @include g.mq("sp") {
+        display: none;
+      }
+    }
+
+    &:hover::after {
+      transform: rotate(360deg);
+    }
+  }
+
+  &-dropbtn::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 0 !important;
+    background-color: black;
+    animation: underlineAnimation 2s infinite;
+    transition: width 0.3s ease;
+    visibility: hidden;
+  }
+
+  &-dropbtn:not(:hover)::before {
+    visibility: visible;
+    width: 100%;
+    animation-play-state: paused;
+  }
+
+  &-dropbtn:hover::before {
+    visibility: hidden;
+  }
+
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px;
+  }
+
+  &-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    @include g.mq("sp") {
+      width: 100%;
+    }
+
+    figure {
+      width: 106px;
+      height: auto;
+    }
+
+    figure:is(figure:not(:last-child)) {
+      display: none;
+
+      @include g.mq("sp") {
+        display: block;
+      }
+
+      img {
         width: 100%;
-        padding: 16px 0;
-        font-weight: 800;
+        height: auto;
+      }
     }
 
-    &-dropbtn {
-        cursor: default;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        a {
-            margin-bottom: 20px;
+      figure {
+        width: 25px;
+      }
+
+      &::after {
+        content: "";
+        width: 106px;
+        height: 21px;
+        margin-left: 10px;
+        background-image: url("/images/sinmei_name-logo.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        @include g.mq("sp") {
+          display: none;
         }
+      }
+    }
+  }
 
-        @include g.mq('sp') {
-            gap: 0;
-        }
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        &::after {
-            content: '';
-            display: block;
-            width: 1em;
-            height: 1em;
-            background-image: url('/images/gnav-arrow.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            margin-bottom: 3px;
-            transform: rotate(270deg);
-            transition: transform 0.5s ease;
+    @include g.mq("sp") {
+      display: none;
+    }
+  }
 
-            @include g.mq('sp') {
-                display: none;
-            }
-        }
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
 
-        &:hover::after {
-            transform: rotate(360deg);
-        }
+  &-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    @include g.mq("sp") {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: g.$palette-blue;
+      z-index: 999;
+      flex-direction: column;
+      padding: 52px 24px 60px;
+      margin-top: 60px;
+      font-size: 22px;
     }
 
-    &-dropbtn::before {
-        content: '';
+    a {
+      position: relative;
+      font-size: 16px;
+
+      @include g.mq("sp") {
+        font-size: 22px;
+      }
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: g.$palette-white;
+      transition: width 0.3s ease;
+    }
+
+    a:hover::before {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+
+      @include g.mq("sp") {
+        display: inline;
+        font-size: 11px;
+        margin-left: 10px;
+      }
+
+      figure {
+        width: 120px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      a {
+        figure {
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+
+      @include g.mq("sp") {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: g.$palette-white;
+    }
+
+    li:nth-of-type(6) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
+
+      a:nth-of-type(2)::before {
+        content: "";
         position: absolute;
         bottom: -2px;
         left: 0;
         width: 0;
-        height: 0 !important;
-        background-color: black;
-        animation: underlineAnimation 2s infinite;
+        height: 1px;
+        background-color: g.$palette-blue;
         transition: width 0.3s ease;
-        visibility: hidden;
+      }
+    }
+  }
+
+  &-dropdown_content {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    padding: 0;
+    list-style-type: none;
+    top: 60px;
+
+    @include g.mq("sp") {
+      position: relative;
+      top: 0;
+      width: 100%;
+      background-color: g.$palette-blue;
+      opacity: 1;
+      pointer-events: auto;
+      border-left: solid 1px g.$palette-white;
     }
 
-    &-dropbtn:not(:hover)::before {
-        visibility: visible;
-        width: 100%;
-        animation-play-state: paused;
-    }
+    li {
+      padding: 10px 12px;
+      background-color: rgba(15, 45, 143, 0.8);
+      margin-bottom: 3px;
 
-    &-dropbtn:hover::before {
-        visibility: hidden;
-    }
-
-    &-inner {
-        display: flex;
-        justify-content: space-between;
-        height: 100%;
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding: 0 33px;
-    }
-
-    &-main {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-
-        @include g.mq('sp') {
-            width: 100%;
-        }
-
-        figure {
-            width: 106px;
-            height: auto;
-        }
-
-        figure:is(figure:not(:last-child)) {
-            display: none;
-
-            @include g.mq('sp') {
-                display: block;
-            }
-
-            img {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        a {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            figure {
-                width: 25px;
-            }
-
-            &::after {
-                content: '';
-                width: 106px;
-                height: 21px;
-                margin-left: 10px;
-                background-image: url("/images/sinmei_name-logo.svg");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-
-                @include g.mq('sp') {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    &-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        @include g.mq('sp') {
-            display: none;
-        }
-    }
-
-    &-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    &-list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        list-style-type: none;
-        gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
-        flex-direction: row;
-        margin: 0;
-        padding: 0;
-
-        @include g.mq('sp') {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: g.$palette-blue;
-            z-index: 999;
-            flex-direction: column;
-            padding: 52px 24px 60px;
-            margin-top: 60px;
-            font-size: 22px;
-        }
-
-        a {
-            position: relative;
-            font-size: 16px;
-
-            @include g.mq('sp') {
-                font-size: 22px;
-            }
-        }
-
-        a::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: g.$palette-white;
-            transition: width 0.3s ease;
-        }
-
-        a:hover::before {
-            width: 100%;
-        }
-
-        .hidden {
-            display: none;
-
-            @include g.mq('sp') {
-                display: inline;
-                font-size: 11px;
-                margin-left: 10px;
-            }
-
-            figure {
-                width: 120px;
-
-                img {
-                    width: 100%;
-                    height: auto;
-
-                }
-            }
-
-            a {
-                figure {
-                    width: 50px;
-                    height: auto;
-                }
-            }
-        }
-
-
-        li {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 100%;
-
-            @include g.mq('sp') {
-                flex-direction: column;
-                height: auto;
-                width: 100%;
-                justify-content: flex-start;
-                align-items: flex-start;
-            }
-        }
-
-        a {
-            text-decoration: none;
-            color: g.$palette-white ;
-        }
-
-        li:nth-of-type(6) {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
-
-            a:nth-of-type(2)::before {
-                content: '';
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                width: 0;
-                height: 1px;
-                background-color: g.$palette-blue;
-                transition: width 0.3s ease;
-            }
-        }
-    }
-
-    &-dropdown_content {
-        opacity: 0;
-        pointer-events: none;
-        position: absolute;
-        z-index: 1;
-        transition: opacity 0.3s ease;
-        padding: 0;
-        list-style-type: none;
-        top: 60px;
-
-        @include g.mq('sp') {
-            position: relative;
-            top: 0;
-            width: 100%;
-            background-color: g.$palette-blue;
-            opacity: 1;
-            pointer-events: auto;
-            border-left: solid 1px g.$palette-white;
-        }
-
-        li {
-            padding: 10px 12px;
-            background-color: rgba(15, 45, 143, 0.8);
-            margin-bottom: 3px;
-
-            span {
-                font-size: 11px;
-                color: g.$palette-white;
-                display: block;
-
-                @include g.mq('sp') {
-                    display: inline;
-                    margin-left: 10px;
-                }
-            }
-        }
-    }
-
-    &-dropdown:hover &-dropdown_content {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    &-dropdown_content li:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-
-    &-dropdown_content li a {
-        display: block;
+      span {
+        font-size: 11px;
         color: g.$palette-white;
-        text-decoration: none;
-    }
-
-    .is-active {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    .gnav-hamburger {
-        display: none;
-
-        @include g.mq('sp') {
-            display: block;
-            z-index: 1000;
-            background: none;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-        }
-    }
-
-    &-hamburger-line {
         display: block;
-        width: 25px;
-        height: 3px;
-        background-color: g.$palette-white;
-        margin: 4px auto;
-        transition: background-color 0.3s ease;
-    }
 
-    &-hamburger.is-active &-hamburger-line:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+        @include g.mq("sp") {
+          display: inline;
+          margin-left: 10px;
+        }
+      }
     }
+  }
 
-    &-hamburger.is-active &-hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
+  &-dropdown:hover &-dropdown_content {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-    &-hamburger.is-active &-hamburger-line:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+  &-dropdown_content li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  &-dropdown_content li a {
+    display: block;
+    color: g.$palette-white;
+    text-decoration: none;
+  }
+
+  .is-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .gnav-hamburger {
+    display: none;
+
+    @include g.mq("sp") {
+      display: block;
+      z-index: 1000;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
     }
+  }
+
+  &-hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: g.$palette-white;
+    margin: 4px auto;
+    transition: background-color 0.3s ease;
+  }
+
+  &-hamburger.is-active &-hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  &-hamburger.is-active &-hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  &-hamburger.is-active &-hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
 }

@@ -1,286 +1,284 @@
 @use "../global" as g;
 
 .sdgs {
-    font-weight: 800;
-    background-color: g.$palette-blue;
-    color: g.$palette-white;
+  font-weight: 800;
+  background-color: g.$palette-blue;
+  color: g.$palette-white;
 
+  &-header {
+    position: relative;
+    height: calc(100vh - 60px);
 
-    &-header {
-        position: relative;
-        height: calc(100vh - 60px);
-
-        @include g.mq(sp) {
-            height: auto;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: g.$palette-blue;
-            clip-path: polygon(0 80%, 40% 80%, 40% 100%, 0% 100%);
-            z-index: 2;
-            opacity: 1;
-        }
-
-        picture {
-            display: inline;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+    @include g.mq(sp) {
+      height: auto;
     }
 
-    &-main {
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: g.$palette-blue;
+      clip-path: polygon(0 80%, 40% 80%, 40% 100%, 0% 100%);
+      z-index: 2;
+      opacity: 1;
     }
 
-    &-subtit {
-        color: g.$palette-lightblue;
-        text-align: right;
-        margin-bottom: clamp(3.125rem, 0.76rem + 10.09vw, 9.375rem);
+    picture {
+      display: inline;
 
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-        }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 
-        h1 {
-            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-        }
+  &-main {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px
+      clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
+  }
+
+  &-subtit {
+    color: g.$palette-lightblue;
+    text-align: right;
+    margin-bottom: clamp(3.125rem, 0.76rem + 10.09vw, 9.375rem);
+
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
     }
 
-    &-tit {
-        margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+    h1 {
+      font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+    }
+  }
 
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-        }
+  &-tit {
+    margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
 
-        h2 {
-            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            display: inline-block;
-            padding-bottom: 0.938rem;
-            border-bottom: 3px solid g.$palette-lightblue;
-            position: relative;
-            z-index: 3;
-
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                width: 50%;
-                height: 3px;
-                background: g.$palette-white;
-            }
-        }
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
     }
 
-    &-list {
-        p {}
+    h2 {
+      font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+      display: inline-block;
+      padding-bottom: 0.938rem;
+      border-bottom: 3px solid g.$palette-lightblue;
+      position: relative;
+      z-index: 3;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 50%;
+        height: 3px;
+        background: g.$palette-white;
+      }
+    }
+  }
+
+  &-list {
+    p {
+    }
+
+    ul {
+      list-style-type: none;
+      margin-bottom: clamp(5rem, 3.344rem + 7.06vw, 9.375rem);
+      padding: 0;
+
+      li {
+        h3 {
+          font-size: clamp(1.063rem, 0.755rem + 1.31vw, 1.875rem);
+          color: g.$palette-lightblue;
+          line-height: 1.8;
+          display: flex;
+          align-items: flex-end;
+          margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+          font-family: "Noto Sans JP", sans-serif;
+
+          &::after {
+            content: "";
+            flex-grow: 1;
+            margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+            height: 1px;
+            background: g.$palette-white;
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        h4 {
+          font-size: clamp(1.063rem, 0.519rem + 2.32vw, 2.5rem);
+          margin-bottom: clamp(2.688rem, 2.096rem + 2.52vw, 4.25rem);
+        }
+
+        P {
+          line-height: 2.2;
+          margin-bottom: clamp(2.813rem, 2.458rem + 1.51vw, 3.75rem);
+        }
 
         ul {
-            list-style-type: none;
-            margin-bottom: clamp(5rem, 3.344rem + 7.06vw, 9.375rem);
-            padding: 0;
+          font-family: "Noto Sans JP", sans-serif;
+          list-style-type: disc;
 
-            li {
-
-                h3 {
-                    font-size: clamp(1.063rem, 0.755rem + 1.31vw, 1.875rem);
-                    color: g.$palette-lightblue;
-                    line-height: 1.8;
-                    display: flex;
-                    align-items: flex-end;
-                    margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
-                    font-family: 'Noto Sans JP', sans-serif;
-
-                    &::after {
-                        content: "";
-                        flex-grow: 1;
-                        margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-                        height: 1px;
-                        background: g.$palette-white;
-                        margin-bottom: 1.5rem;
-                    }
-                }
-
-                h4 {
-                    font-size: clamp(1.063rem, 0.519rem + 2.32vw, 2.5rem);
-                    margin-bottom: clamp(2.688rem, 2.096rem + 2.52vw, 4.25rem);
-                }
-
-                P {
-                    line-height: 2.2;
-                    margin-bottom: clamp(2.813rem, 2.458rem + 1.51vw, 3.75rem);
-                }
-
-                ul {
-                    font-family: 'Noto Sans JP', sans-serif;
-                    list-style-type: disc;
-
-                    li {
-                        margin-bottom: clamp(2.875rem, 2.544rem + 1.41vw, 3.75rem);
-                    }
-                }
-            }
+          li {
+            margin-bottom: clamp(2.875rem, 2.544rem + 1.41vw, 3.75rem);
+          }
         }
-
-        .list01 {
-            li:nth-of-type(1) {
-                picture:nth-of-type(1) {
-                    display: flex;
-                    justify-content: center;
-                    width: clamp(19.375rem, 9.205rem + 43.39vw, 46.25rem);
-                    margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-
-                picture:nth-of-type(2) {
-                    display: flex;
-                    justify-content: center;
-                    width: clamp(19.375rem, 4.239rem + 64.58vw, 59.375rem);
-                    margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-            }
-        }
-
-        .list03 {
-            li:nth-of-type(2) {
-                picture {
-                    display: flex;
-                    justify-content: center;
-                    width: clamp(19.375rem, 14.456rem + 20.99vw, 32.375rem);
-                    margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-            }
-
-            li:nth-of-type(4) {
-                picture {
-                    display: flex;
-                    justify-content: center;
-                    width: clamp(5.375rem, 4.027rem + 5.75vw, 8.938rem);
-                    margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-            }
-
-            li:nth-of-type(6) {
-                picture {
-                    display: flex;
-                    justify-content: center;
-                    width: clamp(5.375rem, 4.027rem + 5.75vw, 8.938rem);
-                    margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-            }
-
-            li:nth-of-type(8) {
-                div {
-                    width: clamp(12.313rem, 9.167rem + 13.42vw, 20.625rem);
-                    margin: 0 auto;
-
-                    picture {
-                        img {
-                            width: 100%;
-                            height: auto;
-                        }
-                    }
-                }
-            }
-        }
-
-        .list05 {
-            li {
-                div {
-                    width: clamp(12.313rem, 9.167rem + 13.42vw, 20.625rem);
-                    margin: 0 auto;
-
-                    picture {
-                        img {
-                            width: 100%;
-                            height: auto;
-                        }
-                    }
-                }
-            }
-        }
-
-        .list07 {
-
-            li:nth-of-type(2) {
-                h3 {
-                    font-size: clamp(1.063rem, 0.755rem + 1.31vw, 1.875rem);
-                    color: g.$palette-lightblue;
-                    line-height: 1.8;
-                    display: flex;
-                    align-items: flex-end;
-                    margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
-                    font-family: 'Noto Sans JP', sans-serif;
-
-                    &::after {
-                        content: "";
-                        flex-grow: 1;
-                        margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-                        height: 1px;
-                        background: g.$palette-white;
-                        margin-bottom: 1.5rem;
-                    }
-                }
-
-                picture:nth-of-type(1) {
-                    width: clamp(13.438rem, 7.478rem + 25.43vw, 29.188rem);
-                    height: auto;
-                    margin: 0 auto clamp(3.75rem, 2.804rem + 4.04vw, 6.25rem);
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-
-                picture:nth-of-type(2) {
-                    width: clamp(19.375rem, 14.456rem + 20.99vw, 32.375rem);
-                    height: auto;
-                    margin: 0 auto;
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-
-            }
-        }
+      }
     }
+
+    .list01 {
+      li:nth-of-type(1) {
+        picture:nth-of-type(1) {
+          display: flex;
+          justify-content: center;
+          width: clamp(19.375rem, 9.205rem + 43.39vw, 46.25rem);
+          margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        picture:nth-of-type(2) {
+          display: flex;
+          justify-content: center;
+          width: clamp(19.375rem, 4.239rem + 64.58vw, 59.375rem);
+          margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    .list03 {
+      li:nth-of-type(2) {
+        picture {
+          display: flex;
+          justify-content: center;
+          width: clamp(19.375rem, 14.456rem + 20.99vw, 32.375rem);
+          margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      li:nth-of-type(4) {
+        picture {
+          display: flex;
+          justify-content: center;
+          width: clamp(5.375rem, 4.027rem + 5.75vw, 8.938rem);
+          margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      li:nth-of-type(6) {
+        picture {
+          display: flex;
+          justify-content: center;
+          width: clamp(5.375rem, 4.027rem + 5.75vw, 8.938rem);
+          margin: 0 auto clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      li:nth-of-type(8) {
+        div {
+          width: clamp(12.313rem, 9.167rem + 13.42vw, 20.625rem);
+          margin: 0 auto;
+
+          picture {
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    .list05 {
+      li {
+        div {
+          width: clamp(12.313rem, 9.167rem + 13.42vw, 20.625rem);
+          margin: 0 auto;
+
+          picture {
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    .list07 {
+      li:nth-of-type(2) {
+        h3 {
+          font-size: clamp(1.063rem, 0.755rem + 1.31vw, 1.875rem);
+          color: g.$palette-lightblue;
+          line-height: 1.8;
+          display: flex;
+          align-items: flex-end;
+          margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+          font-family: "Noto Sans JP", sans-serif;
+
+          &::after {
+            content: "";
+            flex-grow: 1;
+            margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+            height: 1px;
+            background: g.$palette-white;
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        picture:nth-of-type(1) {
+          width: clamp(13.438rem, 7.478rem + 25.43vw, 29.188rem);
+          height: auto;
+          margin: 0 auto clamp(3.75rem, 2.804rem + 4.04vw, 6.25rem);
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        picture:nth-of-type(2) {
+          width: clamp(19.375rem, 14.456rem + 20.99vw, 32.375rem);
+          height: auto;
+          margin: 0 auto;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,8 +1,9 @@
 ---
-layout: '../../layouts/PostLayout.astro'
-title: '当社ウェブサイトリニューアルのお知らせ'
+layout: "../../layouts/PostLayout.astro"
+title: "当社ウェブサイトリニューアルのお知らせ"
 pubDate: 2024.04.01
 ---
+
 日頃より株式会社SINMEIのホームページをご覧いただき、誠にありがとうございます。
 
 この度、ホームページを全面的にリニューアルいたしました。

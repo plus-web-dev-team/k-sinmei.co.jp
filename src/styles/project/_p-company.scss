@@ -1,199 +1,195 @@
 @use "../global" as g;
 
 .company {
-    font-weight: 800;
-    margin-bottom: clamp(2.063rem, 0.478rem + 6.76vw, 6.25rem);
+  font-weight: 800;
+  margin-bottom: clamp(2.063rem, 0.478rem + 6.76vw, 6.25rem);
 
-    &-header {
-        position: relative;
-        height: calc(100vh - 60px);
+  &-header {
+    position: relative;
+    height: calc(100vh - 60px);
 
-        @include g.mq(sp) {
-            height: auto;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: g.$palette-white;
-            clip-path: polygon(0 80%, 40% 80%, 40% 100%, 0% 100%);
-            z-index: 2;
-            opacity: 1;
-        }
-
-        picture {
-            display: inline;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+    @include g.mq(sp) {
+      height: auto;
     }
 
-    &-main {
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding-top: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem);
-        padding-right: 33px;
-        padding-left: 33px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: g.$palette-white;
+      clip-path: polygon(0 80%, 40% 80%, 40% 100%, 0% 100%);
+      z-index: 2;
+      opacity: 1;
     }
 
-    &-tit {
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-            color: g.$palette-blue;
-        }
+    picture {
+      display: inline;
 
-        h1 {
-            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            display: inline-block;
-            padding-bottom: 0.938rem;
-            border-bottom: 3px solid g.$palette-lightblue;
-            position: relative;
-            z-index: 3;
-
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                width: 50%;
-                height: 3px;
-                background: g.$palette-blue;
-            }
-        }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
+  }
+
+  &-main {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding-top: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem);
+    padding-right: 33px;
+    padding-left: 33px;
+  }
+
+  &-tit {
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+      color: g.$palette-blue;
+    }
+
+    h1 {
+      font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+      display: inline-block;
+      padding-bottom: 0.938rem;
+      border-bottom: 3px solid g.$palette-lightblue;
+      position: relative;
+      z-index: 3;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 50%;
+        height: 3px;
+        background: g.$palette-blue;
+      }
+    }
+  }
 }
 
 .overview {
-    font-weight: 800;
-    margin-bottom: clamp(10.125rem, 9.226rem + 3.83vw, 12.5rem);
+  font-weight: 800;
+  margin-bottom: clamp(10.125rem, 9.226rem + 3.83vw, 12.5rem);
 
-    &-main {
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding: 0 33px 0;
+  &-main {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px 0;
+  }
+
+  &-accordion {
+    .accordion-header {
+      padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem)
+        clamp(0rem, -0.864rem + 4.32vw, 2.375rem);
+      cursor: pointer;
+      color: g.$palette-blue;
+      border-bottom: solid 1px g.$palette-blue;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(2.5rem, 1.554rem + 4.04vw, 5rem);
+
+      h2 {
+        font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
+      }
+
+      img {
+        transform: rotate(270deg);
+      }
+
+      img:not(:hover) {
+        transition: transform 0.5s ease;
+      }
     }
 
-    &-accordion {
+    .accordion-content {
+      padding-top: clamp(2.5rem, 1.136rem + 6.82vw, 6.25rem);
+      display: none;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
 
-        .accordion-header {
-            padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem) clamp(0rem, -0.864rem + 4.32vw, 2.375rem);
-            cursor: pointer;
-            color: g.$palette-blue;
-            border-bottom: solid 1px g.$palette-blue;
+      article {
+        margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
+
+        ul {
+          padding-left: 1em;
+          list-style-type: square;
+          margin: 0;
+
+          font-family: "Noto Sans JP", sans-serif;
+        }
+
+        h3 {
+          color: g.$palette-lightblue;
+          display: flex;
+          align-items: center;
+          margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
+
+          &::after {
+            content: "";
+            flex-grow: 1;
+            margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+            height: 1px;
+            background: g.$palette-lightblue;
+          }
+        }
+
+        h4 {
+          font-family: "Noto Sans JP", sans-serif;
+          margin-bottom: clamp(1.25rem, 0.54rem + 3.03vw, 3.125rem);
+
+          span:first-child {
+            display: block;
+            margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
+          }
+        }
+
+        p {
+          margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
+        }
+
+        div {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          column-gap: clamp(2.813rem, 1.512rem + 5.55vw, 6.25rem);
+
+          div {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: clamp(2.5rem, 1.554rem + 4.04vw, 5rem);
+            flex-direction: column;
 
-            h2 {
-                font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
+            @include g.mq(sp) {
+              flex-direction: column;
+            }
+
+            h5 {
+              font-family: "Noto Sans JP", sans-serif;
+              margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
             }
 
             img {
-                transform: rotate(270deg);
+              width: 100%;
+              height: auto;
             }
-
-            img:not(:hover) {
-                transition: transform 0.5s ease;
-            }
+          }
         }
-
-        .accordion-content {
-            padding-top: clamp(2.5rem, 1.136rem + 6.82vw, 6.25rem);
-            display: none;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-
-            article {
-                margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
-
-                ul {
-                    padding-left: 1em;
-                    list-style-type: square;
-                    margin: 0;
-
-                    font-family: 'Noto Sans JP', sans-serif;
-                }
-
-                h3 {
-
-                    color: g.$palette-lightblue;
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
-
-                    &::after {
-                        content: '';
-                        flex-grow: 1;
-                        margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-                        height: 1px;
-                        background: g.$palette-lightblue;
-                    }
-                }
-
-                h4 {
-
-                    font-family: 'Noto Sans JP', sans-serif;
-                    margin-bottom: clamp(1.25rem, 0.54rem + 3.03vw, 3.125rem);
-
-                    span:first-child {
-                        display: block;
-                        margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
-                    }
-                }
-
-                p {
-
-                    margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
-                }
-
-                div {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    column-gap: clamp(2.813rem, 1.512rem + 5.55vw, 6.25rem);
-
-                    div {
-                        display: flex;
-                        flex-direction: column;
-
-                        @include g.mq(sp) {
-                            flex-direction: column;
-                        }
-
-                        h5 {
-
-                            font-family: 'Noto Sans JP', sans-serif;
-                            margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
-                        }
-
-                        img {
-                            width: 100%;
-                            height: auto;
-                        }
-                    }
-                }
-            }
-        }
-
-        .accordion-content.is-active {
-            display: block;
-        }
-
-        .accordion-item:hover {
-            .accordion-header {
-                img {
-                    transition: transform 0.5s ease;
-                    transform: rotate(360deg);
-                }
-            }
-        }
+      }
     }
+
+    .accordion-content.is-active {
+      display: block;
+    }
+
+    .accordion-item:hover {
+      .accordion-header {
+        img {
+          transition: transform 0.5s ease;
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
 }

@@ -1,54 +1,52 @@
 @use "../global" as g;
 
 .contact-thanks {
-    font-weight: 800;
-    color: g.$palette-blue;
+  font-weight: 800;
+  color: g.$palette-blue;
 
+  &-main {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px
+      clamp(0.938rem, -4.573rem + 23.51vw, 15.5rem);
+  }
 
-    &-main {
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(0.938rem, -4.573rem + 23.51vw, 15.5rem);
+  &-tit {
+    margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+    text-align: center;
+
+    h2 {
+      font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+      display: inline-block;
+      padding-bottom: 0.938rem;
+      border-bottom: 3px solid g.$palette-lightblue;
+      position: relative;
+      z-index: 3;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 50%;
+        height: 3px;
+        background: g.$palette-blue;
+      }
     }
 
-    &-tit {
-        margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
-        text-align: center;
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+    }
+  }
 
-        h2 {
-            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            display: inline-block;
-            padding-bottom: 0.938rem;
-            border-bottom: 3px solid g.$palette-lightblue;
-            position: relative;
-            z-index: 3;
-
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                width: 50%;
-                height: 3px;
-                background: g.$palette-blue;
-            }
-        }
-
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-        }
+  &-text {
+    p:nth-of-type(1) {
+      text-align: center;
+      font-size: clamp(1rem, 0.787rem + 0.91vw, 1.563rem);
+      margin-bottom: clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
     }
 
-    &-text {
-        p:nth-of-type(1) {
-            text-align: center;
-            font-size: clamp(1rem, 0.787rem + 0.91vw, 1.563rem);
-            margin-bottom: clamp(3.125rem, 2.888rem + 1.01vw, 3.75rem);
-        }
-
-        p {
-
-            line-height: 2.2;
-        }
+    p {
+      line-height: 2.2;
     }
-
+  }
 }

@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "eslint --fix && prettier --write src"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.1.2",
@@ -19,6 +20,8 @@
   },
   "devDependencies": {
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-astro": "^0.33.1",
     "gsap": "^3.12.5",
     "postcss-html": "^1.6.0",

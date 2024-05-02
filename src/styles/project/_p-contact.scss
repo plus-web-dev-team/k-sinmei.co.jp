@@ -1,104 +1,105 @@
 @use "../global" as g;
 
 .contact {
-    font-weight: 800;
-    color: g.$palette-blue;
+  font-weight: 800;
+  color: g.$palette-blue;
 
-    &-main {
-        max-width: g.$layout-width-inner;
-        margin: 0 auto;
-        padding: clamp(5.875rem, 3.368rem + 10.7vw, 12.5rem) 33px clamp(9.375rem, 8.192rem + 5.05vw, 12.5rem);
+  &-main {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: clamp(5.875rem, 3.368rem + 10.7vw, 12.5rem) 33px
+      clamp(9.375rem, 8.192rem + 5.05vw, 12.5rem);
+  }
+
+  &-tit {
+    margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+    text-align: center;
+
+    h2 {
+      font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+      display: inline-block;
+      padding-bottom: 0.938rem;
+      border-bottom: 3px solid g.$palette-lightblue;
+      position: relative;
+      z-index: 3;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 50%;
+        height: 3px;
+        background: g.$palette-blue;
+      }
     }
 
-    &-tit {
-        margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
-        text-align: center;
+    p {
+      font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
+    }
+  }
 
-        h2 {
-            font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            display: inline-block;
-            padding-bottom: 0.938rem;
-            border-bottom: 3px solid g.$palette-lightblue;
-            position: relative;
-            z-index: 3;
+  &-text {
+    margin-bottom: clamp(6.25rem, 4.949rem + 5.55vw, 9.688rem);
 
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                width: 50%;
-                height: 3px;
-                background: g.$palette-blue;
-            }
+    p {
+      line-height: 2.2;
+
+      span {
+        color: #0085d8;
+      }
+    }
+  }
+
+  &-form {
+    .form-item {
+      margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+
+      p:nth-of-type(1) {
+        margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
+      }
+
+      p {
+        span {
+          margin-left: 10px;
+          color: #0085d8;
         }
+      }
 
-        p {
-            font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-        }
+      input,
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border: solid 1px #102d8e;
+      }
     }
 
-    &-text {
-        margin-bottom: clamp(6.25rem, 4.949rem + 5.55vw, 9.688rem);
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
 
-        p {
-            line-height: 2.2;
+      p {
+        flex: 0 0 300px;
 
-            span {
-                color: #0085d8;
-            }
+        input {
+          color: g.$palette-blue;
+          border: solid 1px g.$palette-blue;
+          background: transparent;
+          padding: 10px 110px;
+          cursor: pointer;
+          width: 100%;
+          transition: background 0.2s ease;
+
+          &:hover {
+            background: g.$palette-blue;
+            color: g.$palette-white;
+            // transformでゆっくり背景色を変えるアニメーションをつける
+            transition: background 0.2s ease;
+          }
         }
+      }
     }
-
-    &-form {
-        .form-item {
-            margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
-
-            p:nth-of-type(1) {
-                margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
-            }
-
-            p {
-                span {
-                    margin-left: 10px;
-                    color: #0085d8;
-                }
-            }
-
-            input,
-            textarea {
-                width: 100%;
-                padding: 15px;
-                border: solid 1px #102d8e;
-            }
-        }
-
-        .form-submit {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-
-            p {
-                flex: 0 0 300px;
-
-                input {
-                    color: g.$palette-blue;
-                    border: solid 1px g.$palette-blue;
-                    background: transparent;
-                    padding: 10px 110px;
-                    cursor: pointer;
-                    width: 100%;
-                    transition: background 0.2s ease;
-
-                    &:hover {
-                        background: g.$palette-blue;
-                        color: g.$palette-white;
-                        // transformでゆっくり背景色を変えるアニメーションをつける
-                        transition: background 0.2s ease;
-                    }
-                }
-            }
-        }
-    }
+  }
 }
