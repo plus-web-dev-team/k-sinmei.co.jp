@@ -328,7 +328,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
   // SVGのパス要素を非表示にする
   const svgPaths = document.querySelectorAll("svg path");
   svgPaths.forEach((path) => {
-    path.style.visibility = "hidden";
+    (path as SVGPathElement).style.visibility = "hidden";
   });
 
   const animOne = new Promise((resolve) => {
@@ -364,7 +364,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
   Promise.all([animOne, animTwo, animThree]).then(() => {
     // アニメーションが終了した後にSVGのパス要素を表示にする
     svgPaths.forEach((path) => {
-      path.style.visibility = "visible";
+      (path as SVGPathElement).style.visibility = "visible";
     });
 
     gsap.fromTo(
