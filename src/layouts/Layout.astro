@@ -9,7 +9,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Pagetop from "../components/Pagetop.astro";
 const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
-import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -48,7 +47,6 @@ import { ViewTransitions } from "astro:transitions";
 
       gtag("config", "G-W8S94GNS5V");
     </script>
-    <ViewTransitions />
   </head>
   <body>
     <Header />
