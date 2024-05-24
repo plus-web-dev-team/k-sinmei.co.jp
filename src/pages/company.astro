@@ -22,7 +22,7 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
         </div>
         <div class="company-main">
           <div class="company-tit">
-            <p lang="en">company</p>
+            <p lang="en" id="company">company</p>
             <h1>株式会社SINMEIについて</h1>
           </div>
         </div>
@@ -32,12 +32,12 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
       <div class="overview-inner">
         <div class="overview-main">
           <div class="overview-accordion">
-            <div class="accordion-item">
+            <div class="accordion-item" id="about">
               <div class="accordion-header">
                 <h2>会社概要</h2>
                 <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
               </div>
-              <div class="accordion-content">
+              <div class="accordion-content is-active">
                 <article>
                   <h3>商号</h3>
                   <h4>株式会社SINMEI</h4>
@@ -125,12 +125,12 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
                 </article>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item" id="history">
               <div class="accordion-header">
                 <h2>沿 革</h2>
                 <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
               </div>
-              <div class="accordion-content">
+              <div class="accordion-content is-active">
                 <article>
                   <h3>1968 年</h3>
                   <h4>株式会社伸明工業 太刀打常盤で工場設立</h4>
