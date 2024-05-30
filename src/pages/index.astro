@@ -262,22 +262,31 @@ const allPosts = await Astro.glob("../pages/news/*.md");
           </div>
           <ul class="top-news-list">
             {
-              allPosts.map((post) => (
-                <li class="news-item">
-                  <a href={post.url}>
-                    <div class="news-item-header" lang="ja">
-                      <time datetime={post.frontmatter.pubDate}>
-                        {post.frontmatter.pubDate}
-                      </time>
-                      <p>お知らせ</p>
-                    </div>
-                    <div class="news-item-main">
-                      <p>{post.frontmatter.title}</p>
-                      <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
-                    </div>
-                  </a>
-                </li>
-              ))
+              allPosts
+                .sort(
+                  (a, b) =>
+                    new Date(b.frontmatter.pubDate) -
+                    new Date(a.frontmatter.pubDate),
+                )
+                .map((post) => (
+                  <li class="news-item" key={post.url}>
+                    <a href={post.url}>
+                      <div class="news-item-header" lang="ja">
+                        <time datetime={post.frontmatter.pubDate}>
+                          {post.frontmatter.pubDate}
+                        </time>
+                        <p>お知らせ</p>
+                      </div>
+                      <div class="news-item-main">
+                        <p>{post.frontmatter.title}</p>
+                        <Image
+                          src={arrow_down_blue}
+                          alt="矢印アイコン下向き青"
+                        />
+                      </div>
+                    </a>
+                  </li>
+                ))
             }
           </ul>
           <div class="top-news-link">
