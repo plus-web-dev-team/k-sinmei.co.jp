@@ -82,8 +82,7 @@
 
   &-accordion {
     .accordion-header {
-      padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem)
-        clamp(0rem, -0.864rem + 4.32vw, 2.375rem);
+      padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem) clamp(0rem, -0.864rem + 4.32vw, 2.375rem);
       cursor: pointer;
       color: g.$palette-blue;
       border-bottom: solid 1px g.$palette-blue;
@@ -181,6 +180,7 @@
 
     .accordion-content.is-active {
       display: block;
+      transition: max-height 0.3s ease;
     }
 
     .accordion-item:hover {

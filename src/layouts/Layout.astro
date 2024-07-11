@@ -9,7 +9,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Pagetop from "../components/Pagetop.astro";
 const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
-import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -48,7 +47,6 @@ import { ViewTransitions } from "astro:transitions";
 
       gtag("config", "G-W8S94GNS5V");
     </script>
-    <ViewTransitions />
   </head>
   <body>
     <Header />
@@ -56,6 +54,9 @@ import { ViewTransitions } from "astro:transitions";
     <Pagetop />
     <Footer />
     <script>
+      // ハンバーガーメニューのトグル
+      // 機能: ハンバーガーメニューの表示・非表示を切り替える。
+      // 詳細: .gnav-hamburgerと.gnav-listのクラスにis-activeをトグルすることで、メニューの開閉を制御。
       const toggleMenu = () => {
         const gnavList = document.querySelector(".gnav-list");
         const gnavHamburger = document.querySelector(".gnav-hamburger");
@@ -65,6 +66,9 @@ import { ViewTransitions } from "astro:transitions";
         }
       };
 
+      // ナビゲーション背景色の変更
+      // 機能: スクロール位置に応じてナビゲーションバーの背景色を変更。
+      // 詳細: スクロールが60pxを超えると、背景色を半透明に変更。
       const changeNavBackground = () => {
         const nav = document.querySelector("header");
         if (nav) {
@@ -75,10 +79,16 @@ import { ViewTransitions } from "astro:transitions";
         }
       };
 
+      // トップページの判定
+      // 機能: 現在のページがトップページかどうかを判定。
+      // 詳細: URLのパスが"/"かどうかをチェック。
       const isTopPage = () => {
         return window.location.pathname === "/";
       };
 
+      // パララックス効果
+      // 機能: スクロールに応じたパララックス効果を適用。
+      // 詳細: スクロール量に基づいて、背景のY座標を動かす。
       const parallaxBackground = () => {
         if (isTopPage()) {
           const scrollPosition = window.scrollY * 0.08;
@@ -91,52 +101,74 @@ import { ViewTransitions } from "astro:transitions";
         }
       };
 
-      const accordionItems = document.querySelectorAll(".accordion-item");
-
-      accordionItems.forEach((item) => {
-        const header = item.querySelector(".accordion-header");
-        const content = item.querySelector(".accordion-content");
-
-        if (header && content) {
-          header.addEventListener("click", () => {
-            content.classList.toggle("is-active");
-          });
-
-          header.addEventListener("click", (event) => {
-            accordionItems.forEach((accordion) => {
-              if (
-                accordion !== item &&
-                accordion
-                  .querySelector(".accordion-content")
-                  .classList.contains("is-active")
-              ) {
-                accordion
-                  .querySelector(".accordion-content")
-                  .classList.remove("is-active");
-              }
-            });
-          });
-        }
-      });
-
+      // アコーディオンメニューの制御
+      // 機能: アコーディオンメニューの開閉と他の項目の自動閉鎖。
+      // 詳細: アコーディオンヘッダーをクリックすると、その内容がトグルされ、他のアクティブなアコーディオンが閉じる。
       document.addEventListener("click", (event) => {
-        if (!event.target.closest(".accordion-item")) {
-          accordionItems.forEach((item) => {
-            const content = item.querySelector(".accordion-content");
-            if (content) {
-              content.classList.remove("is-active");
+        const aboutAccordion = document.getElementById("about");
+        const historyAccordion = document.getElementById("history");
+        const aboutContent = aboutAccordion.querySelector(".accordion-content");
+        const historyContent =
+          historyAccordion.querySelector(".accordion-content");
+        const companyElement = document.getElementById("company");
+
+        // アコーディオンのヘッダーをクリックした場合
+        if (event.target.closest(".accordion-header")) {
+          // クリックされたアコーディオンのコンテンツがすでに開いている場合は閉じる
+          if (
+            event.target.closest(".accordion-item") === aboutAccordion &&
+            aboutContent.classList.contains("is-active")
+          ) {
+            aboutContent.classList.remove("is-active");
+          } else if (
+            event.target.closest(".accordion-item") === historyAccordion &&
+            historyContent.classList.contains("is-active")
+          ) {
+            historyContent.classList.remove("is-active");
+          }
+          // クリックされたアコーディオンのコンテンツが閉じている場合は開く
+          else {
+            if (event.target.closest(".accordion-item") === aboutAccordion) {
+              aboutContent.classList.add("is-active");
+            } else if (
+              event.target.closest(".accordion-item") === historyAccordion
+            ) {
+              historyContent.classList.add("is-active");
             }
-          });
+          }
+        }
+        // アコーディオンのコンテンツ以外をクリックした場合はそれぞれのアコーディオンを閉じる
+        else {
+          if (!aboutAccordion.contains(event.target)) {
+            aboutContent.classList.remove("is-active");
+          }
+          if (!historyAccordion.contains(event.target)) {
+            historyContent.classList.remove("is-active");
+          }
+          // アコーディオンのコンテンツ以外をクリックした場合はidが"company"の要素まで戻る
+          if (!event.target.closest(".accordion-item")) {
+            companyElement.scrollIntoView();
+          }
         }
       });
 
+      // ハンバーガーメニューのクリックイベント
+      // 機能: ハンバーガーメニュークリック時にメニューを開閉。
+      // 詳細: ハンバーガーアイコンにクリックイベントリスナーを追加。
       const gnavHamburger = document.querySelector(".gnav-hamburger");
       if (gnavHamburger) {
         gnavHamburger.addEventListener("click", toggleMenu);
       }
+
+      // スクロールイベントの追加
+      // 機能: スクロール時に背景色変更とパララックス効果を適用。
+      // 詳細: スクロールイベントに対してそれぞれの関数を呼び出す。
       window.addEventListener("scroll", changeNavBackground);
       window.addEventListener("scroll", parallaxBackground);
 
+      // カルーセル機能
+      // 機能: カルーセルのページング制御。
+      // 詳細: 次・前ボタンによりスライドの表示を制御し、現在のページ番号を表示。
       let currentPage = 1;
       const slides = document.querySelectorAll(".carousel-item");
       const totalSlides = slides.length;
@@ -184,6 +216,9 @@ import { ViewTransitions } from "astro:transitions";
         showSlides(0);
       }
 
+      // スクロールトップボタン
+      // 機能: スクロールトップボタンの表示制御とクリック時のページトップスクロール。
+      // 詳細: スクロール位置に応じてボタンを表示し、クリックでスムーズにトップへ移動。
       window.onscroll = function () {
         scrollFunction();
       };
@@ -217,6 +252,9 @@ import { ViewTransitions } from "astro:transitions";
         });
       }
 
+      // ホバーイベントの追加
+      // 機能: マウスホバーイベントの追加。
+      // 詳細: ホバー可能なデバイスかどうかをチェックし、該当する要素にホバーイベントを追加。
       function hasMouseSupport() {
         return (
           matchMedia("(hover: hover)").matches ||
