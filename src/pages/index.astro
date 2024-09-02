@@ -7,7 +7,6 @@ import top_bg from "../images/top-bg.jpg";
 import arrow from "../images/arrow.svg";
 import sdgs_tit from "../images/sdgs-tit.svg";
 import sdgs_group from "../images/sdgs-group.svg";
-import sinmei_ringomusume from "../images/sinmei-ringomusume.svg";
 import arrow_blue from "../images/arrow-blue.svg";
 import recruit_A from "../images/recruit-A.jpg";
 import recruit_B from "../images/recruit-B.jpg";
@@ -173,33 +172,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
         </div>
       </div>
     </section>
-    <section class="top-partnership">
-      <div class="top-partnership-inner">
-        <div class="top-partnership-main">
-          <div class="top-partnership-tit">
-            <h2 lang="en">partner ship</h2>
-          </div>
-          <div class="top-partnership-text">
-            <div>
-              <h3>
-                <span>青森の企業</span>から<br /><span>芸術・文化</span>の<span
-                  >発信</span
-                >を！
-              </h3>
-            </div>
-            <div>
-              <Image src={sinmei_ringomusume} alt="SINMEI×RINGOMUSUME" />
-            </div>
-          </div>
-          <div class="top-partnership-link">
-            <a href="/partnership">
-              <p lang="en">read more</p>
-              <Image src={arrow_blue} alt="矢印アイコン青" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <section class="top-recruit">
       <div class="top-recruit-inner">
         <div class="top-recruit-header">
@@ -266,7 +239,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
                 .sort(
                   (a, b) =>
                     new Date(b.frontmatter.pubDate) -
-                    new Date(a.frontmatter.pubDate),
+                    new Date(a.frontmatter.pubDate)
                 )
                 .map((post) => (
                   <li class="news-item" key={post.url}>
@@ -384,7 +357,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
         duration: 5,
         stagger: 0.2,
         onComplete: fadeInImage,
-      },
+      }
     );
   });
 
